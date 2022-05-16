@@ -106,11 +106,9 @@ async function logOut(){
 } 
           
 async function mintMM(){
-
     web3On();
     $.getJSON('https://api.bscscan.com/api?module=contract&action=getabi&address=0xa36c806c13851F8B27780753563fdDAA6566f996&apikey=MJ5FZC1EAHHCJ8SDU6JFF1RUS62FJ418PA',  async function  (data) {  
-		      
-      
+
         let contractABI = "";
             contractABI = JSON.parse(data.result);
               
@@ -119,9 +117,7 @@ async function mintMM(){
                 functionName: 'mintNFT',
                 abi: contractABI,
                 params: { amount:1}
-};
-      			
-      			
+};	
                 const allowance = await Moralis.executeFunction(contractOptions,1);
       			await allowance.wait();
                 console.log(allowance); 

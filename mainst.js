@@ -125,7 +125,7 @@ async function getBanana(){
       const bananaBalance =  await bananaTxn.methods.userInfo(3748976,bBagAd).call({from: window.userAddress});
       console.log(bananaBalance);
       //const bananaR = await bananaBalance[0];
-      document.getElementById('banana').innerHTML = "BANANA IN BAG = "+bananaBalance.slice(0,-18);;
+      //document.getElementById('banana').innerHTML = "BANANA IN BAG = "+bananaBalance.slice(0,-18);;
 }
 async function getGnana(){
       const gnanaString = JSON.stringify(gnanaPABI);
@@ -133,7 +133,7 @@ async function getGnana(){
       const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
       const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
       console.log(gnanaBalance);
-      document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+gnanaBalance.slice(0,-18);;
+      //document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+gnanaBalance.slice(0,-18);;
 }
 
 window.userAddress = window.localStorage.getItem("userAddress");

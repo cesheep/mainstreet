@@ -126,12 +126,10 @@ async function getGnana(){
   const bananaOptions = {address: bananaToken, chain: "bsc",};
   const bananaPrice = await Moralis.Web3API.token.getTokenPrice(bananaOptions);
   const bananaUsdPrice = await bananaPrice.usdPrice;
-  console.log(bananaPrice);
 //GnanaPrice
   const gnanaOptions = {address: gnanaToken, chain: "bsc",};
   const gnanaPrice = await Moralis.Web3API.token.getTokenPrice(gnanaOptions);
   const gnanaUsdPrice = await gnanaPrice.usdPrice;
-  console.log(gnanaPrice);
 //BananaAmmounts
   const splitString = JSON.stringify(splitABI);
   const splitParse = JSON.parse(splitString);
@@ -139,14 +137,14 @@ async function getGnana(){
   const splitBalance =  await splitTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
   const poolSplit = await splitBalance;
   document.getElementById('banana').innerHTML = " BANANA IN BAG = "+poolSplit.slice(0,-18);
-/*
+
   bananaCv = parseInt(poolSplit,0);
   gnanaCv = parseInt(poolGnana,0);
   bananaMath = (BigInt(bananaCv*bananaUsdPrice)).toString();
   gnanaMath = (BigInt(gnanaCv*gnanaPrice)).toString();
 
   console.log(bananaMath.slice(0,-18));
-  console.log(gnanaMath.slice(0,-18));*/
+  console.log(gnanaMath.slice(0,-18));
 
 }
 

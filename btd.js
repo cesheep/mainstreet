@@ -125,7 +125,7 @@ async function getGnana(){
   const gnanaRwd = await gnanaBalance.rewardDebt;
   document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+poolGnana.slice(0,-18);
   const bananaCalc = parseInt(poolGnana);
-  const bananaBal = await toString(bananaCalc*1.7);
+  const bananaBal = await (bananaCalc*1.7);
   strBal = String.valueOf(bananaBal);
   console.log(strBal);
   //const rwdCalc = gnanaRwd*1.7;

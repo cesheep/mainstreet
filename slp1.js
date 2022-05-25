@@ -141,7 +141,10 @@ async function getGnana(){
 
   bananaCv = parseInt(poolSplit);
   bananaMath = bananaCv*bananaUsdPrice;
+  gnanaMath = poolGnana*gnanaPrice;
+  
   console.log(bananaMath); 
+  console.log(gnanaMath);
 
 }
 

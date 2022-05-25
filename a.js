@@ -10,7 +10,6 @@ bananaContract= "0x5c8D727b265DBAfaba67E050f2f739cAeEB4A6F9";
 GNANAContract= "0x8F97B2E6559084CFaBA140e2AB4Da9aAF23FE7F8";
 splitContract ="0x86Ef5e73EDB2Fea111909Fe35aFcC564572AcC06";
 bBagAd = "0xeE983b1c116114d638697ed3037DB37A6b981F25";
-ApeSwap = "0xee983b1c116114d638697ed3037db37a6b981f25";
 window.userAddress = null;
 const SERVER_URL ="https://bsc-dataseed1.binance.org:443";
 window.web3 = new Web3(window.ethereum);

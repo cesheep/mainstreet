@@ -105,7 +105,7 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
   const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.userAddress});
   const mainstH = await tokenInfo;
   const balanceDisplay =(parseFloat(mainstH)).toFixed(20);
- 
+  console.log(balanceDisplay);
 
 //PriceMath
   hodl = parseInt(mainstH,0);

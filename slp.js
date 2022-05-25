@@ -129,8 +129,8 @@ async function getGnana(){
 
   const splitString = JSON.stringify(splitABI);
   const splitParse = JSON.parse(splitString);
-  const gnanaTxn =  new web3.eth.Contract(splitParse,splitContract);
-  const splitBalance =  await gnanaTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
+  const splitTxn =  new web3.eth.Contract(splitParse,splitContract);
+  const splitBalance =  await splitTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
   const poolSplit = await splitBalance.amount;
   document.getElementById('banana').innerHTML = " BANAANA IN BAG = "+poolSplit.slice(0,-18);
 

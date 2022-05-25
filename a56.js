@@ -104,14 +104,11 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
   const txn =  new web3.eth.Contract(mainstABIParse,mainstContract);
   const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.userAddress});
   const mainstH = await tokenInfo;
-  const balanceMath =
-    (
-      (
-        (BigNumber(mainstH)
-        ).toPrecision(5) 
-     ).toFormat(2)
-    ).toString();
-  console.log(balanceMath);
+  const bMath1 = BigNumber(mainstH);
+  const bMath2 = BMath1.toPrecision(5);
+  const bMath3 = bMath2.toFormat(2);
+  const bMath4 = bMath3.toString();
+  console.log(bMath4);
 
 //PriceMath
   hodl = parseInt(mainstH,0);
@@ -119,7 +116,7 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
   hodlMath = hodl*usprice;
   hodlBalance = (BigInt(hodlMath)).toString();
   //document.getElementById('MainstBalance').innerHTML = balanceMath;
-  document.getElementById('MainstBalance').innerHTML = +balanceMath.slice(0,-18)+"."+balanceMath.slice(18,2);
+  document.getElementById('MainstBalance').innerHTML = +bMath4.slice(0,-18)+"."+bMath4.slice(18,2);
 }
 
 //MM Data

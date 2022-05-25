@@ -134,7 +134,8 @@ async function getGnana(){
   const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
   const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
   const poolGnana = await gnanaBalance.amount;
-  document.getElementById('gnana').innerHTML = " "+poolGnana.slice(0,2)+","+poolGnana.slice(2,5)+"."+poolGnana.slice(18,-3);
+  const poolGMath = (((BigNumber(poolGnana)).toFormat(2)).toString());
+  document.getElementById('gnana').innerHTML = poolGMath.slice(0,-27)+"."+poolGMath.slice(23,24);
 
 //BananaPrice
   const bananaOptions = {address: bananaToken, chain: "bsc",};
@@ -151,7 +152,7 @@ async function getGnana(){
   const splitBalance =  await splitTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
   const poolSplit = await splitBalance;
   const poolMath = (((BigNumber(poolSplit)).toFormat(2)).toString());
-  document.getElementById('banana').innerHTML = poolMath.slice(0,-27)+"."+poolMath.slice(22,23);
+  document.getElementById('banana').innerHTML = poolMath.slice(0,-27)+"."+poolMath.slice(23,24);
 
 //Math2Price
   bananaCv = parseInt(poolSplit,0);

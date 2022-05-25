@@ -123,7 +123,7 @@ async function getGnana(){
   document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+poolGnana.slice(0,-18);
 
 
-  const bananaPptions = {
+  const bananaOptions = {
     address: bananaContract,
     chain: "bsc",
     exchange: "PancakeSwapv2",

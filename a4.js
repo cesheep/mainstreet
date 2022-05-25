@@ -121,7 +121,7 @@ async function getGnana(){
   document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+poolGnana.slice(0,-18);
 
 //BananaPrice
-  const bananaOptions = {address: bananaContract, chain: "bsc",exchange: "pancakeswap-v2",};
+  const bananaOptions = {address: mainstContract, chain: "bsc",};
   const bananaPrice = await Moralis.Web3API.token.getTokenPrice(bananaOptions);
   const bananaUsdPrice = await bananaPrice.usdPrice;
   const gnanaPrice = bananaUsdPrice*1.389;

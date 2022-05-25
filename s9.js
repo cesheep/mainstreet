@@ -129,7 +129,7 @@ async function getGnana(){
   };
   const bananaPrice = await Moralis.Web3API.token.getTokenPrice(bananaOptions);
   const bananaUsdPrice = bananaPrice.usdPrice;
-  const gnanaPrice = bananaPrice*1.389;
+  const gnanaPrice = bananaUsdPrice*1.389;
   console.log(gnanaPrice);
   
   const splitString = JSON.stringify(splitABI);

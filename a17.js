@@ -108,7 +108,7 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
 
 //PriceMath
   hodl = parseInt(mainstH,0);
-  usprice =
+  usprice = parseInt(mainstUsdPrice,0);
   hodlMath = (BigInt(hodl*mainstUsdPrice));
   hodlBalance = hodlMath.toString();
 

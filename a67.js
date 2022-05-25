@@ -112,8 +112,8 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
   usprice = parseInt(mainstUsdPrice,0);
   hodlMath = hodl*usprice;
   hodlBalance = (BigInt(hodlMath)).toString();
-  //document.getElementById('MainstBalance').innerHTML = balanceMath;
-  document.getElementById('MainstBalance').innerHTML = +bMath.slice(0,-18)+"."+bMath.slice(18,2);
+  document.getElementById('MainstBalance').innerHTML = bMath;
+  //document.getElementById('MainstBalance').innerHTML = +bMath.slice(0,-18)+"."+bMath.slice(18,2);
 }
 
 //MM Data

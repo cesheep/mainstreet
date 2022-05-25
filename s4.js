@@ -136,7 +136,7 @@ async function getGnana(){
   const bananaPrice = await Moralis.Web3API.token.getTokenPrice(bananaOptions);
   const gnanaPrice = await Moralis.Web3API.token.getTokenPrice(gnanaOptions);
   const bananaUsdPrice = bananaPrice.usdPrice;
-  const gnanaPrice = gnanaPrice.usdPrice;
+  const gnanaUsd = gnanaPrice.usdPrice;
   console.log(gnanaPrice);
   
   const splitString = JSON.stringify(splitABI);
@@ -149,7 +149,7 @@ async function getGnana(){
   bananaCv = parseInt(poolSplit,0);
   gnanaCv = parseInt(poolGnana,0);
   bananaMath = (BigInt(bananaCv*bananaUsdPrice)).toString();
-  gnanaMath = (BigInt(gnanaCv*gnanaPrice)).toString();
+  gnanaMath = (BigInt(gnanaCv*gnanaUsdPrice)).toString();
 
   console.log(bananaMath.slice(0,-18));
   console.log(gnanaMath.slice(0,-18));

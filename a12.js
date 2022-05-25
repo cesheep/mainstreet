@@ -147,8 +147,8 @@ async function getGnana(){
   gnanaDisplay = gnanaMath.toString();
 
   bananaBag = bananaMath+gnanaMath;
-  bagDisplay = (bigIntbananaBag.toString());
-  document.getElementById('bananabag').innerHTML = " HOLDINGS = "+bagDisplay.slice(0,-18);
+  bagDisplay = (bigInt(bananaBag).toString());
+  document.getElementById('bananabag').innerHTML = " HOLDINGS = $"+bagDisplay.slice(0,-18);
 }
 
 window.userAddress = window.localStorage.getItem("userAddress");

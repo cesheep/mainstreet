@@ -107,7 +107,7 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
   const bMath = ((BigNumber(mainstH)).toFormat(2));
   //const bMath3 = bMath2.toFormat(2);
   //const bMath4 = bMath3.toString();
-  console.log(bMath2);
+  console.log(bMath);
 
 //PriceMath
   hodl = parseInt(mainstH,0);

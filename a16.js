@@ -103,10 +103,12 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
   const mainstABIParse = JSON.parse(mainstjsonString);
   const txn =  new web3.eth.Contract(mainstABIParse,mainstContract);
   const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.userAddress});
+  const mainstH = tokenInfo.result;
  
 
 //PriceMath
-  hodl = parseInt(tokenInfo,0);
+  hodl = parseInt(mainstH,0);
+  usprice =
   hodlMath = (BigInt(hodl*mainstUsdPrice));
   hodlBalance = hodlMath.toString();
 

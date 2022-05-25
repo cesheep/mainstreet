@@ -120,15 +120,15 @@ async function getMonkeysData() {
 
 async function getBanana(){
       const bananaString = JSON.stringify(bananaPABI);
-      const minABIParse = JSON.parse(bananaString);
-      const bananaTxn =  new web3.eth.Contract(minABIParse,bananaContract);
+      const bananaParse = JSON.parse(bananaString);
+      const bananaTxn =  new web3.eth.Contract(bananaParse,bananaContract);
       const bananaBalance =  await bananaTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
       document.getElementById('banana').innerHTML = "BANANA IN BAG = "+bananaBalance.slice(0,-18);;
 }
 async function getGnana(){
       const gnanaString = JSON.stringify(gnanaPABI);
-      const minABIParse = JSON.parse(gnanaString);
-      const gnanaTxn =  new web3.eth.Contract(minABIParse,GNANAContract);
+      const gnanaParse = JSON.parse(gnanaString);
+      const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
       const gnanaBalance =  await gnanaTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
       document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+gnanaBalance.slice(0,-18);;
 }

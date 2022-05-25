@@ -147,7 +147,7 @@ async function getGnana(){
   gnanaDisplay = gnanaMath.toString();
 
   bananaBag = bananaMath+gnanaMath;
-  bagDisplay = (bigInt(bananaBag).toString());
+  bagDisplay = (BigInt(bananaBag).toString());
   document.getElementById('bananabag').innerHTML = " HOLDINGS = $"+bagDisplay.slice(0,-18);
 }
 

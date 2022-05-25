@@ -107,8 +107,8 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
 
 //PriceMath
   hodl = parseInt(tokenInfo,0);
-  hodlMath = hodl*mainstUsdPrice;
-  hodlBalance = (BigInt(hodlMath)).toString();
+  hodlMath = (BigInt(hodl*mainstUsdPrice));
+  hodlBalance = hodlMath.toString();
 
   document.getElementById('MainstBalance').innerHTML = +tokenInfo.slice(0,-9)+ "= $"+hodlBalance;
 

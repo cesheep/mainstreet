@@ -127,21 +127,11 @@ async function getGnana(){
   const bananaCalc = parseInt(poolGnana);
   const bananaBal = await bananaCalc*1.7.toString();
   strBal = await bananaBal;
-  console.log(strBal);
+  console.log(strBal.slice(0,-18));
   //const rwdCalc = gnanaRwd*1.7;
   //const rwdBalance = await rwdCalc;
   //document.getElementById('banana').innerHTML = " BANANA IN BAG = "+strBal.slice(0,-18);
 }
-
-/*async function getBanana(){
-      const bananaString = JSON.stringify(bananaPABI);
-      const bananaParse = JSON.parse(bananaString);
-      const bananaTxn =  new web3.eth.Contract(bananaParse,bananaContract);
-      const bananaBalance =  await bananaTxn.methods.userInfo(3748976,bBagAd).call({from: window.userAddress});
-      //const bananaR = await bananaBalance[0];
-      //document.getElementById('banana').innerHTML = "BANANA IN BAG = "+bananaBalance.slice(0,-18);;
-}*/
-
 
 window.userAddress = window.localStorage.getItem("userAddress");
 

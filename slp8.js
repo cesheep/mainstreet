@@ -129,9 +129,10 @@ async function getGnana(){
     exchange: "PancakeSwapv2",
   };
   const bananaPrice = await Moralis.Web3API.token.getTokenPrice(options);
+  const bananaUsdPrice = bananaPrice.usdPrice;
   const gnanaPrice = bananaPrice.usdPrice*0.7;
+  console.log(bananaUsdPrice);
   console.log(gnanaPrice);
-  console.log(bananaPrice);
 
 
   const splitString = JSON.stringify(splitABI);

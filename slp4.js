@@ -139,8 +139,8 @@ async function getGnana(){
   const poolSplit = await splitBalance;
   document.getElementById('banana').innerHTML = " BANANA IN BAG = "+poolSplit.slice(0,-18);
 
-  bananaCv = parseInt(poolSplit);
-  gnanaCv = parseInt(poolGnana);
+  bananaCv = parseInt(poolSplit,0);
+  gnanaCv = parseInt(poolGnana,0);
   bananaMath = bananaCv*bananaUsdPrice;
   gnanaMath = gnanaCv*gnanaPrice;
 

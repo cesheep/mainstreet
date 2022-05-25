@@ -87,7 +87,6 @@ async function checkLogged(){
         getMainstData();
         getMonkeysData();
         getGnana();
-        bananaPrice();
         document.getElementById("address").innerText = window.userAddress;
         
     }
@@ -122,6 +121,18 @@ async function getGnana(){
   const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
   const poolGnana = await gnanaBalance.amount;
   document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+poolGnana.slice(0,-18);
+
+
+
+
+  const options = {
+    address: "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
+    chain: "bsc",
+    exchange: "PancakeSwapv2",
+  };
+  const price = await Moralis.Web3API.token.getTokenPrice(options);
+  console.log(price.usdPrice);
+
 
 
   const splitString = JSON.stringify(splitABI);
@@ -162,13 +173,3 @@ const appId = "DTRG2uHrEe1PEUZXZURgew7GYkDPh1CqOtcr4cQr";
 Moralis.start({ serverUrl, appId });
 /* TODO: Add Moralis Authentication code */
 
-//Get token price on PancakeSwap v2 BSC
-async function bananaPrice(){
-  const options = {
-    address: "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
-    chain: "bsc",
-    exchange: "PancakeSwapv2",
-  };
-  const price = await Moralis.Web3API.token.getTokenPrice(options);
-  console.log(price);
-}

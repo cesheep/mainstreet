@@ -93,13 +93,27 @@ async function checkLogged(){
 
 //Mainst Data
 async function getMainstData(){
+//maistPrice
+const mainstOptions = {address: mainstContract, chain: "bsc",};
+const mainstPrice = await Moralis.Web3API.token.getTokenPrice(mainstOptions);
+const mainstUsdPrice = await mainstPrice.usdPrice;
+
+
   const mainstjsonString = JSON.stringify(mainstABI);
   const mainstABIParse = JSON.parse(mainstjsonString);
   const txn =  new web3.eth.Contract(mainstABIParse,mainstContract);
   const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.userAddress});
-  hodl = tokenInfo;
-  window.localStorage.setItem("hodl", tokenInfo);
-  document.getElementById('MainstBalance').innerHTML = tokenInfo.slice(0,-9);
+ 
+
+//PriceMath
+  hodl = parseInt(tokenInfo,0);
+  hodlMath = hodl*mainstUsdPrice;
+  hodlBalance = (BigInt(hodlMath)).toString();
+
+  document.getElementById('MainstBalance').innerHTML = +tokenInfo.slice(0,-9)+ "= $"+hodlBalance;
+
+
+
 }
 
 //MM Data

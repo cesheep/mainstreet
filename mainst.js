@@ -122,7 +122,7 @@ async function getBanana(){
       const bananaString = JSON.stringify(bananaPABI);
       const bananaParse = JSON.parse(bananaString);
       const bananaTxn =  new web3.eth.Contract(bananaParse,bananaContract);
-      const bananaBalance[] =  await bananaTxn.methods.userInfo(3748976,bBagAd).call({from: window.userAddress});
+      const bananaBalance =  await bananaTxn.methods.userInfo(3748976,bBagAd).call({from: window.userAddress});
       console.log(bananaBalance);
       //const bananaR = await bananaBalance[0];
       document.getElementById('banana').innerHTML = "BANANA IN BAG = "+bananaBalance.slice(0,-18);;

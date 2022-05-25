@@ -7,7 +7,9 @@ const splitABI = [{"anonymous":false,"inputs":[{"indexed":true,"internalType":"a
 mainstContract = "0x8FC1A944c149762B6b578A06c0de2ABd6b7d2B89" ;
 mmContract = "0xa36c806c13851F8B27780753563fdDAA6566f996";
 bananaContract= "0x5c8D727b265DBAfaba67E050f2f739cAeEB4A6F9";
+bananaToken="0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95"
 GNANAContract= "0x8F97B2E6559084CFaBA140e2AB4Da9aAF23FE7F8";
+gnanaToken="0xddb3bd8645775f59496c821e4f55a7ea6a6dc299"
 splitContract ="0x86Ef5e73EDB2Fea111909Fe35aFcC564572AcC06";
 bBagAd = "0xeE983b1c116114d638697ed3037DB37A6b981F25";
 window.userAddress = null;
@@ -121,10 +123,14 @@ async function getGnana(){
   document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+poolGnana.slice(0,-18);
 
 //BananaPrice
-  const bananaOptions = {address: mainstContract, chain: "bsc",};
+  const bananaOptions = {address: bananaToken, chain: "bsc",};
   const bananaPrice = await Moralis.Web3API.token.getTokenPrice(bananaOptions);
   const bananaUsdPrice = await bananaPrice.usdPrice;
-  const gnanaPrice = bananaUsdPrice*1.389;
+  console.log(bananaPrice);
+//GnanaPrice
+  const gnanaOptions = {address: gnanaToken, chain: "bsc",};
+  const gnanaPrice = await Moralis.Web3API.token.getTokenPrice(gnanaOptions);
+  const gnanaUsdPrice = await gnanaPrice.usdPrice;
   console.log(gnanaPrice);
 //BananaAmmounts
   const splitString = JSON.stringify(splitABI);

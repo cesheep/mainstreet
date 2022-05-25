@@ -125,11 +125,12 @@ async function getGnana(){
   const gnanaRwd = await gnanaBalance.rewardDebt;
   document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+poolGnana.slice(0,-18)+" || BANANA REWARDS = "+gnanaRwd.slice(0,-18);
   const bananaCalc = parseFloat(poolGnana);
-  const bananaBal = await bananaCalc*1.7;
-  const strBal = await bananaBal.toString;
+  const bananaBal = await bananaCalc*1.7.toString;
+  strBal = await bananaBal;
+  const.log(strBal)
   //const rwdCalc = gnanaRwd*1.7;
   //const rwdBalance = await rwdCalc;
-  document.getElementById('banana').innerHTML = " BANANA IN BAG = "+strBal.slice(0,-18);
+  //document.getElementById('banana').innerHTML = " BANANA IN BAG = "+strBal.slice(0,-18);
 }
 
 /*async function getBanana(){

@@ -141,11 +141,14 @@ async function getGnana(){
 //Math2Price
   bananaCv = parseInt(poolSplit,0);
   gnanaCv = parseInt(poolGnana,0);
-  bananaMath = (BigInt(bananaCv*bananaUsdPrice)).toString();
-  gnanaMath = (BigInt(gnanaCv*gnanaUsdPrice)).toString();
-  console.log(bananaMath.slice(0,-18));
-  console.log(gnanaMath.slice(0,-18));
+  bananaMath = (BigInt(bananaCv*bananaUsdPrice));
+  bananaDisplay = bananaMath.toString();
+  gnanaMath = (BigInt(gnanaCv*gnanaUsdPrice));
+  gnanaDisplay = gnanaMath.toString();
 
+  bananaBag = bananaMath+gnanaMath;
+  bagDisplay = (bigIntbananaBag.toString());
+  document.getElementById('bananabag').innerHTML = " HOLDINGS = "+bagDisplay.slice(0,-18);
 }
 
 window.userAddress = window.localStorage.getItem("userAddress");

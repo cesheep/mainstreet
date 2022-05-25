@@ -132,8 +132,6 @@ async function getGnana(){
       const gnanaBalance =  await gnanaTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
       document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+gnanaBalance.slice(0,-18);;
 }
-
-
 window.userAddress = window.localStorage.getItem("userAddress");
 
 window.onload = async () =>{

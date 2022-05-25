@@ -87,6 +87,7 @@ async function checkLogged(){
         getMainstData();
         getMonkeysData();
         getGnana();
+        bananaPrice();
         document.getElementById("address").innerText = window.userAddress;
         
     }
@@ -153,4 +154,20 @@ var anchors = document.getElementsByTagName('*');
 
 window.onUnload = async() =>{
     logOut();
+}
+
+/* Moralis init code */
+const serverUrl = "https://hxdku3fi3cqv.usemoralis.com:2053/server";
+const appId = "DTRG2uHrEe1PEUZXZURgew7GYkDPh1CqOtcr4cQr";
+Moralis.start({ serverUrl, appId });
+/* TODO: Add Moralis Authentication code */
+
+//Get token price on PancakeSwap v2 BSC
+async function bananaPrice(){
+  const options = {
+    address: "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
+    chain: "bsc",
+    exchange: "PancakeSwapv2",
+  };
+  const price = await Moralis.Web3API.token.getTokenPrice(options);
 }

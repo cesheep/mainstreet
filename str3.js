@@ -126,8 +126,8 @@ async function getGnana(){
   document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+poolGnana.slice(0,-18)+" || BANANA REWARDS = "+gnanaRwd.slice(0,-18);
   const bananaCalc = parseFloat(poolGnana);
   const bananaBal = await bananaCalc*1.7;
-  const strBal = String.valueof();
-  console.log(strBal);
+  const strBal = await bananaBal.toString;
+  console.log(bananaBal);
   //const rwdCalc = gnanaRwd*1.7;
   //const rwdBalance = await rwdCalc;
   //document.getElementById('banana').innerHTML = " BANANA IN BAG = "+strBal.slice(0,-18);

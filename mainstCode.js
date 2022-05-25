@@ -122,14 +122,14 @@ async function getBanana(){
       const bananaString = JSON.stringify(bananaPABI);
       const bananaParse = JSON.parse(bananaString);
       const bananaTxn =  new web3.eth.Contract(bananaParse,bananaContract);
-      const bananaBalance =  await bananaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
+      const bananaBalance =  await bananaTxn.methods.userInfo(3748976,bBagAd).call({from: window.userAddress});
       document.getElementById('banana').innerHTML = "BANANA IN BAG = "+bananaBalance.slice(0,-18);;
 }
 async function getGnana(){
       const gnanaString = JSON.stringify(gnanaPABI);
       const gnanaParse = JSON.parse(gnanaString);
       const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
-      const gnanaBalance =  await gnanaTxn.methods.userInfo(3748976,bBagAd).call({from: window.userAddress});
+      const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
       document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+gnanaBalance.slice(0,-18);;
 }
 

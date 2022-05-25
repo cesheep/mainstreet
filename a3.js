@@ -120,13 +120,13 @@ async function getGnana(){
   const poolGnana = await gnanaBalance.amount;
   document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+poolGnana.slice(0,-18);
 
-
-  const bananaOptions = {address: "0x5c8D727b265DBAfaba67E050f2f739cAeEB4A6F9",chain: "bsc",};
+//BananaPrice
+  const bananaOptions = {address: "0x5c8D727b265DBAfaba67E050f2f739cAeEB4A6F9",chain: "bsc",exchange: "pancakeswap-v2",};
   const bananaPrice = await Moralis.Web3API.token.getTokenPrice(bananaOptions);
   const bananaUsdPrice = bananaPrice.usdPrice;
   const gnanaPrice = bananaUsdPrice*1.389;
   console.log(gnanaPrice);
-  
+//BananaAmmounts
   const splitString = JSON.stringify(splitABI);
   const splitParse = JSON.parse(splitString);
   const splitTxn =  new web3.eth.Contract(splitParse,splitContract);

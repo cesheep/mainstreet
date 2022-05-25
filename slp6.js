@@ -123,16 +123,15 @@ async function getGnana(){
   document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+poolGnana.slice(0,-18);
 
 
-
-
   const options = {
     address: "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
     chain: "bsc",
     exchange: "PancakeSwapv2",
   };
-  const price = await Moralis.Web3API.token.getTokenPrice(options);
-  console.log(price.usdPrice);
-
+  const bananaPrice = await Moralis.Web3API.token.getTokenPrice(options);
+  const gnanaPrice = bananaPrice*0.7;
+  console.log(gnanaPrice);
+  console.log(bananaPrice);
 
 
   const splitString = JSON.stringify(splitABI);

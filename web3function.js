@@ -119,14 +119,14 @@ async function getMonkeysData() {
 }
 
 async function getBanana(){
-      const bananaString = JSON.stringify(minABI);
+      const bananaString = JSON.stringify(bananaPABI);
       const minABIParse = JSON.parse(bananaString);
       const bananaTxn =  new web3.eth.Contract(minABIParse,bananaContract);
       const bananaBalance =  await bananaTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
       document.getElementById('banana').innerHTML = "BANANA IN BAG = "+bananaBalance.slice(0,-18);;
 }
 async function getGnana(){
-      const gnanaString = JSON.stringify(minABI);
+      const gnanaString = JSON.stringify(gnanaPABI);
       const minABIParse = JSON.parse(gnanaString);
       const gnanaTxn =  new web3.eth.Contract(minABIParse,GNANAContract);
       const gnanaBalance =  await gnanaTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});

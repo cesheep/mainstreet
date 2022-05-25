@@ -112,7 +112,7 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
   hodlMath = hodl*usprice;
   hodlBalance = (BigInt(hodlMath)).toString();
 
-  document.getElementById('MainstBalance').innerHTML = +tokenInfo.slice(0,-9)+ "= $"+hodlBalance.slice(0,-19);
+  document.getElementById('MainstBalance').innerHTML = +tokenInfo.slice(0,-9)+"."+tokenInfo.slice(18,-16)+ "= $"+hodlBalance.slice(0,-19);
 
 
 
@@ -136,7 +136,7 @@ async function getGnana(){
   const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
   const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
   const poolGnana = await gnanaBalance.amount;
-  document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+poolGnana.slice(0,-18)+"."+poolGnana.slice(0,18);
+  document.getElementById('gnana').innerHTML = " GNANA IN BAG = "+poolGnana.slice(0,-18)+"."+poolGnana.slice(18,-16);
 
 //BananaPrice
   const bananaOptions = {address: bananaToken, chain: "bsc",};
@@ -152,7 +152,7 @@ async function getGnana(){
   const splitTxn =  new web3.eth.Contract(splitParse,splitContract);
   const splitBalance =  await splitTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
   const poolSplit = await splitBalance;
-  document.getElementById('banana').innerHTML = " BANANA IN BAG = "+poolSplit.slice(0,-18)+"."+poolSplit.slice(18,2);
+  document.getElementById('banana').innerHTML = " BANANA IN BAG = "+poolSplit.slice(0,-18)+"."+poolSplit.slice(18,-16);
 
 //Math2Price
   bananaCv = parseInt(poolSplit,0);

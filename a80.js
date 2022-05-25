@@ -150,7 +150,8 @@ async function getGnana(){
   const splitTxn =  new web3.eth.Contract(splitParse,splitContract);
   const splitBalance =  await splitTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
   const poolSplit = await splitBalance;
-  document.getElementById('banana').innerHTML = " "+poolSplit.slice(0,2)+","+poolSplit.slice(2,5)+"."+poolSplit.slice(18,-3);
+  const poolMath = (((BigNumber(mainstH)).toFormat(2)).toString());
+  document.getElementById('banana').innerHTML = poolMath.slice(0,-15)+"."+poolMath.slice(18,20);
 
 //Math2Price
   bananaCv = parseInt(poolSplit,0);

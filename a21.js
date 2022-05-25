@@ -109,10 +109,10 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
 //PriceMath
   hodl = parseInt(mainstH,0);
   usprice = parseInt(mainstUsdPrice,0);
-  hodlMath = (BigInt(hodl*usprice));
-  hodlBalance = hodlMath.toString();
+  hodlMath = hodl*usprice;
+  hodlBalance = (BigInt(hodlMath)).toString();
 
-  document.getElementById('MainstBalance').innerHTML = +tokenInfo.slice(0,-9)+ "= $"+hodlBalance.slice(0,-18);
+  document.getElementById('MainstBalance').innerHTML = +tokenInfo.slice(0,-9)+ "= $"+hodlBalance.slice(0,-19);
 
 
 

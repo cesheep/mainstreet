@@ -131,7 +131,6 @@ async function getGnana(){
   const gnanaOptions = {
     address: GNANAContract,
     chain: "bsc",
-    exchange: "PancakeSwapv2",
   };
   const bananaPrice = await Moralis.Web3API.token.getTokenPrice(bananaOptions);
   const gnanaPrice = await Moralis.Web3API.token.getTokenPrice(gnanaOptions);

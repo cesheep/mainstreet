@@ -144,8 +144,8 @@ async function getGnana(){
   bananaMath = bananaCv*bananaUsdPrice;
   gnanaMath = gnanaCv*gnanaPrice;
 
-  console.log(bananaCv); 
-  console.log(gnanaCv);
+  console.log(bananaMath); 
+  console.log(gnanaMath);
 
 }
 

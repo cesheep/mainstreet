@@ -104,7 +104,7 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
   const txn =  new web3.eth.Contract(mainstABIParse,mainstContract);
   const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.userAddress});
   const mainstH = await tokenInfo;
-  const balanceDisplay =parseInt(mainstH,0).toFixed(2);
+  const balanceDisplay =parseFloat(mainstH,0);
   console.log(balanceDisplay);
 
 //PriceMath

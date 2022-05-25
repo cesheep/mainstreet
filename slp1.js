@@ -13,11 +13,6 @@ GNANAContract= "0x8F97B2E6559084CFaBA140e2AB4Da9aAF23FE7F8";
 splitContract ="0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95";
 bBagAd = "0xeE983b1c116114d638697ed3037DB37A6b981F25";
 window.userAddress = null;
-window.userAddress = null;
-window.tokenInfo = null;
-window.maxSupply = null;
-window.totalSupply = null;
-window.mmBalance = null;
 const SERVER_URL ="https://bsc-dataseed1.binance.org:443";
 window.web3 = new Web3(window.ethereum);
 
@@ -131,7 +126,8 @@ async function getGnana(){
   const splitParse = JSON.parse(splitString);
   const splitTxn =  new web3.eth.Contract(splitParse,splitContract);
   const splitBalance =  await splitTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
-  const poolSplit = await splitBalance.amount;
+  const poolSplit = await splitBalance;
+  console.log(poolSplit);
   document.getElementById('banana').innerHTML = " BANAANA IN BAG = "+poolSplit.slice(0,-18);
 
 }

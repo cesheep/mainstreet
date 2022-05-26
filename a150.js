@@ -165,6 +165,11 @@ document.getElementById('banana').innerHTML = BPFormat;
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations
+  const rwdTxn = new web3.eth.Contract(spltParse,bBagAd);
+  const rwdBalance = await rwdTxn.methods.calculateBananaDistribution(splitBalance).call({from: window.userAddress})
+  console.log(rwdBalance);
+
+
   const rwdRate = 0.75;
   const rwdTax = 0.90;
   const monkeys = document.getElementById('mmPageMinted').innerHTML;

@@ -169,6 +169,12 @@ document.getElementById('banana').innerHTML = BPFormat;
   const pndBTXN = new web3.eth.Contract(bParse,bananaContract)
   const pndBBalance = await pndBTXN.methods.pendingCake(0,bBagAd).call({from: window.userAddress});
   const pndBRwd = await(pndBBalance/DivBase);
+  //BANANAWALLET
+  const BWTXN = new web3.eth.Contract(splitParse,bananaToken)
+  const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
+  const bWBalance = await bWallet;
+  console.log(bWBalance);
+
   //GNANAPOOL
   const pndGTXN = new web3.eth.Contract(gnanaParse,GNANAContract)
   const pndGBalance = await pndGTXN.methods.pendingReward(bBagAd).call({from: window.userAddress});

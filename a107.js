@@ -152,12 +152,12 @@ async function getGnana(){
   const BPFormat = (BigNumber(BPMath)).toFormat(2);
   document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
-  bananaCv = parseInt(PSplit,0);
-  gnanaCv = parseInt(poolGnana,0);
-  bananaMath = (BigInt(bananaCv*bananaUsdPrice));
-  bananaDisplay = bananaMath.toString();
-  gnanaMath = (BigInt(gnanaCv*gnanaUsdPrice));
-  gnanaDisplay = gnanaMath.toString();
+  bananaCv = BigNumber(PSplit);
+  gnanaCv = BigNumber(poolGnana);
+  bananaMath = (bananaCv*bananaUsdPrice);
+  //bananaDisplay = bananaMath.toString();
+  gnanaMath = (gnanaCv*gnanaUsdPrice);
+  //gnanaDisplay = gnanaMath.toString();
   bananaBag = bananaMath+gnanaMath;
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);

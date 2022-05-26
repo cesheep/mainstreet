@@ -34,6 +34,7 @@ const SERVER_URL ="https://bsc-dataseed1.binance.org:443";
 window.web3 = new Web3(window.ethereum);
 //--------------------------------------RATES
 const DivBase = 1000000000000000000;
+const DivBase2 = 10000000000000000000;
 const rwdRate = 0.75;
 const rwdTax = 0.90;
 //--------------------------------------CHECK

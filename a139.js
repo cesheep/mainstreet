@@ -77,6 +77,7 @@ function logOut() {
       document.getElementById('walletButton').style.display = 'none';
       document.getElementById('btn-login').style.display = 'block';
       document.getElementById('NotConnected').style.display = 'flex';
+      document.getElementById('LoginsWrapper').style.display = 'flex';
     }
 
 async function checkLogged(){

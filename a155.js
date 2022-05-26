@@ -9,10 +9,10 @@ const bbagABI = [{"inputs":[{"internalType":"uint256","name":"distributionPercen
 
 mainstContract = "0x8FC1A944c149762B6b578A06c0de2ABd6b7d2B89" ;
 mmContract = "0xa36c806c13851F8B27780753563fdDAA6566f996";
-bananaContract= "0x5c8D727b265DBAfaba67E050f2f739cAeEB4A6F9";
-bananaToken="0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95"
-GNANAContract= "0x8F97B2E6559084CFaBA140e2AB4Da9aAF23FE7F8";
-gnanaToken="0xddb3bd8645775f59496c821e4f55a7ea6a6dc299"
+bananaContract= "0x5c8D727b265DBAfaba67E050f2f739cAeEB4A6F9";//POOL
+bananaToken="0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95"//TOKEN
+GNANAContract= "0x8F97B2E6559084CFaBA140e2AB4Da9aAF23FE7F8";//POOL
+gnanaToken="0xddb3bd8645775f59496c821e4f55a7ea6a6dc299"//TOKEN
 splitContract ="0x86Ef5e73EDB2Fea111909Fe35aFcC564572AcC06";
 bBagAd = "0xeE983b1c116114d638697ed3037DB37A6b981F25";
 window.userAddress = null;
@@ -123,7 +123,7 @@ async function getMonkeysData() {
   const mmABIParse = JSON.parse(mmjsonString);
   const mainstTxn =  new web3.eth.Contract(mmABIParse,mmContract);
   const totalSupply =  await mainstTxn.methods.TOKEN_ID().call({from: window.userAddress});
-  const mmBalance =  await mainstTxn.methods.balanceOf(window.userAddress).call({from: window.userAddress});
+  const mmBalance =  await mainstTxn.methods.balanceOf(window.userAddress);
   document.getElementById('minted-counter').innerHTML = totalSupply;
   document.getElementById('mmHold').innerHTML = mmBalance;
   document.getElementById('mmPageMinted').innerHTML = totalSupply;
@@ -133,7 +133,7 @@ async function getGnana(){
   const gnanaString = JSON.stringify(gnanaPABI);
   const gnanaParse = JSON.parse(gnanaString);
   const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
-  const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
+  const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd);
   const poolGnana = await gnanaBalance.amount;
   const GPoolMath = ((((BigNumber(poolGnana))/DivBase).toFixed(2)));
   const GPFormat = (BigNumber(GPoolMath)).toFormat(2);
@@ -150,7 +150,7 @@ async function getGnana(){
 const splitString = JSON.stringify(bbagABI);
 const splitParse = JSON.parse(splitString);
 const splitTxn =  new web3.eth.Contract(splitParse,bBagAd);
-const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED().call({from: window.userAddress});
+const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED();
 const PSplit = await splitBalance;
 const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
 const BPFormat = (BigNumber(BPMath)).toFormat(2);
@@ -170,6 +170,15 @@ document.getElementById('banana').innerHTML = BPFormat;
   const PSRwd = await (rwdBalance[1]/DivBase);
   console.log(PSRwd);
 
+  const pndBTXN = new web3.eth.Contract(splitParse,bananaContract)
+  const pndBBalance = await pndBTXN.methods.pendingCake(0,bBagAd);
+  const pndBRwd = await(pndBBalance/DivBase);
+  console.log(pndBRwd);
+
+  const pndGTXN = new web3.eth.Contract(splitParse,GNANAContract)
+  const pndGBalance = await pndGTXN.methods.pendingReward(bBagAd)
+  const pndGRwd = await(pndGBalance/DivBase);
+  console.log(pndGRwd);
 
   const rwdRate = 0.75;
   const rwdTax = 0.90;

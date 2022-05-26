@@ -134,8 +134,8 @@ async function getGnana(){
 //GnanaAmmounts
   const gnanaString = JSON.stringify(bbagABI);
   const gnanaParse = JSON.parse(gnanaString);
-  const gnanaTxn = new web3.eth.Contract(gnanaParse,bBagAd);
-  const gnanaBalance = await gnanaTxn.methods.TOTAL_GNANA_STAKED().call({from: window.userAddress});
+  const gnanaTxn = new web3.eth.Contract(gnanaParse,GNANAContract);
+  const gnanaBalance = await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
   const poolGnana = await gnanaBalance;
   const GPoolMath = ((((BigNumber(poolGnana))/DivBase).toFixed(2)));
   const GPFormat = (BigNumber(GPoolMath)).toFormat(2);

@@ -167,7 +167,7 @@ document.getElementById('banana').innerHTML = BPFormat;
 //RewardCalculations
   const rwdTxn = new web3.eth.Contract(splitParse,bBagAd);
   const rwdBalance = await rwdTxn.methods.calculateBananaDistribution(splitBalance).call({from: window.userAddress})
-  const PSRwd = await rwdBalance[1];
+  const PSRwd = await (rwdBalance[1]/DivBase);
   console.log(PSRwd);
 
 

@@ -152,8 +152,9 @@ async function getGnana(){
   const splitBalance =  await splitTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
   const poolSplit = await splitBalance;
   const poolMath = ((((BigNumber(poolSplit))/DivBase).toFixed(2)));
+  const poolFormat = (BigNumber(poolMath)).toFormat(2);
   //const poolMath = (((BigNumber(poolSplit)).toFormat(2)).toString());
-  document.getElementById('banana').innerHTML = poolMath.toFormat(2);
+  document.getElementById('banana').innerHTML = poolFormat;
 
 //Math2Price
   bananaCv = parseInt(poolSplit,0);

@@ -68,6 +68,7 @@ async function loginMetamask(){
                 checkBSC();
                 getMainstData();
                 getMonkeysData();
+                document.getElementById('NotConnected').style.display = 'none';
             }else{
                 alert('Please Install Metamask')
             }
@@ -89,7 +90,7 @@ async function checkLogged(){
     getMainstData();
     getMonkeysData();
     getGnana();}
-
+    
         }
 //---------------------------------------------PRICES
 //Mainst Data
@@ -166,7 +167,7 @@ async function getGnana(){
   minusTax = rwdMath*rwdTax;
   rwdDisplay = ((BigNumber(minusTax))/DivBase).toFixed(2);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+" PER MM";
-  //document.getElementById('NotConnected').style.display = 'none';
+  
 }//---------------------------------------------END PRICING
 //-------------------MINT
 //Counter for Mint 

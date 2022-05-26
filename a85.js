@@ -163,8 +163,8 @@ async function getGnana(){
   gnanaDisplay = gnanaMath.toString();
 
   bananaBag = bananaMath+gnanaMath;
-  bagDisplay = (BigInt(bananaBag).toString());
-  document.getElementById('bananabag').innerHTML = " $"+bagDisplay.slice(0,2)+","+bagDisplay.slice(2,5)+"."+bagDisplay.slice(18,-3);
+  const bagDisplay = (((BigNumber(bananaBag)).toFormat(2)).toString());
+  document.getElementById('bananabag').innerHTML = " $"+bagDisplay.slice(0,2);
 }
 
 window.userAddress = window.localStorage.getItem("userAddress");

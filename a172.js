@@ -144,6 +144,13 @@ async function getGnana(){
   const gnanaOptions = {address: gnanaToken, chain: "bsc",};
   const gnanaPrice = await Moralis.Web3API.token.getTokenPrice(gnanaOptions);
   const gnanaUsdPrice = await gnanaPrice.usdPrice;
+//BANANAWALLET
+    const bToken = JSON.stringify(splitABI);
+    const bTParse = JSON.parse(bToken);
+    const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
+    const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
+    const bWBalance = await bWallet;
+    const bWDisplay = ((BigNumber(bWBalance))/DivBase).toFixed(2);
 //BananaAmmounts
 const splitString = JSON.stringify(bbagABI);
 const splitParse = JSON.parse(splitString);
@@ -154,7 +161,7 @@ const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
 const BPFormat = (BigNumber(BPMath)).toFormat(2);
 document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
-  bananaCv = BigNumber(PSplit);
+  bananaCv = BigNumber(PSplit-bWBalance);
   gnanaCv = BigNumber(poolGnana);
   bananaMath = (bananaCv*bananaUsdPrice);
   gnanaMath = (gnanaCv*gnanaUsdPrice);
@@ -169,14 +176,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   const pndBTXN = new web3.eth.Contract(bParse,bananaContract)
   const pndBBalance = await pndBTXN.methods.pendingCake(0,bBagAd).call({from: window.userAddress});
   const pndBRwd = await(pndBBalance/DivBase);
-  //BANANAWALLET
-  const bToken = JSON.stringify(splitABI);
-  const bTParse = JSON.parse(bToken);
-  const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
-  const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
-  const bWBalance = await bWallet;
-  const BWDisplay = ((BigNumber(bWBalance))/DivBase).toFixed(2);
-  console.log(BWDisplay);
+
   //GNANAPOOL
   const pndGTXN = new web3.eth.Contract(gnanaParse,GNANAContract)
   const pndGBalance = await pndGTXN.methods.pendingReward(bBagAd).call({from: window.userAddress});
@@ -192,9 +192,6 @@ document.getElementById('banana').innerHTML = BPFormat;
 
   rwdMath = (totalRwd*rwdRate)/monkeys;
   minusTax = rwdMath*rwdTax;
-  console.log("$"+rwdMath);
-  
-  
   
 }//---------------------------------------------END PRICING
 //-------------------MINT

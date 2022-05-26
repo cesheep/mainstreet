@@ -56,7 +56,6 @@ window.web3 = new Web3(window.ethereum);
 }// End
 
 async function loginMetamask(){
-            
             if (window.web3) {
                 const selectedAccount = await window.ethereum.request({method: "eth_requestAccounts",}).then((accounts) => accounts[0])
                 window.userAddress = selectedAccount;
@@ -68,12 +67,10 @@ async function loginMetamask(){
                 checkBSC();
                 getMainstData();
                 getMonkeysData();
-                
             }else{
                 alert('Please Install Metamask')
             }
 }
-
 function logOut() {
       window.userAddress = null;
       window.localStorage.removeItem("userAddress");
@@ -91,10 +88,10 @@ async function checkLogged(){
           document.getElementById("address").innerText = window.userAddress;
           document.getElementById('btn-login').style.display = 'none';
           document.getElementById('walletButton').style.display = 'block';
+          document.getElementById('NotConnected').style.display = 'none';
           getMainstData();
           getMonkeysData();
           getGnana();}
-          document.getElementById('NotConnected').style.display = 'none';
           
         }
 //---------------------------------------------PRICES

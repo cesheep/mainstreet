@@ -170,7 +170,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   const PSRwd = await (rwdBalance[1]/DivBase);
   console.log(PSRwd);
   const bString = JSON.stringify(bananaPABI);
-  const bParse = JSON.parse(bParse);
+  const bParse = JSON.parse(bString);
   const pndBTXN = new web3.eth.Contract(bParse,bananaContract)
   const pndBBalance = await pndBTXN.methods.pendingCake(0,bBagAd);
   const pndBRwd = await(pndBBalance/DivBase);

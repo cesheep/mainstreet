@@ -157,7 +157,7 @@ async function getGnana(){
   document.getElementById('banana').innerHTML = BPFormat;
 
 //Math2Price
-  bananaCv = parseInt(poolSplit,0);
+  bananaCv = parseInt(PSplit,0);
   gnanaCv = parseInt(poolGnana,0);
   bananaMath = (BigInt(bananaCv*bananaUsdPrice));
   bananaDisplay = bananaMath.toString();

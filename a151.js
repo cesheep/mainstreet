@@ -165,7 +165,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations
-  const rwdTxn = new web3.eth.Contract(spltParse,bBagAd);
+  const rwdTxn = new web3.eth.Contract(splitParse,bBagAd);
   const rwdBalance = await rwdTxn.methods.calculateBananaDistribution(splitBalance).call({from: window.userAddress})
   console.log(rwdBalance);
 

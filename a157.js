@@ -169,8 +169,9 @@ document.getElementById('banana').innerHTML = BPFormat;
   const rwdBalance = await rwdTxn.methods.calculateBananaDistribution(splitBalance).call({from: window.userAddress})
   const PSRwd = await (rwdBalance[1]/DivBase);
   console.log(PSRwd);
-
-  const pndBTXN = new web3.eth.Contract(splitParse,bananaContract)
+  const bString = JSON.stringify(bananaPABI);
+  const bParse = JSON.parse(bParse);
+  const pndBTXN = new web3.eth.Contract(bParse,bananaContract)
   const pndBBalance = await pndBTXN.methods.pendingCake(0,bBagAd);
   const pndBRwd = await(pndBBalance/DivBase);
   console.log(pndBRwd);

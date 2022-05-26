@@ -243,7 +243,7 @@ async function mintMM() {
     console.log("X must be greater than 0");
   }
 
-  }/
+  }
 //--------------------------------------USERADRESS
 window.userAddress = window.localStorage.getItem("userAddress");
 //--------------------------------------ONLOAD

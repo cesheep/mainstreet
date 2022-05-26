@@ -116,10 +116,19 @@ const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
   document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20);
 }
 //MM Data
+const mmString = JSON.stringify(mmABI);
+const mmParse = JSON.parse(mmString);
+const gnanaString = JSON.stringify(gnanaPABI);
+const gnanaParse = JSON.parse(gnanaString);
+const bToken = JSON.stringify(splitABI);
+const bTParse = JSON.parse(bToken);
+const splitString = JSON.stringify(bbagABI);
+const splitParse = JSON.parse(splitString);
+const bString = JSON.stringify(bananaPABI);
+const bParse = JSON.parse(bString);
+
 async function getMonkeysData() {
-  const mmjsonString = JSON.stringify(mmABI);
-  const mmABIParse = JSON.parse(mmjsonString);
-  const mainstTxn =  new web3.eth.Contract(mmABIParse,mmContract);
+  const mainstTxn =  new web3.eth.Contract(mmParse,mmContract);
   const totalSupply =  await mainstTxn.methods.TOKEN_ID().call({from: window.userAddress});
   const mmBalance =  await mainstTxn.methods.balanceOf(window.userAddress).call({from: window.userAddress});
   document.getElementById('minted-counter').innerHTML = totalSupply;
@@ -128,8 +137,6 @@ async function getMonkeysData() {
 }
 //Gnana Banana holdings
 async function getGnana(){
-  const gnanaString = JSON.stringify(gnanaPABI);
-  const gnanaParse = JSON.parse(gnanaString);
   const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
   const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
   const poolGnana = await gnanaBalance.amount;
@@ -145,15 +152,11 @@ async function getGnana(){
   const gnanaPrice = await Moralis.Web3API.token.getTokenPrice(gnanaOptions);
   const gnanaUsdPrice = await gnanaPrice.usdPrice;
 //BANANAWALLET = REWARD WALLET
-    const bToken = JSON.stringify(splitABI);
-    const bTParse = JSON.parse(bToken);
     const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
     const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
     const bWBalance = await bWallet;
     const bWDisplay = ((BigNumber(bWBalance))/DivBase).toFixed(2);
 //BananaAmmounts
-const splitString = JSON.stringify(bbagABI);
-const splitParse = JSON.parse(splitString);
 const splitTxn =  new web3.eth.Contract(splitParse,bBagAd);
 const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED().call({from: window.userAddress});
 const PSplit = await splitBalance;
@@ -170,8 +173,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations
-  const bString = JSON.stringify(bananaPABI);
-  const bParse = JSON.parse(bString);
+
   //BANANAPOOL
   const pndBTXN = new web3.eth.Contract(bParse,bananaContract)
   const pndBBalance = await pndBTXN.methods.pendingCake(0,bBagAd).call({from: window.userAddress});

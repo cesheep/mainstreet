@@ -163,9 +163,6 @@ document.getElementById('banana').innerHTML = BPFormat;
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations
-  const rwdTxn = new web3.eth.Contract(splitParse,bBagAd);
-  const rwdBalance = await rwdTxn.methods.calculateBananaDistribution(splitBalance).call({from: window.userAddress})
-  const PSRwd = await (rwdBalance[1]/DivBase);
   const bString = JSON.stringify(bananaPABI);
   const bParse = JSON.parse(bString);
   //BANANAPOOL
@@ -176,17 +173,22 @@ document.getElementById('banana').innerHTML = BPFormat;
   const pndGTXN = new web3.eth.Contract(gnanaParse,GNANAContract)
   const pndGBalance = await pndGTXN.methods.pendingReward(bBagAd).call({from: window.userAddress});
   const pndGRwd = await(pndGBalance/DivBase);
-
+    
+  //RatesBase
   const rwdRate = 0.75;
   const rwdTax = 0.90;
   const monkeys = document.getElementById('mmPageMinted').innerHTML;
 
+  //Total Calcs
   totalRwd = (pndBRwd+pndGRwd)*bananaUsdPrice;
-  console.log(totalRwd);
-  rwdMath = (bananaBag*rwdRate)/monkeys;
+  rwdDisplay = ((BigNumber(totalrwd))/DivBase).toFixed(2);
+  document.getElementById('expected').innerHTML = "$"+rwdDisplay;
+
+  rwdMath = (totalRwd*rwdRate)/monkeys;
   minusTax = rwdMath*rwdTax;
-  rwdDisplay = ((BigNumber(minusTax))/DivBase).toFixed(2);
-  document.getElementById('expected').innerHTML = "$"+rwdDisplay+" PER MM";
+  display("$"+rwdMath);
+  
+  
   
 }//---------------------------------------------END PRICING
 //-------------------MINT

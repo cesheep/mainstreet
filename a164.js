@@ -166,22 +166,23 @@ document.getElementById('banana').innerHTML = BPFormat;
   const rwdTxn = new web3.eth.Contract(splitParse,bBagAd);
   const rwdBalance = await rwdTxn.methods.calculateBananaDistribution(splitBalance).call({from: window.userAddress})
   const PSRwd = await (rwdBalance[1]/DivBase);
-  console.log(PSRwd);
   const bString = JSON.stringify(bananaPABI);
   const bParse = JSON.parse(bString);
+  //BANANAPOOL
   const pndBTXN = new web3.eth.Contract(bParse,bananaContract)
   const pndBBalance = await pndBTXN.methods.pendingCake(0,bBagAd).call({from: window.userAddress});
   const pndBRwd = await(pndBBalance/DivBase);
-  console.log(pndBRwd);
-
+  //GNANAPOOL
   const pndGTXN = new web3.eth.Contract(gnanaParse,GNANAContract)
   const pndGBalance = await pndGTXN.methods.pendingReward(bBagAd).call({from: window.userAddress});
   const pndGRwd = await(pndGBalance/DivBase);
-  console.log(pndGRwd);
 
   const rwdRate = 0.75;
   const rwdTax = 0.90;
   const monkeys = document.getElementById('mmPageMinted').innerHTML;
+
+  totalRwd = (pndBRwd+pndGRwd)*bananaUsdPrice;
+  console.log(totalRwd);
   rwdMath = (bananaBag*rwdRate)/monkeys;
   minusTax = rwdMath*rwdTax;
   rwdDisplay = ((BigNumber(minusTax))/DivBase).toFixed(2);

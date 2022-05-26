@@ -79,12 +79,12 @@ function logOut() {
       window.localStorage.removeItem("userAddress");
       document.getElementById('walletButton').style.display = 'none';
       document.getElementById('btn-login').style.display = 'block';
-      document.getElementById('NotConnected').style.display = 'block';
+      document.getElementById('NotConnected').style.display = 'flex';
     }
 
 async function checkLogged(){
   if(!window.userAddress){       
-      document.getElementById('NotConnected').style.display = 'block';
+      document.getElementById('NotConnected').style.display = 'flex';
         }else{
 
           window.web3 = new Web3(window.ethereum);
@@ -205,6 +205,7 @@ async function getGnana(){
 //MM Mint
 async function mintMM() {
  window.web3 = new Web3(window.ethereum);
+ checkBSC();
   if(window.x > 0){
     const mmNumber = window.x;
     const mmPrice = mmNumber*200000000000000000;

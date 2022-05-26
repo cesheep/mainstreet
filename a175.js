@@ -187,10 +187,10 @@ document.getElementById('banana').innerHTML = BPFormat;
   const monkeys = document.getElementById('mmPageMinted').innerHTML;
   //Total Calcs
   totalRwd = (bWBalance)*bananaUsdPrice;
-  rwdDisplay = ((BigNumber(totalRwd))).toFixed(2);
   rwdMath = (totalRwd*rwdRate)/monkeys;
   minusTax = rwdMath*rwdTax;
-  document.getElementById('expected').innerHTML = "$"+minusTax+ " per Monkey";
+  rwdDisplay = ((BigNumber(minusTax))).toFixed(2);
+  document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
   
 }//---------------------------------------------END PRICING
 //-------------------MINT

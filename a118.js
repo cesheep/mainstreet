@@ -78,6 +78,7 @@ function logOut() {
       window.localStorage.removeItem("userAddress");
       document.getElementById('walletButton').style.display = 'none';
       document.getElementById('btn-login').style.display = 'block';
+      document.getElementById('btn-login2').style.display = 'block';
       checkLogged();
     }
 

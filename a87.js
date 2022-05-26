@@ -165,6 +165,7 @@ async function getGnana(){
   bananaBag = bananaMath+gnanaMath;
   const bagDisplay = (((BigNumber(bananaBag)).toFormat(2)).toString());
   document.getElementById('bananabag').innerHTML = " $"+bagDisplay.slice(0,2);
+  console.log(bagDisplay);
 }
 
 window.userAddress = window.localStorage.getItem("userAddress");

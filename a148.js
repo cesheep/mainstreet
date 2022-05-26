@@ -132,7 +132,7 @@ async function getMonkeysData() {
 async function getGnana(){
 
 //GnanaAmmounts
-  const gnanaString = JSON.stringify(bbagABI);
+  const gnanaString = JSON.stringify(gnanaPABI);
   const gnanaParse = JSON.parse(gnanaString);
   const gnanaTxn = new web3.eth.Contract(gnanaParse,GNANAContract);
   const gnanaBalance = await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});

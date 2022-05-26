@@ -161,7 +161,7 @@ async function getGnana(){
   const rwdRate = 0.75;
   const rwdTax = 0.10;
   const monkeys = document.getElementById('mmPageMinted').innerHTML;
-  rwdMath = (BigNumber(bagFormat))*rwdRate;
+  rwdMath = bananaBag*rwdRate;
   console.log(rwdMath);
 }//---------------------------------------------END PRICING
 //-------------------MINT

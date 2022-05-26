@@ -164,7 +164,7 @@ async function getGnana(){
   gnanaDisplay = gnanaMath.toString();
 
   bananaBag = bananaMath+gnanaMath;
-  const bagDisplay = ((((BigNumber(bananaBag)).toFormat(2)).toString()))toPrecision(10);
+  const bagDisplay = ((((BigNumber(bananaBag)).toFormat(2)).toString()));
   document.getElementById('bananabag').innerHTML = " $"+bagDisplay.slice(0,2);
   console.log(bagDisplay);
 }

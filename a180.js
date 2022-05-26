@@ -186,7 +186,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   //RatesBase
   const rwdRate = 0.75;
   const rwdTax = 0.90;
-  const monkeyTXN = new web3.eth.Contract(mmABIParse,mmContract);
+  const monkeyTXN = new web3.eth.Contract(mmParse,mmContract);
   const monkeyR =  await monkeyTXN.methods.totalSupply().call({from: window.userAddress});
   const monkeys = await monkeyR;
   //Total Calcs

@@ -170,7 +170,7 @@ async function getGnana(){
   rwdMath = (bananaBag*rwdRate)/monkeys;
   minusTax = rwdMath*rwdTax;
   rwdDisplay = ((BigNumber(minusTax))/DivBase).toFixed(2);
-  document.getElementById('expected').innerHTML = "$"+rwdDisplay;
+  document.getElementById('expected').innerHTML = "$"+rwdDisplay+"PER MM";
 }//---------------------------------------------END PRICING
 //-------------------MINT
 //Counter for Mint 

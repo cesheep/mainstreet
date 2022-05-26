@@ -88,7 +88,6 @@ async function checkLogged(){
         getMainstData();
         getMonkeysData();
         getGnana();
-        bagRewards();
         document.getElementById("address").innerText = window.userAddress;
         
     }
@@ -166,6 +165,7 @@ async function getGnana(){
 
 //RewardCalculations
   const rwdRate = 0.75;
+  const rwdTax = 0.10;
   rwdMath = ((bananaBag*rwdRate)/totalSupply);
   console.log(rwdMath);
 

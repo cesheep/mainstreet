@@ -202,8 +202,8 @@ async function getGnana(){
 //MM Mint
 async function mintMM() {
  window.web3 = new Web3(window.ethereum);
- checkBSC();
   if(window.x > 0){
+    checkBSC();
     const mmNumber = window.x;
     const mmPrice = mmNumber*200000000000000000;
     const mmjsonString = JSON.stringify(mmABI);

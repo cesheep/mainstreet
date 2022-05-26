@@ -144,7 +144,7 @@ async function getGnana(){
   const gnanaOptions = {address: gnanaToken, chain: "bsc",};
   const gnanaPrice = await Moralis.Web3API.token.getTokenPrice(gnanaOptions);
   const gnanaUsdPrice = await gnanaPrice.usdPrice;
-//BANANAWALLET
+//BANANAWALLET = REWARD WALLET
     const bToken = JSON.stringify(splitABI);
     const bTParse = JSON.parse(bToken);
     const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
@@ -186,12 +186,11 @@ document.getElementById('banana').innerHTML = BPFormat;
   const rwdTax = 0.90;
   const monkeys = document.getElementById('mmPageMinted').innerHTML;
   //Total Calcs
-  totalRwd = (pndBRwd+pndGRwd)*bananaUsdPrice;
+  totalRwd = (bWBalance)*bananaUsdPrice;
   rwdDisplay = ((BigNumber(totalRwd))).toFixed(2);
-  document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " + Month 1 Rewards";
-
   rwdMath = (totalRwd*rwdRate)/monkeys;
   minusTax = rwdMath*rwdTax;
+  document.getElementById('expected').innerHTML = "$"+minusTax+ " per Monkey";
   
 }//---------------------------------------------END PRICING
 //-------------------MINT

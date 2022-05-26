@@ -152,9 +152,7 @@ async function getGnana(){
   bananaCv = BigNumber(PSplit);
   gnanaCv = BigNumber(poolGnana);
   bananaMath = (bananaCv*bananaUsdPrice);
-  console.log(bananaMath);
   gnanaMath = (gnanaCv*gnanaUsdPrice);
-  console.log(gnanaMath);
   bananaBag = bananaMath+gnanaMath;
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);

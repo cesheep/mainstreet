@@ -165,8 +165,8 @@ async function getGnana(){
   gnanaDisplay = gnanaMath.toString();
 
   bananaBag = bananaMath+gnanaMath;
-  const bagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
-  const bagFormat = (BigNumber(bagMath)).toFormat(2);
+  const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
+  const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 }
 

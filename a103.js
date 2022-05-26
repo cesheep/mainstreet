@@ -134,9 +134,9 @@ async function getGnana(){
   const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
   const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
   const poolGnana = await gnanaBalance.amount;
-  const gnanaMath = ((((BigNumber(poolGnana))/DivBase).toFixed(2)));
-  const gnanaFormat = (BigNumber(gnanaMath)).toFormat(2);
-  document.getElementById('gnana').innerHTML = gnanaFormat;
+  const GPoolMath = ((((BigNumber(poolGnana))/DivBase).toFixed(2)));
+  const GPFormat = (BigNumber(GPoolMath)).toFormat(2);
+  document.getElementById('gnana').innerHTML = GPFormat;
 
 //BananaPrice
   const bananaOptions = {address: bananaToken, chain: "bsc",};
@@ -151,10 +151,10 @@ async function getGnana(){
   const splitParse = JSON.parse(splitString);
   const splitTxn =  new web3.eth.Contract(splitParse,splitContract);
   const splitBalance =  await splitTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
-  const poolSplit = await splitBalance;
-  const poolMath = ((((BigNumber(poolSplit))/DivBase).toFixed(2)));
-  const poolFormat = (BigNumber(poolMath)).toFormat(2);
-  document.getElementById('banana').innerHTML = poolFormat;
+  const PSplit = await splitBalance;
+  const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
+  const BPFormat = (BigNumber(BPMath)).toFormat(2);
+  document.getElementById('banana').innerHTML = BPFormat;
 
 //Math2Price
   bananaCv = parseInt(poolSplit,0);

@@ -170,21 +170,20 @@ document.getElementById('banana').innerHTML = BPFormat;
   const pndBBalance = await pndBTXN.methods.pendingCake(0,bBagAd).call({from: window.userAddress});
   const pndBRwd = await(pndBBalance/DivBase);
   //BANANAWALLET
-  const BWTXN = new web3.eth.Contract(splitParse,bananaToken)
+  const bToken = JSON.stringify(splitABI);
+  const bTParse = JSON.parse(bToken);
+  const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
   const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
   const bWBalance = await bWallet;
   console.log(bWBalance);
-
   //GNANAPOOL
   const pndGTXN = new web3.eth.Contract(gnanaParse,GNANAContract)
   const pndGBalance = await pndGTXN.methods.pendingReward(bBagAd).call({from: window.userAddress});
   const pndGRwd = await(pndGBalance/DivBase);
-    
   //RatesBase
   const rwdRate = 0.75;
   const rwdTax = 0.90;
   const monkeys = document.getElementById('mmPageMinted').innerHTML;
-
   //Total Calcs
   totalRwd = (pndBRwd+pndGRwd)*bananaUsdPrice;
   rwdDisplay = ((BigNumber(totalRwd))).toFixed(2);

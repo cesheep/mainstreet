@@ -68,7 +68,7 @@ async function loginMetamask(){
                 checkBSC();
                 getMainstData();
                 getMonkeysData();
-                document.getElementById('NotConnected').style.display = 'none';
+                
             }else{
                 alert('Please Install Metamask')
             }
@@ -90,7 +90,7 @@ async function checkLogged(){
     getMainstData();
     getMonkeysData();
     getGnana();}
-    
+    document.getElementById('NotConnected').style.display = 'none';
         }
 //---------------------------------------------PRICES
 //Mainst Data

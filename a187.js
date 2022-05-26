@@ -131,8 +131,8 @@ const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
 //MainstPriceMath
   hodl = parseInt(mainstH,0);
   usprice = parseInt(mainstUsdPrice,0);
-  hodlMath = ((BigNumber(hodl*usprice))/DivBase).toFormat(2);
-  hodlBalance = (BigInt(hodlMath)).toString();
+  hodlMath = (BigNumber(hodl*usprice))/DivBase;
+  hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
   document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20);
   console.log("$"+hodlMath);
 }
@@ -150,7 +150,7 @@ async function getGnana(){
   const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
   const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
   const poolGnana = await gnanaBalance.amount;
-  const GPoolMath = ((BigNumber(poolGnana))/DivBase).toFixed(2);
+  const GPoolMath = ((((BigNumber(poolGnana))/DivBase).toFixed(2)));
   const GPFormat = (BigNumber(GPoolMath)).toFormat(2);
   document.getElementById('gnana').innerHTML = GPFormat;
 //BananaPrice

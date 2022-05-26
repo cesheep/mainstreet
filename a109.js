@@ -88,8 +88,7 @@ async function checkLogged(){
         getMainstData();
         getMonkeysData();
         getGnana();
-        document.getElementById("address").innerText = window.userAddress;
-        
+        document.getElementById("address").innerText = window.userAddress;  
     }
 //---------------------------------------------PRICES
 //Mainst Data
@@ -104,7 +103,6 @@ const txn =  new web3.eth.Contract(mainstABIParse,mainstContract);
 const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.userAddress});
 const mainstH = await tokenInfo;
 const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
-
 //MainstPriceMath
   hodl = parseInt(mainstH,0);
   usprice = parseInt(mainstUsdPrice,0);
@@ -112,7 +110,6 @@ const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
   hodlBalance = (BigInt(hodlMath)).toString();
   document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20);
 }
-
 //MM Data
 async function getMonkeysData() {
   const mmjsonString = JSON.stringify(mmABI);
@@ -156,23 +153,18 @@ async function getGnana(){
   gnanaCv = BigNumber(poolGnana);
   bananaMath = (bananaCv*bananaUsdPrice);
   console.log(bananaMath);
-  //bananaDisplay = bananaMath.toString();
   gnanaMath = (gnanaCv*gnanaUsdPrice);
   console.log(gnanaMath);
-  //gnanaDisplay = gnanaMath.toString();
   bananaBag = bananaMath+gnanaMath;
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
-
 //RewardCalculations
   const rwdRate = 0.75;
   const rwdTax = 0.10;
-  rwdMath = ((bananaBag*rwdRate));
+  const monkeys = document.getElementById('mmPageMinted').innerHTML;
+  rwdMath = ((bananaBag*rwdRate)/monkeys);
   console.log(rwdMath);
-
-
-
 }//---------------------------------------------END PRICING
 //-------------------MINT
 //Counter for Mint 

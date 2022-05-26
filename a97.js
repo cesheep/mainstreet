@@ -15,6 +15,7 @@ bBagAd = "0xeE983b1c116114d638697ed3037DB37A6b981F25";
 window.userAddress = null;
 const SERVER_URL ="https://bsc-dataseed1.binance.org:443";
 window.web3 = new Web3(window.ethereum);
+const DivBase = 1000000000000000000;
 
 async function checkBSC(){
 // Init Web3 connected to ETH
@@ -150,10 +151,9 @@ async function getGnana(){
   const splitTxn =  new web3.eth.Contract(splitParse,splitContract);
   const splitBalance =  await splitTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
   const poolSplit = await splitBalance;
-  const poolMath = (((BigNumber(poolSplit))/1000000000000000000).toFixed(18));
-  console.log(poolMath);
+  const poolMath = (((BigNumber(poolSplit))/DivBase).toFixed(2));
   //const poolMath = (((BigNumber(poolSplit)).toFormat(2)).toString());
-  //document.getElementById('banana').innerHTML = poolMath.slice(0,-27)+"."+poolMath.slice(23,24);
+  document.getElementById('banana').innerHTML = poolMath;
 
 //Math2Price
   bananaCv = parseInt(poolSplit,0);

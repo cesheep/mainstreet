@@ -181,7 +181,7 @@ document.getElementById('banana').innerHTML = BPFormat;
 
   //Total Calcs
   totalRwd = (pndBRwd+pndGRwd)*bananaUsdPrice;
-  rwdDisplay = ((BigNumber(totalrwd))/DivBase).toFixed(2);
+  rwdDisplay = ((BigNumber(totalRwd))/DivBase).toFixed(2);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay;
 
   rwdMath = (totalRwd*rwdRate)/monkeys;

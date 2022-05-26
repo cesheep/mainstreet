@@ -188,7 +188,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   //Total Calcs
   totalRwd = (bWBalance)*bananaUsdPrice;
   rwdMath = (totalRwd*rwdRate)/monkeys;
-  minusTax = ((rwdMath*rwdTax)/DivBase).toFormat(2);
+  minusTax = BigNumber((rwdMath*rwdTax)/DivBase).toFormat(2);
   rwdDisplay = ((BigNumber(minusTax))).toFixed(2);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
   

@@ -83,17 +83,19 @@ function logOut() {
     }
 
 async function checkLogged(){
-  if(window.userAddress){       
-    window.web3 = new Web3(window.ethereum);
-    document.getElementById("address").innerText = window.userAddress;
-    document.getElementById('btn-login').style.display = 'none';
-    document.getElementById('walletButton').style.display = 'block';
-    getMainstData();
-    getMonkeysData();
-    getGnana();}
-    document.getElementById('NotConnected').style.display = 'none';
+  if(!window.userAddress){       
+      document.getElementById('NotConnected').style.display = 'block';
         }else{
-          document.getElementById('NotConnected').style.display = 'block';
+
+          window.web3 = new Web3(window.ethereum);
+          document.getElementById("address").innerText = window.userAddress;
+          document.getElementById('btn-login').style.display = 'none';
+          document.getElementById('walletButton').style.display = 'block';
+          getMainstData();
+          getMonkeysData();
+          getGnana();}
+          document.getElementById('NotConnected').style.display = 'none';
+          
         }
 //---------------------------------------------PRICES
 //Mainst Data

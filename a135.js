@@ -92,6 +92,8 @@ async function checkLogged(){
     getMonkeysData();
     getGnana();}
     document.getElementById('NotConnected').style.display = 'none';
+        }else{
+          document.getElementById('NotConnected').style.display = 'block';
         }
 //---------------------------------------------PRICES
 //Mainst Data

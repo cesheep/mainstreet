@@ -83,16 +83,18 @@ function logOut() {
     }
 
 async function checkLogged(){
-   if(window.address){
-        window.web3 = new Web3(window.ethereum);
+   if(!window.address){
+       alert("Please Log In");
+     }else{       
+       window.web3 = new Web3(window.ethereum);
+        document.getElementById("address").innerText = window.userAddress;
         document.getElementById('btn-login').style.display = 'none';
         document.getElementById('NotConnected').style.display = 'none';
         document.getElementById('walletButton').style.display = 'block';
         getMainstData();
         getMonkeysData();
         getGnana();
-        document.getElementById("address").innerText = window.userAddress;  
-     }
+          }
     }
 //---------------------------------------------PRICES
 //Mainst Data

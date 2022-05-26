@@ -88,32 +88,30 @@ async function checkLogged(){
         getMainstData();
         getMonkeysData();
         getGnana();
+        bagRewards();
         document.getElementById("address").innerText = window.userAddress;
         
     }
-
+//---------------------------------------------PRICES
 //Mainst Data
 async function getMainstData(){
 //maistPrice
 const mainstOptions = {address: mainstContract, chain: "bsc",};
 const mainstPrice = await Moralis.Web3API.token.getTokenPrice(mainstOptions);
 const mainstUsdPrice = await mainstPrice.usdPrice;
+const mainstjsonString = JSON.stringify(mainstABI);
+const mainstABIParse = JSON.parse(mainstjsonString);
+const txn =  new web3.eth.Contract(mainstABIParse,mainstContract);
+const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.userAddress});
+const mainstH = await tokenInfo;
+const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
 
-
-  const mainstjsonString = JSON.stringify(mainstABI);
-  const mainstABIParse = JSON.parse(mainstjsonString);
-  const txn =  new web3.eth.Contract(mainstABIParse,mainstContract);
-  const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.userAddress});
-  const mainstH = await tokenInfo;
-  const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
-
-//PriceMath
+//MainstPriceMath
   hodl = parseInt(mainstH,0);
   usprice = parseInt(mainstUsdPrice,0);
   hodlMath = hodl*usprice;
   hodlBalance = (BigInt(hodlMath)).toString();
   document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20);
-  //document.getElementById('MainstBalance').innerHTML = +bMath.slice(0,-18)+"."+bMath.slice(18,2);
 }
 
 //MM Data
@@ -137,7 +135,6 @@ async function getGnana(){
   const GPoolMath = ((((BigNumber(poolGnana))/DivBase).toFixed(2)));
   const GPFormat = (BigNumber(GPoolMath)).toFormat(2);
   document.getElementById('gnana').innerHTML = GPFormat;
-
 //BananaPrice
   const bananaOptions = {address: bananaToken, chain: "bsc",};
   const bananaPrice = await Moralis.Web3API.token.getTokenPrice(bananaOptions);
@@ -155,20 +152,69 @@ async function getGnana(){
   const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
   const BPFormat = (BigNumber(BPMath)).toFormat(2);
   document.getElementById('banana').innerHTML = BPFormat;
-
-//Math2Price
+//Math2Prices
   bananaCv = parseInt(PSplit,0);
   gnanaCv = parseInt(poolGnana,0);
   bananaMath = (BigInt(bananaCv*bananaUsdPrice));
   bananaDisplay = bananaMath.toString();
   gnanaMath = (BigInt(gnanaCv*gnanaUsdPrice));
   gnanaDisplay = gnanaMath.toString();
-
   bananaBag = bananaMath+gnanaMath;
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
-}
+
+//RewardCalculations
+  const rwdRate = 0.75;
+  rwdMath = ((bananaBag*rwdRate)/totalSupply);
+  console.log(rwdMath);
+
+
+
+}//---------------------------------------------END PRICING
+//-------------------MINT
+//Counter for Mint 
+  // declare & initialize x at 0
+  window.x = 0;
+  // on button click
+  $('.hack17-counter-button.hack17-up').on('click', ()=>{  
+    // increment & set new value 
+    $('.hack17-counter-input.w-input').val( ++x );
+  });
+
+  $('.hack17-counter-button.hack17-down').on('click', ()=>{  	
+    // decrement & set new value 
+    if(x > 0){
+      $('.hack17-counter-input.w-input').val( --x );
+    }
+  });
+  
+  // on input value change
+  $('.hack17-counter-input.w-input').change(function(){
+    // convert input value to number
+    num = Number($(this).val());
+    // if it's a number
+    if(num){
+      // assign its value to x
+      window.x = num;
+    }
+  });
+
+//MM Mint
+async function mintMM() {
+ window.web3 = new Web3(window.ethereum);
+  if(window.x > 0){
+    const mmNumber = window.x;
+    const mmPrice = mmNumber*200000000000000000;
+    const mmjsonString = JSON.stringify(mmABI);
+    const mmabiParse = JSON.parse(mmjsonString);
+    const contract =  new web3.eth.Contract(mmabiParse,mmContract);
+    const base =  await contract.methods.mintNFT(mmNumber).send({from: window.userAddress, value:mmPrice});
+  }else{
+    console.log("X must be greater than 0");
+  }
+
+  }//------------------------------------------END MINT
 
 window.userAddress = window.localStorage.getItem("userAddress");
 
@@ -185,7 +231,7 @@ var anchors = document.getElementsByTagName('*');
         code = this.getAttribute('whenClicked');
         eval(code); 
     }
-} //EndClicked--------------------------------------
+}//EndClicked--------------------------------------
 }//EndWindowOnLoad-----------------------------------
 
 

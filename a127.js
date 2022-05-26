@@ -92,7 +92,6 @@ async function checkLogged(){
         getMainstData();
         getMonkeysData();
         getGnana();
-        document.getElementById('NotConnected').style.display = 'none';
           }
     }
 //---------------------------------------------PRICES
@@ -170,6 +169,7 @@ async function getGnana(){
   minusTax = rwdMath*rwdTax;
   rwdDisplay = ((BigNumber(minusTax))/DivBase).toFixed(2);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+" PER MM";
+  document.getElementById('NotConnected').style.display = 'none';
 }//---------------------------------------------END PRICING
 //-------------------MINT
 //Counter for Mint 

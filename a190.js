@@ -135,7 +135,7 @@ const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
   hodlMath = (BigNumber(hodl*usprice))/DivBase;
   hodlBalance = ((((BigNumber(hodlMath))/DivBase2).toFixed(2)));
   document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20);
-  console.log("$"+hodlMath);
+  console.log("$"+hodlBalance);
 }
 //MM Data
 async function getMonkeysData() {

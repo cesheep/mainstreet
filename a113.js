@@ -159,10 +159,12 @@ async function getGnana(){
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations
   const rwdRate = 0.75;
-  const rwdTax = 0.10;
+  const rwdTax = 0.90;
   const monkeys = document.getElementById('mmPageMinted').innerHTML;
-  rwdMath = bananaBag*rwdRate;
-  console.log(rwdMath);
+  rwdMath = (bananaBag*rwdRate)/monkeys;
+  minusTax = rwdMath*rwdTax;
+  rwdDisplay = ((BigNumber(minusTax))/DivBase).toFixed(2);
+  console.log(rwdDisplay);
 }//---------------------------------------------END PRICING
 //-------------------MINT
 //Counter for Mint 

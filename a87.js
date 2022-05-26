@@ -105,7 +105,6 @@ const mainstUsdPrice = await mainstPrice.usdPrice;
   const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.userAddress});
   const mainstH = await tokenInfo;
   const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
-  console.log(bMath);
 
 //PriceMath
   hodl = parseInt(mainstH,0);
@@ -151,8 +150,10 @@ async function getGnana(){
   const splitTxn =  new web3.eth.Contract(splitParse,splitContract);
   const splitBalance =  await splitTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
   const poolSplit = await splitBalance;
-  const poolMath = (((BigNumber(poolSplit)).toFormat(2)).toString());
-  document.getElementById('banana').innerHTML = poolMath.slice(0,-27)+"."+poolMath.slice(23,24);
+  const poolMath = (BigNumber(poolSplit)).toExponential(0);
+  console.log(poolMath);
+  //const poolMath = (((BigNumber(poolSplit)).toFormat(2)).toString());
+  //document.getElementById('banana').innerHTML = poolMath.slice(0,-27)+"."+poolMath.slice(23,24);
 
 //Math2Price
   bananaCv = parseInt(poolSplit,0);
@@ -163,7 +164,7 @@ async function getGnana(){
   gnanaDisplay = gnanaMath.toString();
 
   bananaBag = bananaMath+gnanaMath;
-  const bagDisplay = (((BigNumber(bananaBag)).toFormat(2)).toString());
+  const bagDisplay = ((((BigNumber(bananaBag)).toFormat(2)).toString()))toPrecision(10);
   document.getElementById('bananabag').innerHTML = " $"+bagDisplay.slice(0,2);
   console.log(bagDisplay);
 }

@@ -155,8 +155,10 @@ async function getGnana(){
   bananaCv = BigNumber(PSplit);
   gnanaCv = BigNumber(poolGnana);
   bananaMath = (bananaCv*bananaUsdPrice);
+  console.log(bananaMath);
   //bananaDisplay = bananaMath.toString();
   gnanaMath = (gnanaCv*gnanaUsdPrice);
+  console.log(gnanaMath);
   //gnanaDisplay = gnanaMath.toString();
   bananaBag = bananaMath+gnanaMath;
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
@@ -166,7 +168,7 @@ async function getGnana(){
 //RewardCalculations
   const rwdRate = 0.75;
   const rwdTax = 0.10;
-  rwdMath = ((bananaBag*rwdRate)/totalSupply);
+  rwdMath = ((bananaBag*rwdRate));
   console.log(rwdMath);
 
 

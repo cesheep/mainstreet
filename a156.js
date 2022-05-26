@@ -123,7 +123,7 @@ async function getMonkeysData() {
   const mmABIParse = JSON.parse(mmjsonString);
   const mainstTxn =  new web3.eth.Contract(mmABIParse,mmContract);
   const totalSupply =  await mainstTxn.methods.TOKEN_ID().call({from: window.userAddress});
-  const mmBalance =  await mainstTxn.methods.balanceOf(window.userAddress);
+  const mmBalance =  await mainstTxn.methods.balanceOf(window.userAddress).call({from: window.userAddress});
   document.getElementById('minted-counter').innerHTML = totalSupply;
   document.getElementById('mmHold').innerHTML = mmBalance;
   document.getElementById('mmPageMinted').innerHTML = totalSupply;
@@ -133,7 +133,7 @@ async function getGnana(){
   const gnanaString = JSON.stringify(gnanaPABI);
   const gnanaParse = JSON.parse(gnanaString);
   const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
-  const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd);
+  const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
   const poolGnana = await gnanaBalance.amount;
   const GPoolMath = ((((BigNumber(poolGnana))/DivBase).toFixed(2)));
   const GPFormat = (BigNumber(GPoolMath)).toFormat(2);
@@ -150,7 +150,7 @@ async function getGnana(){
 const splitString = JSON.stringify(bbagABI);
 const splitParse = JSON.parse(splitString);
 const splitTxn =  new web3.eth.Contract(splitParse,bBagAd);
-const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED();
+const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED().call({from: window.userAddress});
 const PSplit = await splitBalance;
 const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
 const BPFormat = (BigNumber(BPMath)).toFormat(2);

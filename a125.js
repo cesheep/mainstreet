@@ -78,8 +78,8 @@ function logOut() {
       window.localStorage.removeItem("userAddress");
       document.getElementById('walletButton').style.display = 'none';
       document.getElementById('btn-login').style.display = 'block';
-      document.getElementById('NotConnected').style.display = 'none';
       checkLogged();
+      document.getElementById('NotConnected').style.display = 'none';
     }
 
 async function checkLogged(){

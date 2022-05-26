@@ -169,7 +169,7 @@ async function getGnana(){
   minusTax = rwdMath*rwdTax;
   rwdDisplay = ((BigNumber(minusTax))/DivBase).toFixed(2);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+" PER MM";
-  document.getElementById('NotConnected').style.display = 'none';
+  //document.getElementById('NotConnected').style.display = 'none';
 }//---------------------------------------------END PRICING
 //-------------------MINT
 //Counter for Mint 
@@ -218,9 +218,8 @@ async function mintMM() {
 window.userAddress = window.localStorage.getItem("userAddress");
 
 window.onload = async () =>{
-  window.userAddress = window.localStorage.getItem("userAddress");
-  window.web3 = new Web3(window.ethereum);
-  checkLogged();
+ window.web3 = new Web3(window.ethereum);
+ checkLogged();
 // Load in Localstore key
 //Whenclicked---------------------------------------
 var anchors = document.getElementsByTagName('*');

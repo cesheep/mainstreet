@@ -150,7 +150,7 @@ async function getGnana(){
   const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
   const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
   const poolGnana = await gnanaBalance.amount;
-  const GPoolMath = ((((BigNumber(poolGnana))/DivBase)).toFixed(2));
+  const GPoolMath = ((BigNumber(poolGnana))/DivBase).toFixed(2);
   const GPFormat = (BigNumber(GPoolMath)).toFormat(2);
   document.getElementById('gnana').innerHTML = GPFormat;
 //BananaPrice

@@ -170,12 +170,12 @@ document.getElementById('banana').innerHTML = BPFormat;
   const bString = JSON.stringify(bananaPABI);
   const bParse = JSON.parse(bString);
   const pndBTXN = new web3.eth.Contract(bParse,bananaContract)
-  const pndBBalance = await pndBTXN.methods.pendingCake(0,bBagAd);
+  const pndBBalance = await pndBTXN.methods.pendingCake(0,bBagAd).call({from: window.userAddress});
   const pndBRwd = await(pndBBalance/DivBase);
   console.log(pndBRwd);
 
   const pndGTXN = new web3.eth.Contract(gnanaParse,GNANAContract)
-  const pndGBalance = await pndGTXN.methods.pendingReward(bBagAd);
+  const pndGBalance = await pndGTXN.methods.pendingReward(bBagAd).call({from: window.userAddress});
   const pndGRwd = await(pndGBalance/DivBase);
   console.log(pndGRwd);
 

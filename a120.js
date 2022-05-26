@@ -217,9 +217,9 @@ async function mintMM() {
 window.userAddress = window.localStorage.getItem("userAddress");
 
 window.onload = async () =>{
+  window.userAddress = window.localStorage.getItem("userAddress");
   window.web3 = new Web3(window.ethereum);
   checkLogged();
-  window.userAddress = window.localStorage.getItem("userAddress");
 // Load in Localstore key
 //Whenclicked---------------------------------------
 var anchors = document.getElementsByTagName('*');

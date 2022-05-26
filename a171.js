@@ -175,7 +175,8 @@ document.getElementById('banana').innerHTML = BPFormat;
   const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
   const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
   const bWBalance = await bWallet;
-  console.log(bWBalance);
+  const BWDisplay = ((BigNumber(bWBalance))/DivBase).toFixed(2);
+  console.log(BWDisplay);
   //GNANAPOOL
   const pndGTXN = new web3.eth.Contract(gnanaParse,GNANAContract)
   const pndGBalance = await pndGTXN.methods.pendingReward(bBagAd).call({from: window.userAddress});

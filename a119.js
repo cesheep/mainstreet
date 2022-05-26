@@ -78,14 +78,14 @@ function logOut() {
       window.localStorage.removeItem("userAddress");
       document.getElementById('walletButton').style.display = 'none';
       document.getElementById('btn-login').style.display = 'block';
-      document.getElementById('btn-login2').style.display = 'block';
+      document.getElementById('NotConnected').style.display = 'none';
       checkLogged();
     }
 
 async function checkLogged(){
         window.web3 = new Web3(window.ethereum);
         document.getElementById('btn-login').style.display = 'none';
-        document.getElementById('btn-login2').style.display = 'none';
+        document.getElementById('NotConnected').style.display = 'none';
         document.getElementById('walletButton').style.display = 'block';
         getMainstData();
         getMonkeysData();

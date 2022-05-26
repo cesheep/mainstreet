@@ -143,7 +143,7 @@ async function getGnana(){
 //BananaAmmounts
   const splitString = JSON.stringify(bbagABI);
   const splitParse = JSON.parse(splitString);
-  const splitTxn =  new web3.eth.Contract(splitParse,bbagABI);
+  const splitTxn =  new web3.eth.Contract(splitParse,bBagAd);
   const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED().call({from: window.userAddress});
   const PSplit = await splitBalance;
   const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));

@@ -63,7 +63,6 @@ async function loginMetamask(){
                 document.getElementById('btn-login').style.display = 'none';
                 document.getElementById('walletButton').style.display = 'block';
                 window.localStorage.setItem("userAddress", selectedAccount);
-                document.getElementById('LoginsWrapper').style.display = 'none';
                 checkLogged();
                 checkBSC();
                 getMainstData();
@@ -78,7 +77,6 @@ function logOut() {
       document.getElementById('walletButton').style.display = 'none';
       document.getElementById('btn-login').style.display = 'block';
       document.getElementById('NotConnected').style.display = 'flex';
-      document.getElementById('LoginsWrapper').style.display = 'none';
     }
 
 async function checkLogged(){

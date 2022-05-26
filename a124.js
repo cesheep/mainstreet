@@ -89,11 +89,11 @@ async function checkLogged(){
        window.web3 = new Web3(window.ethereum);
         document.getElementById("address").innerText = window.userAddress;
         document.getElementById('btn-login').style.display = 'none';
-        document.getElementById('NotConnected').style.display = 'none';
         document.getElementById('walletButton').style.display = 'block';
         getMainstData();
         getMonkeysData();
         getGnana();
+        document.getElementById('NotConnected').style.display = 'none';
           }
     }
 //---------------------------------------------PRICES
@@ -170,7 +170,7 @@ async function getGnana(){
   rwdMath = (bananaBag*rwdRate)/monkeys;
   minusTax = rwdMath*rwdTax;
   rwdDisplay = ((BigNumber(minusTax))/DivBase).toFixed(2);
-  document.getElementById('expected').innerHTML = "$"+rwdDisplay+"PER MM";
+  document.getElementById('expected').innerHTML = "$"+rwdDisplay+" PER MM";
 }//---------------------------------------------END PRICING
 //-------------------MINT
 //Counter for Mint 

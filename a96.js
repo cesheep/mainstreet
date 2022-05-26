@@ -150,7 +150,7 @@ async function getGnana(){
   const splitTxn =  new web3.eth.Contract(splitParse,splitContract);
   const splitBalance =  await splitTxn.methods.balanceOf(bBagAd).call({from: window.userAddress});
   const poolSplit = await splitBalance;
-  const poolMath = (((BigNumber(poolSplit))/10000).toFixed(18));
+  const poolMath = (((BigNumber(poolSplit))/1000000000000000000).toFixed(18));
   console.log(poolMath);
   //const poolMath = (((BigNumber(poolSplit)).toFormat(2)).toString());
   //document.getElementById('banana').innerHTML = poolMath.slice(0,-27)+"."+poolMath.slice(23,24);

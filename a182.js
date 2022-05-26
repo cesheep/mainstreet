@@ -119,7 +119,7 @@ async function checkLogged(){
 //Mainst Data
 async function getMainstData(){
 //maistPrice
-const mainstOptions = {address: mainstContract, chain: "bsc", address:};
+const mainstOptions = {address: mainstContract, chain: "bsc"};
 const mainstPrice = await Moralis.Web3API.token.getTokenPrice(mainstOptions);
 const mainstUsdPrice = await mainstPrice.usdPrice;
 const mainstjsonString = JSON.stringify(mainstABI);

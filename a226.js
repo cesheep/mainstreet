@@ -139,7 +139,7 @@ const coinGet = await $.getJSON(CoinGecko);
   const coinJson = await JSON.stringify(coinGet);
   //console.log(coinJson.slice(53,64));
   Proise = (BigNumber(coinJson.slice(53,64)));
-  priceFix = (BigNumber(Proise).toFormat(2));
+  priceFix = (BigNumber(Proise)).toFixed();
   console.log(priceFix);
 
 

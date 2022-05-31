@@ -38,7 +38,7 @@ window.web3 = new Web3(window.ethereum);
 //--------------------------------------RATES
 const DivBase = 1000000000000000000;
 const DivBase2 = 10000000000000000000;
-const DivBase3 = 1000000000;
+const DivFixGecko = 1000000000;
 const rwdRate = 0.75;
 const rwdTax = 0.90;
 //--------------------------------------CHECK
@@ -137,13 +137,9 @@ const mainstH = await tokenInfo;
 const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
 
 const coinGet = await $.getJSON(CoinGecko);
-  const coinJson = await JSON.stringify(coinGet);
-  //console.log(coinJson.slice(53,64));
-  Proise = (BigNumber(coinJson.slice(53,64))).toFixed();
-  //priceFix = (BigNumber(Proise)).toFixed();
-  priceFix = parseFloat(Proise,0);
-  console.log(Proise);
-  console.log (priceFix);
+const coinJson = await JSON.stringify(coinGet);
+Proise = (BigNumber(coinJson.slice(53,64))).toFixed();
+priceFix = parseFloat(Proise,0);
 
 
 
@@ -151,7 +147,7 @@ const coinGet = await $.getJSON(CoinGecko);
 //MainstPriceMath
   hodl = parseInt(mainstH,0);
   usprice = parseInt(mainstUsdPrice,0);
-  hodlMath = (BigNumber(hodl*priceFix))/DivBase3;
+  hodlMath = ((BigNumber(hodl*priceFix))/DivFixGecko).toFixed(2);
   hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
   document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20);
   console.log("$"+hodlMath);

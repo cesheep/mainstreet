@@ -84,7 +84,7 @@ async function loginMetamask(){
             if (window.web3) {
                 const selectedAccount = await window.ethereum.request({method: "eth_requestAccounts",}).then((accounts) => accounts[0])
                 window.userAddress = selectedAccount;
-                document.getElementById('address').innerHTML = selectedAccount;
+                document.getElementById('address').innerHTML = selectedAccount.slice(0,5)+"..."+selectedAccount.slice(38,42);
                 document.getElementById('btn-login').style.display = 'none';
                 document.getElementById('walletButton').style.display = 'block';
                 window.localStorage.setItem("userAddress", selectedAccount);
@@ -111,10 +111,9 @@ async function checkLogged(){
         }else{
 
           window.web3 = new Web3(window.ethereum);
-          document.getElementById("address").innerText = window.userAddress;
+          document.getElementById("address").innerText = window.userAddress.slice(0,5)+"..."+window.userAddress.slice(38,42);
           document.getElementById('btn-login').style.display = 'none';
           document.getElementById('walletButton').style.display = 'block';
-          
           getMainstData();
           getMonkeysData();
           getGnana();

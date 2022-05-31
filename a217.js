@@ -139,7 +139,7 @@ const coinGet = await $.getJSON(CoinGecko);
   const coinJson = await JSON.stringify(coinGet);
   const coinJsParse = await JSON.parse(coinJson);
   console.log(coinJsParse);
-  console.log(coinJson[1]);
+  console.log(coinJson[0]);
 
 
 

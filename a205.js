@@ -135,11 +135,11 @@ const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.u
 const mainstH = await tokenInfo;
 const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
 
-const coinGet = await $.getJSON(CoinGecko,function(data){
+const coinGet = await $.getJSON(CoinGecko);
   //const coinJson = await JSON.parse(coinGet);
   console.log(coinGet);
 
-});
+;
 
 
 

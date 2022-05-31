@@ -135,7 +135,7 @@ const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.u
 const mainstH = await tokenInfo;
 const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
 
-const coinGet = fetch(CoinGecko);
+const coinGet = await fetch(CoinGecko);
 console.log(coinGet);
 
 

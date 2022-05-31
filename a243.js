@@ -139,7 +139,7 @@ mainstPrice = (BigNumber(coinJson.slice(53,64))).toFixed();
 priceFix = parseFloat(mainstPrice,0);
 
 //MainstPriceMath
-  //hodl = parseInt(mainstH,0);//Balance
+  hodl = parseInt(mainstH,0);//Balance
   hodlMath = ((BigNumber(hodl*priceFix))/DivFixGecko).toFixed(2);
   hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
   hodlUSD = (BigNumber(hodlMath).toFormat(2))

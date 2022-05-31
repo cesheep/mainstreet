@@ -126,23 +126,17 @@ async function checkLogged(){
 //Mainst Data
 async function getMainstData(){
 //maistPrice
-const mainstOptions = {address: mainstContract, chain: "bsc"};
-const mainstPrice = await Moralis.Web3API.token.getTokenPrice(mainstOptions);
-const mainstUsdPrice = await mainstPrice.usdPrice;
 const mainstjsonString = JSON.stringify(mainstABI);
 const mainstABIParse = JSON.parse(mainstjsonString);
-const txn =  new web3.eth.Contract(mainstABIParse,mainstContract);
-const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.userAddress});
+const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
+const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: window.userAddress});
 const mainstH = await tokenInfo;
 const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
-
+//CoingeckoPrice
 const coinGet = await $.getJSON(CoinGecko);
 const coinJson = await JSON.stringify(coinGet);
-Proise = (BigNumber(coinJson.slice(53,64))).toFixed();
-priceFix = parseFloat(Proise,0);
-
-
-
+mainstPrice = (BigNumber(coinJson.slice(53,64))).toFixed();
+priceFix = parseFloat(mainstPrice,0);
 
 //MainstPriceMath
   hodl = parseInt(mainstH,0);

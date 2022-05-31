@@ -110,10 +110,12 @@ async function checkLogged(){
           document.getElementById("address").innerText = window.userAddress;
           document.getElementById('btn-login').style.display = 'none';
           document.getElementById('walletButton').style.display = 'block';
-          document.getElementById('NotConnected').style.display = 'none';
+          
           getMainstData();
           getMonkeysData();
-          getGnana();}
+          getGnana();
+          document.getElementById('NotConnected').style.display = 'none';
+        }
           
         }
 //---------------------------------------------PRICES

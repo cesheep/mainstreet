@@ -136,7 +136,8 @@ const mainstH = await tokenInfo;
 const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
 
 const coinGet = await fetch(CoinGecko);
-console.log(coinGet);
+const coinJson = await JSON.parse(coinGet);
+console.log(coinJson);
 
 
 //MainstPriceMath

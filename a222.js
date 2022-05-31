@@ -137,9 +137,8 @@ const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
 
 const coinGet = await $.getJSON(CoinGecko);
   const coinJson = await JSON.stringify(coinGet);
-  console.log(coinJson);
   //console.log(coinJson.slice(53,64));
-  Proise = (BigNumber(coinJson.slice(53,64))).toString();
+  Proise = (BigNumber(coinJson.slice(53,64))).toFixed(2);
   console.log(Proise);
 
 

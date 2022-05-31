@@ -140,7 +140,9 @@ const coinGet = await $.getJSON(CoinGecko);
   const coinJsParse = await JSON.parse(coinJson);
   console.log(coinJsParse);
   console.log(coinJson);
-  console.log(coinJson.slice(42,60));
+  console.log(coinJson.slice(53,64));
+  Proise = BigNumber(coinJson.slice(53,64));
+  console.log(Proise);
 
 
 

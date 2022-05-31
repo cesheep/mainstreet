@@ -150,8 +150,7 @@ priceFix = parseFloat(Proise,0);
   hodlMath = ((BigNumber(hodl*priceFix))/DivFixGecko).toFixed(2);
   hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
   hodlUSD = (BigNumber(hodlMath).toFormat(2))
-  document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20);
-  console.log("$"+hodlUSD);
+  document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = "+hodlUSD;
 }
 //MM Data
 async function getMonkeysData() {

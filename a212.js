@@ -137,7 +137,7 @@ const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
 
 const coinGet = await $.getJSON(CoinGecko);
   const coinJson = await JSON.stringify(coinGet);
-  const coinJsParse = await JSON.parse(coinGet);
+  const coinJsParse = await JSON.parse(coinJson);
   console.log(coinJsParse);
 
 

@@ -150,7 +150,7 @@ const coinGet = await $.getJSON(CoinGecko);
 //MainstPriceMath
   hodl = parseInt(mainstH,0);
   usprice = parseInt(mainstUsdPrice,0);
-  hodlMath = (BigNumber(hodl*usprice))/DivBase2;
+  hodlMath = (BigNumber(hodl*priceFix))/DivBase2;
   hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
   document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20);
   console.log("$"+hodlMath);

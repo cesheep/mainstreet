@@ -139,7 +139,8 @@ const coinGet = await $.getJSON(CoinGecko);
   const coinJson = await JSON.stringify(coinGet);
   const coinJsParse = await JSON.parse(coinJson);
   console.log(coinJsParse);
-  console.log(coinJson[0]);
+  console.log(coinJson);
+  console.log(coinJson.slice(42,60));
 
 
 

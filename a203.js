@@ -135,9 +135,13 @@ const tokenInfo =  await txn.methods.balanceOf(userAddress).call({from: window.u
 const mainstH = await tokenInfo;
 const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
 
-const coinGet = await fetch(CoinGecko);
-const coinJson = await JSON.parse(coinGet);
-console.log(coinJson);
+const coinGet = $.getJSON(CoinGecko,function(data){
+  const coinJson = await JSON.parse(coinGet);
+  console.log(coinJson);
+
+});
+
+
 
 
 //MainstPriceMath

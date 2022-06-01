@@ -132,8 +132,8 @@ const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: wi
 const mainstH = await tokenInfo;
 const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
 //CoingeckoPrice
-const coinGet = await $.getJSON(CoinGecko);
-const coinJson = await JSON.stringify(coinGet);
+var coinGet = await $.getJSON(CoinGecko);
+var coinJson = await JSON.stringify(coinGet);
 mainstPrice = (BigNumber(coinJson.slice(53,64))).toFixed();
 priceFix = parseFloat(mainstPrice,0);
 

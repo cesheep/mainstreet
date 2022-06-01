@@ -143,6 +143,7 @@ priceFix = parseFloat(mainstPrice,0);
   hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
   hodlUSD = (BigNumber(hodlMath).toFormat(2))
   document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
+  document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
 }
 //MM Data
 async function getMonkeysData() {

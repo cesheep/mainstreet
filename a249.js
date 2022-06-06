@@ -30,6 +30,15 @@ GNANAContract= "0x8F97B2E6559084CFaBA140e2AB4Da9aAF23FE7F8";//POOL
 gnanaToken="0xddb3bd8645775f59496c821e4f55a7ea6a6dc299"//TOKEN
 splitContract ="0x86Ef5e73EDB2Fea111909Fe35aFcC564572AcC06";
 bBagAd = "0xeE983b1c116114d638697ed3037DB37A6b981F25";
+
+
+//--------------------------------------MORALIS
+const serverUrl = "https://hxdku3fi3cqv.usemoralis.com:2053/server";
+const appId = "DTRG2uHrEe1PEUZXZURgew7GYkDPh1CqOtcr4cQr";
+Moralis.start({ serverUrl, appId });
+
+
+
 //--------------------------------------ADDRESS
 
 window.userAddress = null;
@@ -275,10 +284,4 @@ var anchors = document.getElementsByTagName('*');
 window.onUnload = async() =>{
     logOut();
 }
-
-//--------------------------------------MORALIS
-const serverUrl = "https://hxdku3fi3cqv.usemoralis.com:2053/server";
-const appId = "DTRG2uHrEe1PEUZXZURgew7GYkDPh1CqOtcr4cQr";
-Moralis.start({ serverUrl, appId });
-
 

@@ -229,11 +229,11 @@ document.getElementById('banana').innerHTML = BPFormat;
   //MainstToClaim
   claimTXN = new web3.eth.Contract(claimABI,claimContract);
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
-  const claimBalance = await toClaimB;
-  claimDisplay = (BigNumber(claimBalance[1]));
+  const claimBalance = await JSON.stringify(toClaimB);
+  claimDisplay = (BigNumber(claimBalance));
   console.log(claimDisplay);
 
-  mmOwn = document.getElementById('mmBalance').innerHTML;
+  mmOwn = document.getElementById('mmHold').innerHTML;
   toDist = (claimDisplay/totalSupply)/mmOwn;
   console.log(toDist);
 

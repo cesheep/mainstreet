@@ -234,7 +234,8 @@ document.getElementById('banana').innerHTML = BPFormat;
   console.log(claimDisplay);
 
   mmOwn = document.getElementById('mmHold').innerHTML;
-  toDist = (claimDisplay/totalSupply)/mmOwn;
+  mmSupply = document.getElementById('minted-counter').innerHTML;
+  toDist = (claimDisplay/mmSupply)/mmOwn;
   console.log(toDist);
 
 

@@ -229,9 +229,9 @@ document.getElementById('banana').innerHTML = BPFormat;
   //MainstToClaim
   claimTXN = new web3.eth.Contract(claimABI,claimContract);
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
-  const claimBalance = await JSON.stringify(toClaimB);
+  const claimBalance = await toClaimB;
   claimDisplay = (BigNumber(claimBalance));
-  console.log(claimDisplay);
+  console.log(claimBalance);
 
   mmOwn = document.getElementById('mmHold').innerHTML;
   mmSupply = document.getElementById('minted-counter').innerHTML;

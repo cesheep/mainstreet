@@ -231,12 +231,12 @@ document.getElementById('banana').innerHTML = BPFormat;
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   const claimBalance = await toClaimB;
   claimDisplay = (BigNumber(claimBalance));
-  console.log(claimBalance/DivBase);
+  console.log(claimBalance/DivBase2);
 
   mmOwn = document.getElementById('mmHold').innerHTML;
   mmSupply = document.getElementById('minted-counter').innerHTML;
   toDist = (claimDisplay/mmSupply)*mmOwn;
-  console.log(toDist/DivBase2);
+  console.log(toDist);
 
 
 }

@@ -51,8 +51,8 @@ const SERVER_URL ="https://bsc-dataseed1.binance.org:443";
 window.web3 = new Web3(window.ethereum);
 //--------------------------------------RATES
 const DivBase = 1000000000000000000;//18
-const DivBase2 = 10000000000000000000;//21
-const DivFixGecko = 1000000000;
+const DivBase2 = 10000000000000000000;//21 WEI
+const DivFixGecko = 1000000000;//9 GWei
 const rwdRate = 0.75;
 const rwdTax = 0.90;
 //--------------------------------------CHECK
@@ -236,7 +236,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   mmOwn = document.getElementById('mmHold').innerHTML;
   mmSupply = document.getElementById('minted-counter').innerHTML;
   toDist = (claimDisplay/mmSupply)*mmOwn;
-  console.log(toDist);
+  console.log(toDist/DivBase2);
 
 
 }

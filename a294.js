@@ -373,15 +373,17 @@ async function checkDataBet(){
 
 
 async function sendBet(){
-
+if(window.x>0){
   if (Heads == 1){
-      Tails = 0;
-      alert("Your Selection Heads, you're betting $"+window.x);
-      result = 0;
-    }
-    if(Tails == 1){
-      Heads = 0;
-      alert("Your Selection Tails, you're betting $"+window.x);
-      result = 1;
-    }
+    Tails = 0;
+    alert("Your Selection Heads, you're betting $"+window.x);
+    result = 0;
+  }
+  if(Tails == 1){
+    Heads = 0;
+    alert("Your Selection Tails, you're betting $"+window.x);
+    result = 1;
+  }
+}else{alert("Input must be greather than 0");}
+
 }

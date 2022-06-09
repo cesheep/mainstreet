@@ -311,7 +311,7 @@ var result = ''; //Heads = 0, Tails = 1
 var bnbON = '';
 var mainstON = '';
 var resetInput = '';
-var payOut = document.getElementById('PayOut').value;
+var payOut = document.getElementById('inputBet').value;
 
 //Chain Selector
 async function bnbSelect(){

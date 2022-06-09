@@ -320,7 +320,7 @@ async function bnbSelect(){
   Heads ='';
   Tails ='';
   window.x=0;
-  resetInput = document.getElementById("hack17-counter-input").value = '';
+  resetInput = document.getElementById("inputBNB").value = '';
 }
 async function mainstSelect (){
   document.getElementById('selectionDisplayMainst').innerHTML = "Please select a side";
@@ -329,7 +329,7 @@ async function mainstSelect (){
   Heads ='';
   Tails ='';
   window.x=0;
-  resetInput = document.getElementById("hack17-counter-input").value = '';
+  resetInput = document.getElementById("inputMainst").value = '';
 }
 
 //Coinflip

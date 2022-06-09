@@ -305,3 +305,28 @@ window.onUnload = async() =>{
     logOut();
 }
 
+
+//Coinflip
+async function selectionHeads(){
+  document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
+  var Heads = true;
+  return Heads;
+
+}
+async function selectionTals(){
+  document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";
+  var Tails = true;
+  return Tails;
+}
+
+async function sendBet(){
+  if (selectionHeads = true){
+      alert("You're Selection Heads");
+
+  }else{
+      if(selectionTails =true){
+        alert("You're Selection Tails");
+      }
+
+  }
+}

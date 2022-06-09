@@ -311,7 +311,7 @@ var result = ''; //Heads = 0, Tails = 1
 var bnbON = '';
 var mainstON = '';
 var resetInput = '';
-var payOut = document.getElementById('inputBet').value;
+var Bet = document.getElementById('inputBet').value;
 
 //Chain Selector
 async function bnbSelect(){
@@ -386,17 +386,14 @@ async function checkDataBet(){
   if(bnbON > 0 || mainstON >0){//Checks Coin
     if(Tails > 0 || Heads > 0){//Checks Selection
       selectSide();
-      if(document.getElementById('inputBet').value != "" || document.getElementById('inputBet').value != null){//Check Requiered
+      if( Bet != "" || Bet != null || Bet!= 0){//Check Requiered
         if(window.x > 0){// Checks the amount
           document.getElementById('confirmOverlay').style.display = "flex";
           fillOverlay();
-      }else{//Else Requiered
-        window.x = 0;
-        alert("Please insert an ammount greater than 0");
-        return;
-      }else{//Else amount
-        alert("Please insert an ammount greater than 0");
-        return;}
+          }else{//Else Requiered
+              alert("Please insert an ammount greater than 0");
+              return;
+        }
       }
     }else{//Else Selection
       alert("Please select a side");
@@ -407,6 +404,7 @@ async function checkDataBet(){
     return;
   }
 }
+
 
 
 

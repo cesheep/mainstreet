@@ -322,7 +322,7 @@ async function selectionTails(){
 }
 
 async function sendBet(){
-  if (Heads && Tails == 1){
+  if (Heads ==1 && Tails == 1){
     alert("You can't select both sides");
     document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
   }

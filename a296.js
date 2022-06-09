@@ -310,7 +310,7 @@ var Tails = '';
 var result = ''; //Heads = 0, Tails = 1
 var bnbON = '';
 var mainstON = '';
-var resetInput = document.getElementById("hack17-counter-input").value = "";
+var resetInput = '';
 
 //Chain Selector
 async function bnbSelect(){
@@ -320,7 +320,7 @@ async function bnbSelect(){
   Heads ='';
   Tails ='';
   window.x=0;
-  
+  resetInput = document.getElementById("hack17-counter-input").value = '';
 }
 async function mainstSelect (){
   document.getElementById('selectionDisplayMainst').innerHTML = "Please select a side";
@@ -329,6 +329,7 @@ async function mainstSelect (){
   Heads ='';
   Tails ='';
   window.x=0;
+  resetInput = document.getElementById("hack17-counter-input").value = '';
 }
 
 //Coinflip

@@ -360,6 +360,11 @@ async function checkDataBet(){
     window.x = 0;
     alert("Please input a valid quantity");
   }
+
+  if(bnbON == 0 && mainstON == 0){
+    alert("Please select a Token to play first.");
+  }
+
   if(bnbON == 1){
     sendBet();
   }

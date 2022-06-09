@@ -364,7 +364,9 @@ async function checkDataBet(){
   if(bnbON == 0 && mainstON == 0){
     alert("Please select a Token to play first.");
   }
-
+  if (Tails == 0 && Tails ==0){
+    alert("Please select a side");
+  }
   if(bnbON == 1){
     sendBet();
   }

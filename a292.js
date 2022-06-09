@@ -317,12 +317,14 @@ async function bnbSelect(){
   mainstON = 0;
   Heads ='';
   Tails ='';
+  document.getElementById('selectionDisplayBNB').innerHTML = "Please select a side";
 }
 async function mainstSelect (){
   mainstON =1;
   bnbON = 0;
   Heads ='';
   Tails ='';
+  document.getElementById('selectionDisplayMainst').innerHTML = "Please select a side";
 }
 
 //Coinflip
@@ -335,15 +337,15 @@ async function selectionHeadsB(){
 }
 async function selectionTailsB(){
   Heads = 0;
-    document.getElementById('selectionDisplayMainst').innerHTML = "Selection: Tails";
-    document.getElementById('PayOutMainst').innerHTML = "PayOut = x1.90";
+    document.getElementById('selectionDisplayBNB').innerHTML = "Selection: Tails";
+    document.getElementById('PayOutBNB').innerHTML = "PayOut = x1.90";
   Tails = 1;
 }
 async function selectionHeadsM(){
   Tails = 0;
-    document.getElementById('selectionDisplayBNB').innerHTML = "Selection: Heads";
-    document.getElementById('PayOutBNB').innerHTML = "PayOut = x1.90";
-    Heads = 1;
+    document.getElementById('selectionDisplayMainst').innerHTML = "Selection: Heads";
+    document.getElementById('PayOutMainst').innerHTML = "PayOut = x1.90";
+  Heads = 1;
 }
 async function selectionTailsM(){
   Heads = 0;

@@ -386,7 +386,7 @@ async function checkDataBet(){
   if(bnbON > 0 || mainstON >0){//Checks Coin
     if(Tails > 0 || Heads > 0){//Checks Selection
       selectSide();
-      if( Bet != "" || Bet != null || Bet!= 0){//Check Requiered
+      if( Bet != "" || Bet != null){//Check Requiered
           if(window.x > 0){          
               document.getElementById('confirmOverlay').style.display = "flex";
               fillOverlay();

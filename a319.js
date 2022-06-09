@@ -382,9 +382,6 @@ if(bnbON==1){//Sets Currency
 
 
 async function checkDataBet(){
-  if(document.getElementById('PayOut').innerHTML != ''){
-    window.x = 0;
-  }
   if(bnbON > 0 || mainstON >0){//Checks Coin
     if(Tails > 0 || Heads > 0){//Checks Selection
       selectSide();
@@ -394,11 +391,11 @@ async function checkDataBet(){
       }else{
         alert("Please insert an ammount greater than 0");
         return;}
-    }else{
+    }else{//Else Selection
       alert("Please select a side");
       return;
     } 
-  }else{
+  }else{//Else Coin
     alert("Please select a Token to play first.");
     return;
   }
@@ -406,4 +403,9 @@ async function checkDataBet(){
 
 
 
-//async function confirmBet(){}
+/*async function confirmBet(){
+  if(document.getElementById('PayOut').innerHTML != ''){
+    window.x = 0;
+  }
+
+}*/

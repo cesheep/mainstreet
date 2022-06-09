@@ -354,30 +354,8 @@ async function selectionTails(){
   Tails = 1;
 }
 
-async function checkDataBet(){
-  if(document.getElementById('PayOut').innerHTML != ''){
-    window.x = 0;
-  }
-  if(bnbON > 0 || mainstON >0){//Checks Coin
-    if(Tails > 0 || Heads > 0){//Checks Selection
-      if(window.x>0){// Checks the ammount
-        document.getElementById('confirmOverlay').style.display = "flex";
-        sendBet();
-      }else{
-        alert("Input must be greather than 0");
-        return;}
-    }else{
-      alert("Please select a side");
-      return;
-    } 
-  }else{
-    alert("Please select a Token to play first.");
-    return;
-  }
-}
 
-async function sendBet(){
-
+async function selectSide(){
   if (Heads == 1){
     document.getElementById('selecting').innerHTML = "Heads"
     Tails = 0;
@@ -389,13 +367,40 @@ async function sendBet(){
     result = 1;
   }
 
-document.getElementById('betting').innerHTML = window.x;//Sets the ammount
-  
+async function fillOverlay(){
+document.getElementById('betting').innerHTML = window.x;//Sets the ammount 
 if(bnbON==1){//Sets Currency
   document.getElementById('paying').innerHTML = "$BNB";
 }else{
   document.getElementById('paying').innerHTML = "$MAINST";
 }
+
+async function checkDataBet(){
+  if(document.getElementById('PayOut').innerHTML != ''){
+    window.x = 0;
+  }
+  if(bnbON > 0 || mainstON >0){//Checks Coin
+    if(Tails > 0 || Heads > 0){//Checks Selection
+      selectSide();
+      if(window.x>0){// Checks the ammount
+        document.getElementById('confirmOverlay').style.display = "flex";
+        fillOverlay();
+      }else{
+        alert("Please insert an ammount greater than 0");
+        return;}
+    }else{
+      alert("Please select a side");
+      return;
+    } 
+  }else{
+    alert("Please select a Token to play first.");
+    return;
+  }
+}
+
+
+}
+
 
 }
 

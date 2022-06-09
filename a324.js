@@ -385,7 +385,7 @@ async function checkDataBet(){
   if(bnbON > 0 || mainstON >0){//Checks Coin
     if(Tails > 0 || Heads > 0){//Checks Selection
       selectSide();
-      if(document.getElementById('PayOut').value.length == 0){//Check Emptiness
+      if(document.getElementById('PayOut').value == null){//Check Emptiness
         window.x = 0;
         alert("Please insert an ammount greater than 0");
         return;

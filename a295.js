@@ -310,6 +310,7 @@ var Tails = '';
 var result = ''; //Heads = 0, Tails = 1
 var bnbON = '';
 var mainstON = '';
+var resetInput = document.getElementById("hack17-counter-input").value = "";
 
 //Chain Selector
 async function bnbSelect(){

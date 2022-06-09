@@ -317,7 +317,7 @@ async function bnbSelect(){
   document.getElementById('betFor').innerHTML = "BET $BNB TO WIN $BNB";
   document.getElementById('selectionDisplayBNB').innerHTML = "Please select a side";
   document.getElementById('PayOutBNB').innerHTML = "Payout = x0.00";
-  resetInput = document.getElementById("inputBet").placeholder = '$1000 in $BNB';
+  resetInput = document.getElementById("inputBet").placeholder = "$1000 in $BNB";
   resetInput = document.getElementById("inputBet").value = '';
   bnbON = 1;
   mainstON = 0;
@@ -329,8 +329,8 @@ async function bnbSelect(){
 async function mainstSelect (){
   document.getElementById('betFor').innerHTML = "BET $MAINST GO WIN $MAINST";
   document.getElementById('selectionDisplayMainst').innerHTML = "Please select a side";
-  document.getElementById('PayOutBNB').innerHTML = "Payout = x0.00";
-  resetInput = document.getElementById("inputBet").placeholder = '$1000 in $BNB';
+  resetInput = document.getElementById("inputBet").placeholder = "$1000 in $BNB";
+  ocument.getElementById('PayOutBNB').innerHTML = "Payout = x0.00";
   resetInput = document.getElementById("inputBet").value = '';
   mainstON =1;
   bnbON = 0;
@@ -343,9 +343,13 @@ async function mainstSelect (){
 //Coinflip
 async function selectionHeads(){
   Tails = 0;
-    Heads = 1;
+  Heads = 1;
+  document.getElementById('PayOutBNB').innerHTML = "Payout = x1.90";
+  document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
 }
 async function selectionTails(){
+  document.getElementById('PayOutBNB').innerHTML = "Payout = x1.90";
+  document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";
   Heads = 0;
   Tails = 1;
 }

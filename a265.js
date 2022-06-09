@@ -306,7 +306,7 @@ window.onUnload = async() =>{
 }
 
 var Heads = '';
-var Tails = '';:
+var Tails = '';
 //Coinflip
 async function selectionHeads(){
   document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";

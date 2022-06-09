@@ -376,7 +376,7 @@ async function checkDataBet(){
 
 async function sendBet(){
 if(window.x>0){// Checks the selection
-  document.getElementById('betting').style.display = "flex";
+  document.getElementById('confirmOverlay').style.display = "flex";
   if (Heads == 1){
     document.getElementById('selecting').innerHTML = "Heads"
     Tails = 0;

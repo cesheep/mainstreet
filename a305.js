@@ -356,7 +356,7 @@ async function selectionTails(){
 
 
 async function checkDataBet(){
-  if(document.getElementById('PayOutMainst').innerHTML = ''){
+  if(document.getElementById('PayOut').innerHTML = ''){
     window.x = 0;
     alert("Please input a valid quantity");
   }

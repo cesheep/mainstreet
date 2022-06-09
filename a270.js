@@ -309,8 +309,9 @@ var Heads = '';
 var Tails = '';
 //Coinflip
 async function selectionHeads(){
-  Tails = 0;
+  
   document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
+  Tails = 0;
   Heads = 1;
 
 }
@@ -323,9 +324,8 @@ async function selectionTails(){
 async function sendBet(){
   if (Heads == 1){
       alert("Your Selection Heads");
-  if(Tails == 1){
-        alert("Yor Selection Tails");
-      }
-
+    }
+    if(Tails == 1){
+      alert("Yor Selection Tails");
     }
 }

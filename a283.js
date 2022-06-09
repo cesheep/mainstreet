@@ -312,6 +312,10 @@ var TailsCounter = 0;
 //Coinflip
 async function selectionHeads(){
   HeadsCounter++
+  if(HeadsCounter ==0 && TailsCounter ==0){
+    document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
+  }
+
   if(HeadsCounter ==2){
     Heads = 0;
     HeadsCounter=0;
@@ -322,9 +326,7 @@ async function selectionHeads(){
   return;
   }
 
-  if(HeadsCounter ==0 && TailsCounter ==0){
-    document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
-  }
+
 
 
   document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
@@ -333,6 +335,10 @@ async function selectionHeads(){
 
 }
 async function selectionTails(){
+
+  if(HeadsCounter ==0 && TailsCounter ==0){
+    document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
+  }
   TailsCounter++
   if(TailsCounter == 2){
    Tails = 0;
@@ -343,9 +349,7 @@ async function selectionTails(){
   return; 
   }
 
-  if(HeadsCounter ==0 && TailsCounter ==0){
-    document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
-  }
+
   Heads = 0;
   document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";
   Tails = 1;

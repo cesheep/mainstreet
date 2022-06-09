@@ -330,7 +330,7 @@ async function mainstSelect (){
   document.getElementById('betFor').innerHTML = "BET $MAINST TO WIN $MAINST";
   document.getElementById('selectionDisplay').innerHTML = "Please select a side";
   resetInput = document.getElementById("inputBet").placeholder = "$1000 in $MAINST";
-  ocument.getElementById('PayOut').innerHTML = "Payout = x0.00";
+  document.getElementById('PayOut').innerHTML = "Payout = x0.00";
   resetInput = document.getElementById("inputBet").value = '';
   mainstON =1;
   bnbON = 0;
@@ -356,7 +356,7 @@ async function selectionTails(){
 
 
 async function checkDataBet(){
-  if(document.getElementById('PayOut').innerHTML = ''){
+  if(document.getElementById('PayOut').innerHTML == ''){
     window.x = 0;
     alert("Please input a valid quantity");
   }
@@ -367,12 +367,10 @@ async function checkDataBet(){
     sendBet();
   }
 
-
 }
 
 
 async function sendBet(){
-
 if(window.x>0){
   if (Heads == 1){
     Tails = 0;

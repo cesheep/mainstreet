@@ -313,18 +313,21 @@ var mainstON = '';
 
 //Chain Selector
 async function bnbSelect(){
+  document.getElementById('selectionDisplayBNB').innerHTML = "Please select a side";
   bnbON = 1;
   mainstON = 0;
   Heads ='';
   Tails ='';
-  document.getElementById('selectionDisplayBNB').innerHTML = "Please select a side";
+  window.x=0;
+  
 }
 async function mainstSelect (){
+  document.getElementById('selectionDisplayMainst').innerHTML = "Please select a side";
   mainstON =1;
   bnbON = 0;
   Heads ='';
   Tails ='';
-  document.getElementById('selectionDisplayMainst').innerHTML = "Please select a side";
+  window.x=0;
 }
 
 //Coinflip

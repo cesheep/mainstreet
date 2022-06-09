@@ -315,6 +315,10 @@ async function selectionHeads(){
   if(HeadsCounter ==2){
     Heads = 0;
     HeadsCounter=0;
+    if(TailsCounter ==1){
+      Tails=1;
+    }
+
   return;
   }
   document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
@@ -327,6 +331,9 @@ async function selectionTails(){
   if(TailsCounter == 2){
    Tails = 0;
    TailsCounter=0;
+    if(HeadsCounter ==1){
+      Heads=1;
+    }
   return; 
   }
   Heads = 0;

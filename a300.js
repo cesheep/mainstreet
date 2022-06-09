@@ -314,48 +314,39 @@ var resetInput = '';
 
 //Chain Selector
 async function bnbSelect(){
+  document.getElementById('betFor').innerHTML = "BET $BNB TO WIN $BNB";
   document.getElementById('selectionDisplayBNB').innerHTML = "Please select a side";
+  document.getElementById('PayOutBNB').innerHTML = "Payout = x0.00";
+  resetInput = document.getElementById("inputBet").placeholder = '$1000 in $BNB';
+  resetInput = document.getElementById("inputBet").value = '';
   bnbON = 1;
   mainstON = 0;
   Heads ='';
   Tails ='';
   window.x=0;
-  resetInput = document.getElementById("inputBNB").value = '';
+
 }
 async function mainstSelect (){
+  document.getElementById('betFor').innerHTML = "BET $MAINST GO WIN $MAINST";
   document.getElementById('selectionDisplayMainst').innerHTML = "Please select a side";
+  document.getElementById('PayOutBNB').innerHTML = "Payout = x0.00";
+  resetInput = document.getElementById("inputBet").placeholder = '$1000 in $BNB';
+  resetInput = document.getElementById("inputBet").value = '';
   mainstON =1;
   bnbON = 0;
   Heads ='';
   Tails ='';
   window.x=0;
-  resetInput = document.getElementById("inputMainst").value = '';
+
 }
 
 //Coinflip
-async function selectionHeadsB(){
+async function selectionHeads(){
   Tails = 0;
-
-    document.getElementById('selectionDisplayBNB').innerHTML = "Selection: Heads";
-    document.getElementById('PayOutBNB').innerHTML = "PayOut = x1.90";
     Heads = 1;
 }
-async function selectionTailsB(){
+async function selectionTails(){
   Heads = 0;
-    document.getElementById('selectionDisplayBNB').innerHTML = "Selection: Tails";
-    document.getElementById('PayOutBNB').innerHTML = "PayOut = x1.90";
-  Tails = 1;
-}
-async function selectionHeadsM(){
-  Tails = 0;
-    document.getElementById('selectionDisplayMainst').innerHTML = "Selection: Heads";
-    document.getElementById('PayOutMainst').innerHTML = "PayOut = x1.90";
-  Heads = 1;
-}
-async function selectionTailsM(){
-  Heads = 0;
-    document.getElementById('selectionDisplayMainst').innerHTML = "Selection: Tails";
-    document.getElementById('PayOutMainst').innerHTML = "PayOut = x1.90";
   Tails = 1;
 }
 
@@ -367,11 +358,9 @@ async function checkDataBet(){
   }
   if(bnbON == 1){
     sendBet();
-    alert("You're Betting on BNB")
   }
   if(mainstON == 1){
     sendBet();
-    alert("You're Betting on Mainstreet")
   }
 
 

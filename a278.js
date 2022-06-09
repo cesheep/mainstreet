@@ -335,15 +335,17 @@ async function selectionTails(){
 }
 
 async function sendBet(){
-  if (Heads ==1 && Tails == 1){
+  if (HeadsCounter ==1 && TailsCounter ==1){
     alert("You can't select both sides");
     document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
   }
 
   if (Heads == 1){
+      Tails = 0;
       alert("Your Selection Heads");
     }
     if(Tails == 1){
+      Heads = 0;
       alert("Your Selection Tails");
     }
 }

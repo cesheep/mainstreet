@@ -387,7 +387,7 @@ async function checkDataBet(){
       selectSide();
       if(window.x > 0){// Checks the ammount
 
-        if(document.getElementById('PayOut').innerHTML != ''){
+        if(document.getElementById('PayOut').innerHTML == ''){
           window.x = 0;
         }else{
           document.getElementById('confirmOverlay').style.display = "flex";

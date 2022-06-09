@@ -322,10 +322,14 @@ async function selectionTails(){
 }
 
 async function sendBet(){
+  if (Heads & Tails == 1){
+    alert("You can't select both sides");
+  }
+
   if (Heads == 1){
       alert("Your Selection Heads");
     }
     if(Tails == 1){
-      alert("Yor Selection Tails");
+      alert("Your Selection Tails");
     }
 }

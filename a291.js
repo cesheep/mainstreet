@@ -315,36 +315,40 @@ var mainstON = '';
 async function bnbSelect(){
   bnbON = 1;
   mainstON = 0;
+  Heads ='';
+  Tails ='';
 }
 async function mainstSelect (){
   mainstON =1;
   bnbON = 0;
+  Heads ='';
+  Tails ='';
 }
 
 //Coinflip
-async function selectionHeads(){
+async function selectionHeadsB(){
   Tails = 0;
-  if (bnbON == 1){
+
     document.getElementById('selectionDisplayBNB').innerHTML = "Selection: Heads";
     document.getElementById('PayOutBNB').innerHTML = "PayOut = x1.90";
-  }
-  if (mainstON == 1){
-    document.getElementById('selectionDisplayMainst').innerHTML = "Selection: Heads";
-    document.getElementById('PayOutMainst').innerHTML = "PayOut = x1.90";
-  }
-
     Heads = 1;
 }
-async function selectionTails(){
+async function selectionTailsB(){
   Heads = 0;
-  if (bnbON == 1){
-    document.getElementById('selectionDisplayBNB').innerHTML = "Selection: Tails";
-    document.getElementById('PayOutBNB').innerHTML = "PayOut = x1.90";
-  }
-  if (mainstON == 1){
     document.getElementById('selectionDisplayMainst').innerHTML = "Selection: Tails";
     document.getElementById('PayOutMainst').innerHTML = "PayOut = x1.90";
-  }
+  Tails = 1;
+}
+async function selectionHeadsM(){
+  Tails = 0;
+    document.getElementById('selectionDisplayBNB').innerHTML = "Selection: Heads";
+    document.getElementById('PayOutBNB').innerHTML = "PayOut = x1.90";
+    Heads = 1;
+}
+async function selectionTailsM(){
+  Heads = 0;
+    document.getElementById('selectionDisplayMainst').innerHTML = "Selection: Tails";
+    document.getElementById('PayOutMainst').innerHTML = "PayOut = x1.90";
   Tails = 1;
 }
 

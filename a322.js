@@ -385,17 +385,20 @@ async function checkDataBet(){
   if(bnbON > 0 || mainstON >0){//Checks Coin
     if(Tails > 0 || Heads > 0){//Checks Selection
       selectSide();
-      if(window.x > 0){// Checks the ammount
 
-        if(document.getElementById('PayOut').innerHTML == ''){
-          window.x = 0;
-        }else{
-          document.getElementById('confirmOverlay').style.display = "flex";
-          fillOverlay();
-        }
-      }else{
+
+      if(document.getElementById('PayOut').value == ''){//Check Emptiness
+        window.x = 0;
+        alert("Please insert an ammount greater than 0");
+        return;
+      }else{//Else Emptiness
+        if(window.x > 0){// Checks the amount
+        document.getElementById('confirmOverlay').style.display = "flex";
+        fillOverlay();
+      }else{//Else amount
         alert("Please insert an ammount greater than 0");
         return;}
+      }
     }else{//Else Selection
       alert("Please select a side");
       return;

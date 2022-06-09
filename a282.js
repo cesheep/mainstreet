@@ -317,11 +317,16 @@ async function selectionHeads(){
     HeadsCounter=0;
     if(TailsCounter ==1){
       Tails=1;
-      document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
     }
 
   return;
   }
+
+  if(HeadsCounter ==0 && TailsCounter ==0){
+    document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
+  }
+
+
   document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
   Tails = 0;
   Heads = 1;
@@ -334,9 +339,12 @@ async function selectionTails(){
    TailsCounter=0;
     if(HeadsCounter ==1){
       Heads=1;
-      document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
     }
   return; 
+  }
+
+  if(HeadsCounter ==0 && TailsCounter ==0){
+    document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
   }
   Heads = 0;
   document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";

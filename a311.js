@@ -354,7 +354,6 @@ async function selectionTails(){
   Tails = 1;
 }
 
-
 async function checkDataBet(){
   if(document.getElementById('PayOut').innerHTML == ''){
     window.x = 0;
@@ -373,22 +372,33 @@ async function checkDataBet(){
   if(mainstON == 1){
     sendBet();
   }
-
 }
 
-
 async function sendBet(){
-if(window.x>0){
+if(window.x>0){// Checks the selection
+  document.getElementById('betting').style.display = "flex";
   if (Heads == 1){
+    document.getElementById('selecting').innerHTML = "Heads"
     Tails = 0;
-    alert("Your Selection Heads, you're betting $"+window.x);
     result = 0;
   }
   if(Tails == 1){
     Heads = 0;
-    alert("Your Selection Tails, you're betting $"+window.x);
+    document.getElementById('selecting').innerHTML = "Tails";
     result = 1;
   }
+  
+  
+
 }else{alert("Input must be greather than 0");}
+document.getElementById('betting').innerHTML = window.x;//Sets the ammount
+  
+if(bnbON==1){//Sets Currency
+  document.getElementById('paying').innerHTML = "$BNB";
+}else{
+  document.getElementById('paying').innerHTML = "$MAINST";
+}
 
 }
+
+//async function confirmBet(){}

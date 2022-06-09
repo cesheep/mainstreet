@@ -338,6 +338,8 @@ async function sendBet(){
   if (HeadsCounter ==1 && TailsCounter ==1){
     alert("You can't select both sides");
     document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
+    Heads =0;
+    Tails =0;
   }
 
   if (Heads == 1){

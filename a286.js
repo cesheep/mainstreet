@@ -323,6 +323,7 @@ async function selectionHeads(){
   return;
   }
   document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
+  document.getElementById('PayOut').innerHTML = "PayOut = x1.90";
   Tails = 0;
   Heads = 1;
 
@@ -342,6 +343,7 @@ async function selectionTails(){
 
   Heads = 0;
   document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";
+  document.getElementById('PayOut').innerHTML = "PayOut = x1.90";
   Tails = 1;
 }
 
@@ -366,6 +368,6 @@ async function sendBet(){
     }
     if(Tails == 1){
       Heads = 0;
-      alert("Your Selection , you're betting $"+window.x);
+      alert("Your Selection Tails, you're betting $"+window.x);
     }
 }

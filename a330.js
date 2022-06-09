@@ -387,13 +387,15 @@ async function checkDataBet(){
     if(Tails > 0 || Heads > 0){//Checks Selection
       selectSide();
       if( Bet != "" || Bet != null || Bet!= 0){//Check Requiered
-        if(window.x > 0){// Checks the amount
-          document.getElementById('confirmOverlay').style.display = "flex";
-          fillOverlay();
-          }else{//Else Requiered
-              alert("Please insert an ammount greater than 0");
-              return;
-        }
+          if(window.x > 0){          
+              document.getElementById('confirmOverlay').style.display = "flex";
+              fillOverlay();
+          }else{
+            alert("Amount must be greater than 0")
+          }
+      }else{
+        window.x = 0;
+        alert("Please Input an amount")
       }
     }else{//Else Selection
       alert("Please select a side");

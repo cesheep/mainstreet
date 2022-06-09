@@ -305,19 +305,20 @@ window.onUnload = async() =>{
     logOut();
 }
 
-
+var Heads = '';
+var Tails = '';:
 //Coinflip
 async function selectionHeads(){
   document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
   var Heads = true;
-  window.Tails = false;
+  Tails = false;
   return Heads;
 
 }
 async function selectionTails(){
   document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";
   var Tails = true;
-  window.Heads = false;
+  Heads = false;
   return Tails;
 }
 

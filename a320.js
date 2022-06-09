@@ -386,8 +386,13 @@ async function checkDataBet(){
     if(Tails > 0 || Heads > 0){//Checks Selection
       selectSide();
       if(window.x > 0){// Checks the ammount
-        document.getElementById('confirmOverlay').style.display = "flex";
-        fillOverlay();
+
+        if(document.getElementById('PayOut').innerHTML != ''){
+          window.x = 0;
+        }else{
+          document.getElementById('confirmOverlay').style.display = "flex";
+          fillOverlay();
+        }
       }else{
         alert("Please insert an ammount greater than 0");
         return;}
@@ -404,8 +409,6 @@ async function checkDataBet(){
 
 
 /*async function confirmBet(){
-  if(document.getElementById('PayOut').innerHTML != ''){
-    window.x = 0;
-  }
+
 
 }*/

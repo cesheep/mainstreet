@@ -367,14 +367,20 @@ async function selectSide(){
     result = 1;
   }
 
+}
+
 async function fillOverlay(){
-document.getElementById('betting').innerHTML = window.x;//Sets the ammount 
+  
+document.getElementById('betting').innerHTML = window.x;//Sets the ammount
+  
 if(bnbON==1){//Sets Currency
   document.getElementById('paying').innerHTML = "$BNB";
 }else{
   document.getElementById('paying').innerHTML = "$MAINST";
 }
 }
+
+
 async function checkDataBet(){
   if(document.getElementById('PayOut').innerHTML != ''){
     window.x = 0;
@@ -384,7 +390,6 @@ async function checkDataBet(){
       selectSide();
       if(window.x>0){// Checks the ammount
         document.getElementById('confirmOverlay').style.display = "flex";
-        fillOverlay();
       }else{
         alert("Please insert an ammount greater than 0");
         return;}
@@ -399,9 +404,5 @@ async function checkDataBet(){
 }
 
 
-}
-
-
-}
 
 //async function confirmBet(){}

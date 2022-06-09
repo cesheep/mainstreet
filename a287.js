@@ -350,6 +350,8 @@ async function selectionTails(){
 async function selectionZero(){
   if(HeadsCounter == 0 && TailsCounter == 0){
     document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
+    document.getElementById('PayOut').innerHTML = "PayOut = x0.00";
+    
   }
 }
 

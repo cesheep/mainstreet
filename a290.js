@@ -324,7 +324,7 @@ async function mainstSelect (){
 //Coinflip
 async function selectionHeads(){
   Tails = 0;
-  if (bnbOn == 1){
+  if (bnbON == 1){
     document.getElementById('selectionDisplayBNB').innerHTML = "Selection: Heads";
     document.getElementById('PayOutBNB').innerHTML = "PayOut = x1.90";
   }
@@ -337,7 +337,7 @@ async function selectionHeads(){
 }
 async function selectionTails(){
   Heads = 0;
-  if (bnbOn == 1){
+  if (bnbON == 1){
     document.getElementById('selectionDisplayBNB').innerHTML = "Selection: Tails";
     document.getElementById('PayOutBNB').innerHTML = "PayOut = x1.90";
   }

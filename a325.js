@@ -311,6 +311,7 @@ var result = ''; //Heads = 0, Tails = 1
 var bnbON = '';
 var mainstON = '';
 var resetInput = '';
+var payOut = document.getElementById('PayOut').value;
 
 //Chain Selector
 async function bnbSelect(){
@@ -385,11 +386,11 @@ async function checkDataBet(){
   if(bnbON > 0 || mainstON >0){//Checks Coin
     if(Tails > 0 || Heads > 0){//Checks Selection
       selectSide();
-      if(document.getElementById('PayOut').value == null){//Check Emptiness
+      if(payOut == null || payOut == ""){//Check Requiered
         window.x = 0;
         alert("Please insert an ammount greater than 0");
         return;
-      }else{//Else Emptiness
+      }else{//Else Requiered
         if(window.x > 0){// Checks the amount
         document.getElementById('confirmOverlay').style.display = "flex";
         fillOverlay();

@@ -374,7 +374,7 @@ if(bnbON==1){//Sets Currency
 }else{
   document.getElementById('paying').innerHTML = "$MAINST";
 }
-
+}
 async function checkDataBet(){
   if(document.getElementById('PayOut').innerHTML != ''){
     window.x = 0;

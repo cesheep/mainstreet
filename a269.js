@@ -309,21 +309,21 @@ var Heads = '';
 var Tails = '';
 //Coinflip
 async function selectionHeads(){
-  Tails = false;
+  Tails = 0;
   document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
-  Heads = true;
+  Heads = 1;
 
 }
 async function selectionTails(){
-  Heads = false;
+  Heads = 0;
   document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";
-  Tails = true;
+  Tails = 1;
 }
 
 async function sendBet(){
-  if (Heads = true){
+  if (Heads == 1){
       alert("Your Selection Heads");
-  if(Tails = true){
+  if(Tails == 1){
         alert("Yor Selection Tails");
       }
 

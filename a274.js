@@ -307,15 +307,27 @@ window.onUnload = async() =>{
 
 var Heads = '';
 var Tails = '';
+var clickCounter = 0;
 //Coinflip
 async function selectionHeads(){
-  
+  clickCounter++
+  if(clickCounter ==2){
+    Heads = 0;
+    clickCounter=0;
+    break;
+  }
   document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
   Tails = 0;
   Heads = 1;
 
 }
 async function selectionTails(){
+  clickCounter++
+  if(clickCounter ==2){
+   Tails = 0;
+   clickCounter=0;
+   break; 
+  }
   Heads = 0;
   document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";
   Tails = 1;

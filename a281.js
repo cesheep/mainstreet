@@ -317,6 +317,7 @@ async function selectionHeads(){
     HeadsCounter=0;
     if(TailsCounter ==1){
       Tails=1;
+      document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
     }
 
   return;
@@ -333,6 +334,7 @@ async function selectionTails(){
    TailsCounter=0;
     if(HeadsCounter ==1){
       Heads=1;
+      document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
     }
   return; 
   }
@@ -343,8 +345,8 @@ async function selectionTails(){
 
 async function sendBet(){
   if (HeadsCounter ==1 && TailsCounter ==1){
-    alert("You can't select both sides");
     document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
+    alert("You can't select both sides");
     Heads =0;
     Tails =0;
   }

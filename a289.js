@@ -307,68 +307,72 @@ window.onUnload = async() =>{
 
 var Heads = '';
 var Tails = '';
-var HeadsCounter = 0;
-var TailsCounter = 0;
+var result = ''; //Heads = 0, Tails = 1
+var bnbON = '';
+var mainstON = '';
+
+//Chain Selector
+async function bnbSelect(){
+  bnbON = 1;
+  mainstON = 0;
+}
+async function mainstSelect (){
+  mainstON =1;
+  bnbON = 0;
+}
+
 //Coinflip
 async function selectionHeads(){
- /* HeadsCounter++
-  if(HeadsCounter ==2){
-    Heads = 0;
-    HeadsCounter=0;
-    selectionZero()
-    if(TailsCounter ==1){
-      Tails=1;
-    }
-
-  return;
-  }*/
-  
-  document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
-  document.getElementById('PayOut').innerHTML = "PayOut = x1.90";
   Tails = 0;
-  Heads = 1;
+  if (bnbOn == 1){
+    document.getElementById('selectionDisplayBNB').innerHTML = "Selection: Heads";
+    document.getElementById('PayOutBNB').innerHTML = "PayOut = x1.90";
+  }
+  if (mainstON == 1){
+    document.getElementById('selectionDisplayMainst').innerHTML = "Selection: Heads";
+    document.getElementById('PayOutMainst').innerHTML = "PayOut = x1.90";
+  }
 
+    Heads = 1;
 }
 async function selectionTails(){
-  /*TailsCounter++
-  if(TailsCounter == 2){
-   Tails = 0;
-   TailsCounter=0;
-   selectionZero()
-    if(HeadsCounter ==1){
-      Heads=1;
-    }
-  return; 
-  }*/
   Heads = 0;
-  document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";
-  document.getElementById('PayOut').innerHTML = "PayOut = x1.90";
+  if (bnbOn == 1){
+    document.getElementById('selectionDisplayBNB').innerHTML = "Selection: Tails";
+    document.getElementById('PayOutBNB').innerHTML = "PayOut = x1.90";
+  }
+  if (mainstON == 1){
+    document.getElementById('selectionDisplayMainst').innerHTML = "Selection: Tails";
+    document.getElementById('PayOutMainst').innerHTML = "PayOut = x1.90";
+  }
   Tails = 1;
 }
 
-/*async function selectionZero(){
-  if(HeadsCounter == 0 && TailsCounter == 0){
-    document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
-    document.getElementById('PayOut').innerHTML = "PayOut = x0.00";
-    
+
+async function checkDataBet(){
+
+  if(bnbON == 1){
+    sendBet();
+    alert("You're on")
   }
-}*/
+  if(mainstON == 1){
+    sendBet();
+  }
+
+
+}
 
 
 async function sendBet(){
-  if (HeadsCounter ==1 && TailsCounter ==1){
-    document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
-    alert("You can't select both sides");
-    Heads =0;
-    Tails =0;
-  }
 
   if (Heads == 1){
       Tails = 0;
       alert("Your Selection Heads, you're betting $"+window.x);
+      result = 0;
     }
     if(Tails == 1){
       Heads = 0;
       alert("Your Selection Tails, you're betting $"+window.x);
+      result = 1;
     }
 }

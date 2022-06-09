@@ -323,12 +323,12 @@ async function selectionTails(){
 }
 
 async function sendBet(){
-  if (selectionHeads = true){
-      alert("You're Selection Heads");
+  if (Heads = true){
+      alert("Your Selection Heads");
 
   }else{
-      if(selectionTails =true){
-        alert("You're Selection Tails");
+      if(Tails = false){
+        alert("Yor Selection Tails");
       }
 
   }

@@ -311,22 +311,19 @@ var Tails = '';
 async function selectionHeads(){
   Tails = false;
   document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
-  var Heads = true;
-
-  return Heads;
+  Heads = true;
 
 }
 async function selectionTails(){
   Heads = false;
   document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";
-  var Tails = true;
-  return Tails;
+  Tails = true;
 }
 
 async function sendBet(){
   if (Heads = true){
       alert("Your Selection Heads");
-      if(Tails = false){
+  if(Tails = true){
         alert("Yor Selection Tails");
       }
 

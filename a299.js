@@ -365,9 +365,6 @@ async function checkDataBet(){
     window.x = 0;
     alert("Please input a valid quantity");
   }
-  
-  resetInput = document.getElementById("inputBNB").value = '';
-  resetInput = document.getElementById("inputMainst").value = '';
   if(bnbON == 1){
     sendBet();
     alert("You're Betting on BNB")
@@ -382,9 +379,6 @@ async function checkDataBet(){
 
 
 async function sendBet(){
-
-
-
 
 if(window.x>0){
   if (Heads == 1){

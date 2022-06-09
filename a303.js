@@ -329,7 +329,7 @@ async function bnbSelect(){
 async function mainstSelect (){
   document.getElementById('betFor').innerHTML = "BET $MAINST TO WIN $MAINST";
   document.getElementById('selectionDisplay').innerHTML = "Please select a side";
-  resetInput = document.getElementById("inputBet").placeholder = "$1000 in $BNB";
+  resetInput = document.getElementById("inputBet").placeholder = "$1000 in $MAINST";
   ocument.getElementById('PayOut').innerHTML = "Payout = x0.00";
   resetInput = document.getElementById("inputBet").value = '';
   mainstON =1;

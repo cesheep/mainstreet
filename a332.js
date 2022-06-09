@@ -355,7 +355,6 @@ async function selectionTails(){
   Tails = 1;
 }
 
-
 async function selectSide(){
   if (Heads == 1){
     document.getElementById('selecting').innerHTML = "Heads"
@@ -386,16 +385,16 @@ async function checkDataBet(){
   if(bnbON > 0 || mainstON >0){//Checks Coin
     if(Tails > 0 || Heads > 0){//Checks Selection
       selectSide();
-      if( Bet != "" || Bet != null){//Check Requiered
-          if(window.x > 0){          
-              document.getElementById('confirmOverlay').style.display = "flex";
-              fillOverlay();
-          }else{
-            alert("Amount must be greater than 0")
-          }
-      }else{
+      if( Bet == "" || Bet == null){//Check Requiered
         window.x = 0;
         alert("Please Input an amount")
+      }else{
+        if(window.x > 0){          
+          document.getElementById('confirmOverlay').style.display = "flex";
+          fillOverlay();
+        }else{
+          alert("Amount must be greater than 0")
+      }
       }
     }else{//Else Selection
       alert("Please select a side");

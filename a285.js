@@ -362,10 +362,10 @@ async function sendBet(){
 
   if (Heads == 1){
       Tails = 0;
-      alert("Your Selection Heads");
+      alert("Your Selection Heads, you're betting $"+window.x);
     }
     if(Tails == 1){
       Heads = 0;
-      alert("Your Selection Tails");
+      alert("Your Selection , you're betting $"+window.x);
     }
 }

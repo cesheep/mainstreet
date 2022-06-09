@@ -311,7 +311,7 @@ var HeadsCounter = 0;
 var TailsCounter = 0;
 //Coinflip
 async function selectionHeads(){
-  HeadsCounter++
+ /* HeadsCounter++
   if(HeadsCounter ==2){
     Heads = 0;
     HeadsCounter=0;
@@ -321,7 +321,8 @@ async function selectionHeads(){
     }
 
   return;
-  }
+  }*/
+  
   document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
   document.getElementById('PayOut').innerHTML = "PayOut = x1.90";
   Tails = 0;
@@ -329,7 +330,7 @@ async function selectionHeads(){
 
 }
 async function selectionTails(){
-  TailsCounter++
+  /*TailsCounter++
   if(TailsCounter == 2){
    Tails = 0;
    TailsCounter=0;
@@ -338,22 +339,20 @@ async function selectionTails(){
       Heads=1;
     }
   return; 
-  }
-
-
+  }*/
   Heads = 0;
   document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";
   document.getElementById('PayOut').innerHTML = "PayOut = x1.90";
   Tails = 1;
 }
 
-async function selectionZero(){
+/*async function selectionZero(){
   if(HeadsCounter == 0 && TailsCounter == 0){
     document.getElementById('selectionDisplay').innerHTML = "Please Pick One Side";
     document.getElementById('PayOut').innerHTML = "PayOut = x0.00";
     
   }
-}
+}*/
 
 
 async function sendBet(){

@@ -229,7 +229,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   //MainstToClaim
   claimTXN = new web3.eth.Contract(claimABI,claimContract);
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
-  const claimBalance = await toClaimB;
+  claimBalance = await toClaimB;
   claimDisplay = (BigNumber(claimBalance));
   console.log(claimBalance/DivBase2);
 
@@ -240,6 +240,12 @@ document.getElementById('banana').innerHTML = BPFormat;
 
 
 }
+
+async function claimBag(){
+  claimTXN = new web3.eth.Contract(claimABI,claimContract);
+  claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
+}
+
 //--------------------------------------COUNTER
   // declare & initialize x at 0
   window.x = 0;
@@ -276,7 +282,7 @@ async function mintMM() {
     const mmjsonString = JSON.stringify(mmABI);
     const mmabiParse = JSON.parse(mmjsonString);
     const contract =  new web3.eth.Contract(mmabiParse,mmContract);
-    const base =  await contract.methods.mintNFT(mmNumber).send({from: window.userAddress, value:mmPrice});
+    base =  await contract.methods.mintNFT(mmNumber).send({from: window.userAddress, value:mmPrice});
   }else{
     console.log("X must be greater than 0");
   }

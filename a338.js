@@ -370,7 +370,7 @@ async function selectSide(){
 
 async function fillOverlay(){
   
-document.getElementById('betting').innerHTML = window.x;//Sets the ammount
+document.getElementById('betting').innerHTML = Bet;//Sets the ammount
   
 if(bnbON==1){//Sets Currency
   document.getElementById('paying').innerHTML = "$BNB";
@@ -384,7 +384,7 @@ async function checkDataBet(){
   if(bnbON > 0 || mainstON >0){//Checks Coin
     if(Tails > 0 || Heads > 0){//Checks Selection
       selectSide();
-      if( window.x > 0 && Bet !== ''){//Check Requiered
+      if( Bet > 0 && Bet !== ''){//Check Requiered
         document.getElementById('confirmOverlay').style.display = "flex";
         fillOverlay();
       }else{
@@ -400,11 +400,3 @@ async function checkDataBet(){
     return;
   }
 }
-
-
-
-
-/*async function confirmBet(){
-
-
-}*/

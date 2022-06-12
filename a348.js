@@ -238,7 +238,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   toDist = (claimDisplay/mmSupply)*mmOwn;
   console.log(toDist);
 
-  document.getElementById('bonusReward').innerHTML = "$"+claimDisplay+ "$ MAINST per Monkey";
+  document.getElementById('bonusReward').innerHTML = claimDisplay+ "$MAINST per Monkey = "+(claimDisplay*window.mainstPrice);
 
 
 }

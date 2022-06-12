@@ -231,7 +231,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   claimTXN = new web3.eth.Contract(claimABI,claimContract);
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   claimBalance = await toClaimB;
-  claimDisplay = (BigNumber(claimBalance)/)/DivFix9;
+  claimDisplay = (BigNumber(claimBalance))/DivFix9;
 
   mmOwn = window.mmHold;
   mmSupply = window.totalSupply;

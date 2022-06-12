@@ -231,16 +231,14 @@ document.getElementById('banana').innerHTML = BPFormat;
   claimTXN = new web3.eth.Contract(claimABI,claimContract);
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   claimBalance = await toClaimB;
-  claimDisplay = (BigNumber(claimBalance));
-  console.log(claimBalance/DivFix9);
+  claimDisplay = (BigNumber(claimBalance)/)/DivFix9;
 
-  mmOwn = document.getElementById('mmHold').innerHTML;
+  mmOwn = window.mmHold;
   mmSupply = window.totalSupply;
   toDist = (claimDisplay/mmSupply)*mmOwn;
-  console.log(toDist/DivFix9);
+  console.log(toDist);
 
-  //document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
-  //document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
+  document.getElementById('bonusReward').innerHTML = "$"+claimDisplay+ "$ MAINST per Monkey";
 
 
 }

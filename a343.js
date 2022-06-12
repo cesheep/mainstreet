@@ -238,6 +238,9 @@ document.getElementById('banana').innerHTML = BPFormat;
   toDist = (claimDisplay/mmSupply)*mmOwn;
   console.log(toDist/DivBase2);
 
+  //document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
+  //document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
+
 
 }
 

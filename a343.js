@@ -231,7 +231,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   claimBalance = await toClaimB;
   claimDisplay = (BigNumber(claimBalance));
-  console.log(claimBalance/DivBase2);
+  console.log(claimBalance/DivBase);
 
   mmOwn = document.getElementById('mmHold').innerHTML;
   mmSupply = document.getElementById('minted-counter').innerHTML;

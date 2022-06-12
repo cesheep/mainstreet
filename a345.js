@@ -52,7 +52,7 @@ window.web3 = new Web3(window.ethereum);
 //--------------------------------------RATES
 const DivBase = 1000000000000000000;//18
 const DivBase2 = 10000000000000000000;//21 WEI
-const DivFixGecko = 1000000000;//9 GWei
+const DivFix9 = 1000000000;//9 GWei
 const rwdRate = 0.75;
 const rwdTax = 0.90;
 //--------------------------------------CHECK
@@ -153,7 +153,7 @@ priceFix = parseFloat(mainstPrice,0);
 
 //MainstPriceMath
   hodl = parseInt(mainstH,0);//Balance
-  hodlMath = ((BigNumber(hodl*priceFix))/DivFixGecko).toFixed(2);
+  hodlMath = ((BigNumber(hodl*priceFix))/DivFix9).toFixed(2);
   hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
   hodlUSD = (BigNumber(hodlMath).toFormat(2))
   document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
@@ -232,12 +232,12 @@ document.getElementById('banana').innerHTML = BPFormat;
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   claimBalance = await toClaimB;
   claimDisplay = (BigNumber(claimBalance));
-  console.log(claimBalance/DivBase);
+  console.log(claimBalance/DivFix9);
 
   mmOwn = document.getElementById('mmHold').innerHTML;
   mmSupply = window.totalSupply;
   toDist = (claimDisplay/mmSupply)*mmOwn;
-  console.log(toDist/DivBase);
+  console.log(toDist/DivFix9);
 
   //document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
   //document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";

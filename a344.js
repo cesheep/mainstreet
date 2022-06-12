@@ -163,6 +163,7 @@ priceFix = parseFloat(mainstPrice,0);
 async function getMonkeysData() {
   const mainstTxn =  new web3.eth.Contract(mmParse,mmContract);
   const totalSupply =  await mainstTxn.methods.TOKEN_ID().call({from: window.userAddress});
+  const realSupply =  await mainstTxn.methods.totalSupply().call({from: window.userAddress});
   const mmBalance =  await mainstTxn.methods.balanceOf(window.userAddress).call({from: window.userAddress});
   document.getElementById('minted-counter').innerHTML = totalSupply;
   document.getElementById('mmHold').innerHTML = mmBalance;
@@ -234,9 +235,9 @@ document.getElementById('banana').innerHTML = BPFormat;
   console.log(claimBalance/DivBase);
 
   mmOwn = document.getElementById('mmHold').innerHTML;
-  mmSupply = document.getElementById('minted-counter').innerHTML;
+  mmSupply = window.totalSupply;
   toDist = (claimDisplay/mmSupply)*mmOwn;
-  console.log(toDist/DivBase2);
+  console.log(toDist/DivBase);
 
   //document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
   //document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";

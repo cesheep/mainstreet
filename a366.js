@@ -144,12 +144,9 @@ mainstPrice = (BigNumber(coinJson.slice(53,64))).toFixed();
 priceFix = parseFloat(mainstPrice,0);
 //GeckoBanana
 var BananaGecko = await $.getJSON(geckoBanana);
-var bnanaJson = await JSON.parse(BananaGecko,function (usd));
-//var bnanaJson = await JSON.stringify(BananaGecko);
-console.log(bnanaJson.usd);
-console.log(BananaGecko);
-console.log(bnanaJson);
+var bnanaJson = await JSON.stringify(BananaGecko);
 bananaPrice = (BigNumber(bnanaJson.slice(53,64))).toFixed();
+console.log(bananaPrice);
 bNanaPriceFix = parseFloat(bananaPrice,0);
 //GeckoGnana
 var gnanaGet = bananaPrice*1.389;

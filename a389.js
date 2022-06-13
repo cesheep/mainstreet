@@ -179,7 +179,8 @@ async function getGnana(){
 //BANANAWALLET = REWARD WALLET
     const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
     const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
-    const bWDisplay = ((BigNumber(bWallet))/DivBase).toFixed(2);
+    const bWBalance = await bWallet;
+    const bWDisplay = ((BigNumber(bWBalance))/DivBase).toFixed(2);
 //BananaAmmounts
 const splitTxn =  new web3.eth.Contract(splitParse,bBagAd);
 const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED().call({from: window.userAddress});
@@ -188,16 +189,15 @@ const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
 const BPFormat = (BigNumber(BPMath)).toFormat(2);
 document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
-  bananaBag = ((BigNumber(PSplit-bWallet))*window.bNanaPriceFix)+((BigNumber(poolGnana))*window.gnanaGet);
+  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*windowgnanaGet);
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations
   //Total Calcs
-  rwdMath = ((bWDisplay*bNanaPriceFix)*rwdRate)/window.realSupply;
-  console.log(bWDisplay);
-  console.log(window.realSupply);
-  minusTax = BigNumber((rwdMath*rwdTax)).toFormat(2);
+  totalRwd = (bwDisplay);
+  rwdMath = (totalRwd*rwdRate)/window.realSupply;
+  minusTax = BigNumber((rwdMath*rwdTax)/DivBase).toFormat(2);
   rwdDisplay = ((BigNumber(minusTax))).toFixed(2);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
 

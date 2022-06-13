@@ -195,8 +195,9 @@ document.getElementById('banana').innerHTML = BPFormat;
   bananaMath = (bananaCv*window.bNanaPriceFix);
   gnanaMath = (gnanaCv*window.gnanaGet);
   bananaBag = bananaMath+gnanaMath;
-  const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
-  const bagFormat = (BigNumber(BbagMath)).toFormat(2);
+  //const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
+  //const bagFormat = (BigNumber(BbagMath)).toFormat(2);
+  console.log(bananaBag);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations
   //BANANAPOOL

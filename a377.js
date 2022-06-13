@@ -161,9 +161,9 @@ gnanaGet = bNanaPriceFix*1.389;
 //MM Data
 async function getMonkeysData() {
   const mainstTxn =  new web3.eth.Contract(mmParse,mmContract);
-  const totalSupply =  await mainstTxn.methods.TOKEN_ID().call({from: window.userAddress});//TOKEN_ID
-  const realSupply =  await mainstTxn.methods.totalSupply().call({from: window.userAddress});//TotalSupply
-  const mmBalance =  await mainstTxn.methods.balanceOf(window.userAddress).call({from: window.userAddress});
+  totalSupply =  await mainstTxn.methods.TOKEN_ID().call({from: window.userAddress});//TOKEN_ID
+  realSupply =  await mainstTxn.methods.totalSupply().call({from: window.userAddress});//TotalSupply
+  mmBalance =  await mainstTxn.methods.balanceOf(window.userAddress).call({from: window.userAddress});
   document.getElementById('minted-counter').innerHTML = totalSupply;
   document.getElementById('mmHold').innerHTML = mmBalance;
   document.getElementById('mmPageMinted').innerHTML = totalSupply;
@@ -179,8 +179,7 @@ async function getGnana(){
 //BANANAWALLET = REWARD WALLET
     const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
     const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
-    const bWBalance = await bWallet;
-    const bWDisplay = ((BigNumber(bWBalance))/DivBase).toFixed(2);
+    const bWDisplay = ((BigNumber(bWallet))/DivBase).toFixed(2);
 //BananaAmmounts
 const splitTxn =  new web3.eth.Contract(splitParse,bBagAd);
 const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED().call({from: window.userAddress});
@@ -189,30 +188,14 @@ const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
 const BPFormat = (BigNumber(BPMath)).toFormat(2);
 document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
-  bananaCv = BigNumber(PSplit-bWBalance);
-  gnanaCv = BigNumber(poolGnana);
-  bananaMath = (bananaCv*window.bNanaPriceFix);
-  gnanaMath = (gnanaCv*window.gnanaGet);
-  bananaBag = bananaMath+gnanaMath;
+  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*windowgnanaGet);
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations
-  //BANANAPOOL
-  const pndBTXN = new web3.eth.Contract(bParse,bananaContract)
-  const pndBBalance = await pndBTXN.methods.pendingCake(0,bBagAd).call({from: window.userAddress});
-  const pndBRwd = await(pndBBalance/DivBase);
-  //GNANAPOOL
-  const pndGTXN = new web3.eth.Contract(gnanaParse,GNANAContract)
-  const pndGBalance = await pndGTXN.methods.pendingReward(bBagAd).call({from: window.userAddress});
-  const pndGRwd = await(pndGBalance/DivBase);
-  //RatesBase
-  const monkeyTXN = new web3.eth.Contract(mmParse,mmContract);
-  const monkeyR =  await monkeyTXN.methods.totalSupply().call({from: window.userAddress});
-  const monkeys = await monkeyR;
   //Total Calcs
-  totalRwd = (bWBalance)*window.gnanaGet;
-  rwdMath = (totalRwd*rwdRate)/monkeys;
+  totalRwd = (bWallet)+poolGnana;
+  rwdMath = (totalRwd*rwdRate)/window.realSupply;
   minusTax = BigNumber((rwdMath*rwdTax)/DivBase).toFormat(2);
   rwdDisplay = ((BigNumber(minusTax))).toFixed(2);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";

@@ -12,19 +12,6 @@ const claimABI = [{"inputs":[{"internalType":"address","name":"minter","type":"a
 const geckoMainst= "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89&vs_currencies=usd"
 const geckoBanana = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95&vs_currencies=usd";
 
-////--------------------------------------PARSING
-const mmString = JSON.stringify(mmABI);
-const mmParse = JSON.parse(mmString);
-const gnanaString = JSON.stringify(gnanaPABI);
-const gnanaParse = JSON.parse(gnanaString);
-const bToken = JSON.stringify(splitABI);
-const bTParse = JSON.parse(bToken);
-const splitString = JSON.stringify(bbagABI);
-const splitParse = JSON.parse(splitString);
-const bString = JSON.stringify(bananaPABI);
-const bParse = JSON.parse(bString);
-const claimString = JSON.stringify(claimABI);
-const claimParse = JSON.parse(claimString);
 
 ////--------------------------------------CONTRACTS
 mainstContract = "0x8FC1A944c149762B6b578A06c0de2ABd6b7d2B89" ;
@@ -37,6 +24,41 @@ splitContract ="0x86Ef5e73EDB2Fea111909Fe35aFcC564572AcC06";
 bBagAd = "0xeE983b1c116114d638697ed3037DB37A6b981F25";
 claimContract= "0x32b8c61588540D497B411b4C7E8106ED0E0c2D66";//CLAIM
 
+
+
+////--------------------------------------PARSING
+//Mainst
+const mainstjsonString = JSON.stringify(mainstABI);
+const mainstABIParse = JSON.parse(mainstjsonString);
+//Money Monkeys
+const mmString = JSON.stringify(mmABI);
+const mmParse = JSON.parse(mmString);
+//Gnana
+const gnanaString = JSON.stringify(gnanaPABI);
+const gnanaParse = JSON.parse(gnanaString);
+//Split Banana token
+const bToken = JSON.stringify(splitABI);
+const bTParse = JSON.parse(bToken);
+//BananaBag
+const splitString = JSON.stringify(bbagABI);
+const splitParse = JSON.parse(splitString);
+//Banana Pool
+const bString = JSON.stringify(bananaPABI);
+const bParse = JSON.parse(bString);
+//Claim Contract
+const claimString = JSON.stringify(claimABI);
+const claimParse = JSON.parse(claimString);
+
+//------------------------------------------JSON Calls
+
+
+//Contract Base
+
+const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract); //Mainst contract call
+const mmTXN =  new web3.eth.Contract(mmParse,mmContract); // mmCall
+const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract); //GnanaCall
+const BWTXN = new web3.eth.Contract(bTParse,bananaToken);//Bananabag / BananaWallet
+const splitTxn =  new web3.eth.Contract(splitParse,bBagAd); //Banana, Split Ammounts
 //--------------------------------------ADDRESS
 
 window.userAddress = null;
@@ -132,9 +154,6 @@ async function checkLogged(){
 //Mainst Data
 async function getMainstData(){
 //MaistPrice
-const mainstjsonString = JSON.stringify(mainstABI);
-const mainstABIParse = JSON.parse(mainstjsonString);
-const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
 const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: window.userAddress});
 const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 //GeckoMainst
@@ -160,36 +179,32 @@ gnanaGet = bNanaPriceFix*1.7;
 }
 //MM Data
 async function getMonkeysData() {
-  const mainstTxn =  new web3.eth.Contract(mmParse,mmContract);
-  totalSupply =  await mainstTxn.methods.TOKEN_ID().call({from: window.userAddress});//TOKEN_ID
-  realSupply =  await mainstTxn.methods.totalSupply().call({from: window.userAddress});//TotalSupply
-  mmBalance =  await mainstTxn.methods.balanceOf(window.userAddress).call({from: window.userAddress});
+  totalSupply =  await mmTXN.methods.TOKEN_ID().call({from: window.userAddress});//TOKEN_ID
+  realSupply =  await mmTXN.methods.totalSupply().call({from: window.userAddress});//TotalSupply
+  mmBalance =  await mmTXN.methods.balanceOf(window.userAddress).call({from: window.userAddress});//User Balance
   document.getElementById('minted-counter').innerHTML = totalSupply;
   document.getElementById('mmHold').innerHTML = mmBalance;
   document.getElementById('mmPageMinted').innerHTML = totalSupply;
 }
 //Gnana Banana holdings
 async function getGnana(){
-  const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
-  const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
+  const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress}); //Total Gnana in BananaBag
   const poolGnana = await gnanaBalance.amount;
   const GPoolMath = ((((BigNumber(poolGnana))/DivBase).toFixed(2)));
   const GPFormat = (BigNumber(GPoolMath)).toFormat(2);
   document.getElementById('gnana').innerHTML = GPFormat;
 //BANANAWALLET = REWARD WALLET
-    const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
-    const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
+    const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});//BananaBag
     const bWBalance = await bWallet;
     const bWDisplay = ((BigNumber(bWBalance))/DivBase).toFixed(2);
 //BananaAmmounts
-const splitTxn =  new web3.eth.Contract(splitParse,bBagAd);
-const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED().call({from: window.userAddress});
+const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED().call({from: window.userAddress});//Total Banana In BananaBag
 const PSplit = await splitBalance;
 const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
 const BPFormat = (BigNumber(BPMath)).toFormat(2);
 document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
-  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*window.gnanaGet);
+  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*window.gnanaGet);//BananaBag Math
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat();
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
@@ -264,6 +279,7 @@ window.userAddress = window.localStorage.getItem("userAddress");
 window.onload = async () =>{
  window.web3 = new Web3(window.ethereum);
  checkLogged();
+ checkBSC();
 // Load in Localstore key
 //Whenclicked---------------------------------------
 var anchors = document.getElementsByTagName('*');

@@ -148,7 +148,7 @@ var bnanaJson = await JSON.stringify(BananaGecko);
 bananaPrice = (BigNumber(bnanaJson.slice(53,61))).toFixed();
 bNanaPriceFix = parseFloat(bananaPrice,0);
 //GeckoGnana
-gnanaGet = bNanaPriceFix*1.389;
+gnanaGet = bNanaPriceFix*1.7;
 
 //MainstPriceMath
   hodl = parseInt(tokenInfo,0);//Balance
@@ -191,7 +191,7 @@ document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
   bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*window.gnanaGet);
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
-  const bagFormat = (BigNumber(BbagMath)).toFormat(2);
+  const bagFormat = (BigNumber(BbagMath)).toFormat();
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations
   //Total Calcs

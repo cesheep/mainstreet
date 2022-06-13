@@ -222,7 +222,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   const monkeyR =  await monkeyTXN.methods.totalSupply().call({from: window.userAddress});
   const monkeys = await monkeyR;
   //Total Calcs
-  totalRwd = (bWBalance)*gNanaPriceFix;
+  totalRwd = (bWBalance)*gnanaGet;
   rwdMath = (totalRwd*rwdRate)/monkeys;
   minusTax = BigNumber((rwdMath*rwdTax)/DivBase).toFormat(2);
   rwdDisplay = ((BigNumber(minusTax))).toFixed(2);

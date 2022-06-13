@@ -189,7 +189,7 @@ const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
 const BPFormat = (BigNumber(BPMath)).toFormat(2);
 document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
-  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*windowgnanaGet);
+  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*window.gnanaGet);
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;

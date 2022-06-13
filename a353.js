@@ -37,14 +37,6 @@ splitContract ="0x86Ef5e73EDB2Fea111909Fe35aFcC564572AcC06";
 bBagAd = "0xeE983b1c116114d638697ed3037DB37A6b981F25";
 claimContract= "0x32b8c61588540D497B411b4C7E8106ED0E0c2D66";//CLAIM
 
-
-//--------------------------------------MORALIS
-const serverUrl = "https://hxdku3fi3cqv.usemoralis.com:2053/server";
-const appId = "DTRG2uHrEe1PEUZXZURgew7GYkDPh1CqOtcr4cQr";
-Moralis.start({ serverUrl, appId });
-
-
-
 //--------------------------------------ADDRESS
 
 window.userAddress = null;

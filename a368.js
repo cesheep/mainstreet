@@ -145,7 +145,7 @@ priceFix = parseFloat(mainstPrice,0);
 //GeckoBanana
 var BananaGecko = await $.getJSON(geckoBanana);
 var bnanaJson = await JSON.stringify(BananaGecko);
-bananaPrice = (BigNumber(bnanaJson.slice(0,2))).toFixed();
+bananaPrice = (BigNumber(bnanaJson.slice(53,63)));
 console.log(bnanaJson);
 console.log(bananaPrice);
 bNanaPriceFix = parseFloat(bananaPrice,0);

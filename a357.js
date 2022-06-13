@@ -197,6 +197,11 @@ document.getElementById('banana').innerHTML = BPFormat;
   bananaBag = bananaMath+gnanaMath;
   //const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   //const bagFormat = (BigNumber(BbagMath)).toFormat(2);
+  console.log(bananaCv);
+  console.log(gnanaCv);
+  console.log(bananaMath);
+  console.log(window.bNanaPriceFix);
+  console.log(window.gnanaGet);
   console.log(bananaBag);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations

@@ -9,7 +9,8 @@ const claimABI = [{"inputs":[{"internalType":"address","name":"minter","type":"a
 
 
 ///SRCCoingeko
-const CoinGecko= "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89&vs_currencies=usd"
+const geckoMainst= "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89&vs_currencies=usd"
+const geckoBanana = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95&vs_currencies=usd";
 
 ////--------------------------------------PARSING
 const mmString = JSON.stringify(mmABI);
@@ -145,11 +146,20 @@ const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
 const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: window.userAddress});
 const mainstH = await tokenInfo;
 const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
-//CoingeckoPrice
-var coinGet = await $.getJSON(CoinGecko);
-var coinJson = await JSON.stringify(coinGet);
+//GeckoMainst
+var MainstGecko = await $.getJSON(geckoMainst);
+var coinJson = await JSON.stringify(MainstGecko);
 mainstPrice = (BigNumber(coinJson.slice(53,64))).toFixed();
 priceFix = parseFloat(mainstPrice,0);
+//GeckoBanana
+var BananaGecko = await $.getJSON(geckoBanana);
+var bnanaJson = await JSON.stringify(BananaGecko);
+bananaPrice = (BigNumber(bnanaJson.slice(53,64))).toFixed();
+bNanaPriceFix = parseFloat(bananaPrice,0);
+//GeckoGnana
+var gnanaGet = bNanaPriceFix*1.389;
+gnanaPrice = (BigNumber(gnanaGet.slice(53,64))).toFixed();
+gNanaPriceFix = parseFloat(gnanaPrice,0);
 
 //MainstPriceMath
   hodl = parseInt(mainstH,0);//Balance
@@ -177,14 +187,6 @@ async function getGnana(){
   const GPoolMath = ((((BigNumber(poolGnana))/DivBase).toFixed(2)));
   const GPFormat = (BigNumber(GPoolMath)).toFormat(2);
   document.getElementById('gnana').innerHTML = GPFormat;
-//BananaPrice
-  const bananaOptions = {address: bananaToken, chain: "bsc",};
-  const bananaPrice = await Moralis.Web3API.token.getTokenPrice(bananaOptions);
-  const bananaUsdPrice = await bananaPrice.usdPrice;
-//GnanaPrice
-  const gnanaOptions = {address: gnanaToken, chain: "bsc",};
-  const gnanaPrice = await Moralis.Web3API.token.getTokenPrice(gnanaOptions);
-  const gnanaUsdPrice = await gnanaPrice.usdPrice;
 //BANANAWALLET = REWARD WALLET
     const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
     const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
@@ -200,8 +202,8 @@ document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
   bananaCv = BigNumber(PSplit-bWBalance);
   gnanaCv = BigNumber(poolGnana);
-  bananaMath = (bananaCv*bananaUsdPrice);
-  gnanaMath = (gnanaCv*gnanaUsdPrice);
+  bananaMath = (bananaCv*bNanaPriceFix);
+  gnanaMath = (gnanaCv*gNanaPriceFix);
   bananaBag = bananaMath+gnanaMath;
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
@@ -220,7 +222,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   const monkeyR =  await monkeyTXN.methods.totalSupply().call({from: window.userAddress});
   const monkeys = await monkeyR;
   //Total Calcs
-  totalRwd = (bWBalance)*bananaUsdPrice;
+  totalRwd = (bWBalance)*gNanaPriceFix;
   rwdMath = (totalRwd*rwdRate)/monkeys;
   minusTax = BigNumber((rwdMath*rwdTax)/DivBase).toFormat(2);
   rwdDisplay = ((BigNumber(minusTax))).toFixed(2);

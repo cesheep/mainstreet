@@ -188,14 +188,13 @@ const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
 const BPFormat = (BigNumber(BPMath)).toFormat(2);
 document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
-  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*windowgnanaGet);
+  bananaBag = ((BigNumber(PSplit-bWallet))*window.bNanaPriceFix)+((BigNumber(poolGnana))*windowgnanaGet);
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations
   //Total Calcs
-  totalRwd = (bWallet)+poolGnana;
-  rwdMath = (totalRwd*rwdRate)/window.realSupply;
+  rwdMath = (BWallet*rwdRate)/window.realSupply;
   minusTax = BigNumber((rwdMath*rwdTax)/DivBase).toFormat(2);
   rwdDisplay = ((BigNumber(minusTax))).toFixed(2);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";

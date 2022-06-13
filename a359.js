@@ -131,13 +131,12 @@ async function checkLogged(){
 //---------------------------------------------PRICES
 //Mainst Data
 async function getMainstData(){
-//maistPrice
+//MaistPrice
 const mainstjsonString = JSON.stringify(mainstABI);
 const mainstABIParse = JSON.parse(mainstjsonString);
 const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
 const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: window.userAddress});
-const mainstH = await tokenInfo;
-const bMath = (((BigNumber(mainstH)).toFormat(2)).toString());
+const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 //GeckoMainst
 var MainstGecko = await $.getJSON(geckoMainst);
 var coinJson = await JSON.stringify(MainstGecko);
@@ -146,6 +145,7 @@ priceFix = parseFloat(mainstPrice,0);
 //GeckoBanana
 var BananaGecko = await $.getJSON(geckoBanana);
 var bnanaJson = await JSON.stringify(BananaGecko);
+console.log(bnanaJson.0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95);
 console.log(BananaGecko);
 console.log(bnanaJson);
 bananaPrice = (BigNumber(bnanaJson.slice(53,64))).toFixed();

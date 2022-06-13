@@ -192,8 +192,8 @@ document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
   bananaCv = BigNumber(PSplit-bWBalance);
   gnanaCv = BigNumber(poolGnana);
-  bananaMath = (bananaCv*bNanaPriceFix);
-  gnanaMath = (gnanaCv*gnanaGet);
+  bananaMath = (bananaCv*window.bNanaPriceFix);
+  gnanaMath = (gnanaCv*window.gnanaGet);
   bananaBag = bananaMath+gnanaMath;
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
@@ -212,7 +212,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   const monkeyR =  await monkeyTXN.methods.totalSupply().call({from: window.userAddress});
   const monkeys = await monkeyR;
   //Total Calcs
-  totalRwd = (bWBalance)*gnanaGet;
+  totalRwd = (bWBalance)*window.gnanaGet;
   rwdMath = (totalRwd*rwdRate)/monkeys;
   minusTax = BigNumber((rwdMath*rwdTax)/DivBase).toFormat(2);
   rwdDisplay = ((BigNumber(minusTax))).toFixed(2);

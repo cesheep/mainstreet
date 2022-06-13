@@ -194,8 +194,8 @@ document.getElementById('banana').innerHTML = BPFormat;
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
 //RewardCalculations
   //Total Calcs
-  rwdMath = (bWallet*rwdRate)/window.realSupply;
-  console.log(bWallet);
+  rwdMath = (bWDisplay*rwdRate)/window.realSupply;
+  console.log(bWDisplay);
   console.log(window.realSupply);
   minusTax = BigNumber((rwdMath*rwdTax)/DivBase).toFormat(2);
   rwdDisplay = ((BigNumber(minusTax))).toFixed(2);

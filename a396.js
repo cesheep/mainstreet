@@ -279,7 +279,7 @@ window.userAddress = window.localStorage.getItem("userAddress");
 window.onload = async () =>{
  window.web3 = new Web3(window.ethereum);
  checkLogged();
- checkBSC();
+ //checkBSC();
 // Load in Localstore key
 //Whenclicked---------------------------------------
 var anchors = document.getElementsByTagName('*');

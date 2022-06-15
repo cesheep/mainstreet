@@ -138,9 +138,10 @@ const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
 const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: window.userAddress});
 const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 //GeckoMainst
+//{"0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89":{"usd":4.7216e-10}}
 var MainstGecko = await $.getJSON(geckoMainst);
 var coinJson = await JSON.stringify(MainstGecko);
-mainstPrice = (BigNumber(coinJson.slice(53,64))).toFixed();
+mainstPrice = (BigNumber(coinJson.slice(53,63))).toFixed();
 priceFix = parseFloat(mainstPrice,0);
 //GeckoBanana
 var BananaGecko = await $.getJSON(geckoBanana);

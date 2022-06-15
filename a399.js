@@ -196,7 +196,7 @@ document.getElementById('banana').innerHTML = BPFormat;
 //RewardCalculations
   //Total Calcs
   rwdMath = (bWDisplay*rwdRate)/window.realSupply;
-  rwdDisplay = BigNumber((rwdMath*rwdTax)*bNanaPriceFix).toFormat(2);
+  rwdDisplay = BigNumber((rwdMath*rwdTax)*window.bNanaPriceFix).toFormat(2);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
 
 

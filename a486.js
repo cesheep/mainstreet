@@ -59,7 +59,6 @@ window.web3 = new Web3(window.ethereum);
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: '0x38' }], // chainId must be in hexadecimal numbers
       });
-      dataFill();
     } catch (error) {
       // This error code indicates that the chain has not been added to MetaMask
       // if it is not, then install it into the user MetaMask
@@ -83,7 +82,8 @@ window.web3 = new Web3(window.ethereum);
   } else {
     // if no window.ethereum then MetaMask is not installed
     alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html');
-  } 
+  }
+  dataFill(); 
 }// End
 //--------------------------------------LOGIN
 async function loginMetamask(){
@@ -125,7 +125,6 @@ async function checkLogged(){
           getMonkeysData();
           getGnana();
           checkBSC();
-
           document.getElementById('NotConnected').style.display = 'none';
         }
           

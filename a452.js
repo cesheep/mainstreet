@@ -139,8 +139,9 @@ const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: wi
 const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 //GeckoMainst
 var MainstGecko = await $.getJSON(geckoMainst);
-const {0x8FC1A944c149762B6b578A06c0de2ABd6b7d2B89: {usd} } = MainstGecko;
+const {"0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89": {usd} } = MainstGecko;
 console.log(usd);
+console.log(MainstGecko);
 
 var coinJson = await JSON.stringify(MainstGecko);
 

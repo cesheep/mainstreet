@@ -140,6 +140,10 @@ const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 //GeckoMainst
 var MainstGecko = await $.getJSON(geckoMainst);
 var coinJson = await JSON.stringify(MainstGecko);
+var conJson2 = await JSON.parse(coinJson);
+console.log(MainstGecko);
+console.log(coinJson);
+console.log(conJson2);
 mainstPrice = (BigNumber(coinJson.slice(53,63))).toFixed();
 priceFix = parseFloat(mainstPrice/DivFix9,0);
 //GeckoBanana
@@ -205,7 +209,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   claimBalance = await toClaimB;
   claimDisplay = (BigNumber(claimBalance));
-  claimVsPrice = (((BigNumber(claimDisplay)*window.priceFix))/window.realSupply);
+  claimVsPrice = ((BigNumber(claimDisplay)*window.priceFix));
   document.getElementById('bonusReward').innerHTML = "$"+claimVsPrice+ " per Monkey";
   console.log(window.mainstPrice);
   console.log(claimDisplay);

@@ -13,6 +13,8 @@ const geckoMainst= "https://api.coingecko.com/api/v3/simple/token_price/binance-
 const geckoBanana = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95&vs_currencies=usd";
 
 ////--------------------------------------PARSING
+const mainstjsonString = JSON.stringify(mainstABI);
+const mainstABIParse = JSON.parse(mainstjsonString);
 const mmString = JSON.stringify(mmABI);
 const mmParse = JSON.parse(mmString);
 const gnanaString = JSON.stringify(gnanaPABI);
@@ -38,9 +40,7 @@ bBagAd = "0xeE983b1c116114d638697ed3037DB37A6b981F25";
 claimContract= "0x32b8c61588540D497B411b4C7E8106ED0E0c2D66";//CLAIM
 
 //--------------------------------------ADDRESS
-
 window.userAddress = null;
-const SERVER_URL ="https://bsc-dataseed1.binance.org:443";
 window.web3 = new Web3(window.ethereum);
 //--------------------------------------RATES
 const DivBase = 1000000000000000000;//18
@@ -132,8 +132,6 @@ async function checkLogged(){
         }
 //---------------------------------------------PRICES
 async function getMainstData(){//MAINSTREET
-  const mainstjsonString = JSON.stringify(mainstABI);
-  const mainstABIParse = JSON.parse(mainstjsonString);
   const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
   const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: window.userAddress});
   const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());

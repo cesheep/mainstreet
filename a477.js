@@ -13,8 +13,6 @@ const geckoMainst= "https://api.coingecko.com/api/v3/simple/token_price/binance-
 const geckoBanana = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses=0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95&vs_currencies=usd";
 
 ////--------------------------------------PARSING
-const mainstjsonString = JSON.stringify(mainstABI);
-const mainstABIParse = JSON.parse(mainstjsonString);
 const mmString = JSON.stringify(mmABI);
 const mmParse = JSON.parse(mmString);
 const gnanaString = JSON.stringify(gnanaPABI);
@@ -132,6 +130,8 @@ async function checkLogged(){
         }
 //---------------------------------------------PRICES
 async function getMainstData(){//MAINSTREET
+  const mainstjsonString = JSON.stringify(mainstABI);
+  const mainstABIParse = JSON.parse(mainstjsonString);
   const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
   const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: window.userAddress});
   const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
@@ -188,7 +188,7 @@ async function getGnana(){
   const BPFormat = (BigNumber(PSplit)).toFormat(2);
   document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
-  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bananaPrice)+((BigNumber(poolGnana))*window.gnanaPrice);
+  bananaBag = ((BigNumber(splitBalance-bWBalance))*window.bananaPrice)+((BigNumber(poolGnana))*window.gnanaPrice);
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;

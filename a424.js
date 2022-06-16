@@ -141,7 +141,7 @@ const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 var MainstGecko = await $.getJSON(geckoMainst);
 var coinJson = await JSON.stringify(MainstGecko);
 conJSON = await fetch(geckoMainst);
-console.log(conJsonT);
+console.log(conJSON);
 console.log(MainstGecko);
 console.log(coinJson);
 mainstPrice = (BigNumber(coinJson.slice(53,63))).toFixed();

@@ -141,12 +141,12 @@ const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 //GeckoMainst
 var MainstGecko = await $.getJSON(geckoMainst);
 var {"0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89": {usd} } = MainstGecko;
-console.log(usd);
 
 mainstPrice = BigNumber(usd).toFixed();
-console.log(mainstPrice);
+MainstUSD = parseFloat(mainstPrice,0);
+console.log(MainstUSD)
 //mainstPrice = (BigNumber(coinJson.slice(53,63))).toFixed();
-priceFix = parseFloat(mainstPrice/DivFix9,0);
+priceFix = parseFloat(mainstPrice,0);
 
 //MainstPriceMath
 hodl = parseInt(tokenInfo,0);//Balance

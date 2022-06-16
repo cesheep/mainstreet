@@ -58,9 +58,8 @@ window.web3 = new Web3(window.ethereum);
       await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: '0x38' }], // chainId must be in hexadecimal numbers
-        dataFill()
       });
-
+      dataFill();
     } catch (error) {
       // This error code indicates that the chain has not been added to MetaMask
       // if it is not, then install it into the user MetaMask

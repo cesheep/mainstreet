@@ -125,45 +125,39 @@ async function checkLogged(){
           getBananaData();
           getMonkeysData();
           getGnana();
+          checkBSC();
           document.getElementById('NotConnected').style.display = 'none';
         }
           
         }
 //---------------------------------------------PRICES
 async function getMainstData(){//MAINSTREET
-const mainstjsonString = JSON.stringify(mainstABI);
-const mainstABIParse = JSON.parse(mainstjsonString);
-const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
-const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: window.userAddress});
-const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
-//GeckoMainst
-var MainstGecko = await $.getJSON(geckoMainst);
-var {"0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89": {usd} } = MainstGecko;
-mainstPrice = BigNumber(usd).toFixed();
+  const mainstjsonString = JSON.stringify(mainstABI);
+  const mainstABIParse = JSON.parse(mainstjsonString);
+  const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
+  const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: window.userAddress});
+  const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
+  //GeckoMainst
+  var MainstGecko = await $.getJSON(geckoMainst);
+  var {"0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89": {usd} } = MainstGecko;
+  mainstPrice = BigNumber(usd).toFixed();
 
 //MainstPriceMath
-hodl = parseInt(tokenInfo,0);//Balance
-hodlMath = ((BigNumber(hodl*mainstPrice))/DivFix9).toFixed(2);
-hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
-hodlUSD = (BigNumber(hodlMath).toFormat(2))
-document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
-document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
-
-
-//MainstToClaim
-toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
-claimBalance = await (BigNumber(toClaimB/DivFix9)*window.mainstPrice).toFixed(2);
-document.getElementById('bonusReward').innerHTML = "$"+claimBalance+ " per Monkey";
-
+  hodl = parseInt(tokenInfo,0);//Balance
+  hodlMath = ((BigNumber(hodl*mainstPrice))/DivFix9).toFixed(2);
+  hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
+  hodlUSD = (BigNumber(hodlMath).toFormat(2))
+  document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
+  document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
 }
 
 async function getBananaData(){ //BANANA GNANA
     //GeckoBanana
-var BananaGecko = await $.getJSON(geckoBanana);
-var {"0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95":{usd}} = BananaGecko;
-bananaPrice = BigNumber(usd).toFixed();
+  var BananaGecko = await $.getJSON(geckoBanana);
+  var {"0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95":{usd}} = BananaGecko;
+  bananaPrice = BigNumber(usd).toFixed();
   //GeckoGNANA
-gnanaPrice = bananaPrice*1.389;
+  gnanaPrice = bananaPrice*1.389;
 }
 
 //MM Data
@@ -193,8 +187,8 @@ async function getGnana(){
   const splitTxn =  new web3.eth.Contract(splitParse,bBagAd);
   const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED().call({from: window.userAddress});
   const PSplit = await BigNumber(splitBalance/DivBase).toFixed(2);
-const BPFormat = (BigNumber(PSplit)).toFormat(2);
-document.getElementById('banana').innerHTML = BPFormat;
+  const BPFormat = (BigNumber(PSplit)).toFormat(2);
+  document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
   bananaBag = ((BigNumber(PSplit-bWBalance))*window.bananaPrice)+((BigNumber(poolGnana))*window.gnanaPrice);
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
@@ -206,12 +200,15 @@ document.getElementById('banana').innerHTML = BPFormat;
   rwdDisplay = BigNumber((rwdMath*rwdTax)*window.bananaPrice).toFormat(2);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
 
-
+  //MainstToClaim
+  claimTXN = new web3.eth.Contract(claimABI,claimContract);
+  toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
+  claimBalance = await (BigNumber(toClaimB/DivFix9)*window.mainstPrice).toFixed(2);
+  document.getElementById('bonusReward').innerHTML = "$"+claimBalance+ " per Monkey";
 }
-const claimTXN = new web3.eth.Contract(claimABI,claimContract);
 
 async function claimBag(){
-
+  claimTXN = new web3.eth.Contract(claimABI,claimContract);
   claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
 }
 

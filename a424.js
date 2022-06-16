@@ -211,6 +211,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   claimDisplay = (BigNumber(claimBalance));
   claimVsPrice = ((BigNumber(claimDisplay)*window.priceFix));
   document.getElementById('bonusReward').innerHTML = "$"+claimVsPrice+ " per Monkey";
+  document.getElementById('Test').innerHTML = "$"+claimVsPrice+ " per Monkey";
   console.log(window.mainstPrice);
   console.log(claimDisplay);
   console.log(claimVsPrice);
@@ -222,33 +223,7 @@ async function claimBag(){
   claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
 }
 
-//--------------------------------------COUNTER
-  // declare & initialize x at 0
-  window.x = 0;
-  // on button click
-  $('.hack17-counter-button.hack17-up').on('click', ()=>{  
-    // increment & set new value 
-    $('.hack17-counter-input.w-input').val( ++x );
-  });
-
-  $('.hack17-counter-button.hack17-down').on('click', ()=>{  	
-    // decrement & set new value 
-    if(x > 0){
-      $('.hack17-counter-input.w-input').val( --x );
-    }
-  });
-  
-  // on input value change
-  $('.hack17-counter-input.w-input').change(function(){
-    // convert input value to number
-    num = Number($(this).val());
-    // if it's a number
-    if(num){
-      // assign its value to x
-      window.x = num;
-    }
-  });
-//--------------------------------------MINT
+///--------------------------------------MINT
 async function mintMM() {
  window.web3 = new Web3(window.ethereum);
   if(window.x > 0){

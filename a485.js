@@ -209,16 +209,16 @@ async function getGnana(){
 }
 async function dataFill(){
   document.getElementById("address").innerText = window.userAddress.slice(0,6)+"......"+window.userAddress.slice(38,42);
-  document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
+  document.getElementById('MainstBalance').innerHTML = window.bMath.slice(0,-15)+"."+window.bMath.slice(18,20)+ " = $"+window.hodlUSD;
   document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
-  document.getElementById('minted-counter').innerHTML = totalSupply;
-  document.getElementById('mmHold').innerHTML = mmBalance;
-  document.getElementById('mmPageMinted').innerHTML = totalSupply;
-  document.getElementById('gnana').innerHTML = GPFormat;
-  document.getElementById('banana').innerHTML = BPFormat;
-  document.getElementById('bananabag').innerHTML = " $"+bagFormat;
-  document.getElementById('bananabag').innerHTML = " $"+bagFormat;
-  document.getElementById('bonusReward').innerHTML = "$"+claimBalance+ " per Monkey";
+  document.getElementById('minted-counter').innerHTML = window.totalSupply;
+  document.getElementById('mmHold').innerHTML = window.mmBalance;
+  document.getElementById('mmPageMinted').innerHTML = window.totalSupply;
+  document.getElementById('gnana').innerHTML = window.GPFormat;
+  document.getElementById('banana').innerHTML = window.BPFormat;
+  document.getElementById('bananabag').innerHTML = " $"+window.bagFormat;
+  document.getElementById('bananabag').innerHTML = " $"+window.bagFormat;
+  document.getElementById('bonusReward').innerHTML = "$"+window.claimBalance+ " per Monkey";
 }
 async function claimBag(){
   checkBSC();

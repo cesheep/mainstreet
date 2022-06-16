@@ -129,7 +129,8 @@ async function checkLogged(){
           
         }
 //---------------------------------------------PRICES
-async function getMainstData(){//MAINSTREET
+//---------------------------------------------MAINSTREET
+async function getMainstData(){
   const mainstjsonString = JSON.stringify(mainstABI);
   const mainstABIParse = JSON.parse(mainstjsonString);
   const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
@@ -148,13 +149,13 @@ async function getMainstData(){//MAINSTREET
   document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
   document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
 }
-
-async function getBananaData(){ //BANANA GNANA
-    //GeckoBanana
+//---------------------------------------------BANANA GNANA PRICES
+async function getBananaData(){ 
+//GeckoBanana
   var BananaGecko = await $.getJSON(geckoBanana);
   var {"0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95":{usd}} = BananaGecko;
   bananaPrice = BigNumber(usd).toFixed();
-  //GeckoGNANA
+//GeckoGNANA
   gnanaPrice = bananaPrice*1.389;
 }
 
@@ -168,7 +169,7 @@ async function getMonkeysData() {
   document.getElementById('mmHold').innerHTML = mmBalance;
   document.getElementById('mmPageMinted').innerHTML = totalSupply;
 }
-//Gnana Banana holdings
+//------------------------------------------------GNANA & BANANA BALANCES
 async function getGnana(){
   const gnanaTxn =  new web3.eth.Contract(gnanaParse,GNANAContract);
   const gnanaBalance =  await gnanaTxn.methods.userInfo(bBagAd).call({from: window.userAddress});
@@ -192,11 +193,11 @@ async function getGnana(){
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
-//RewardCalculations
+//-------------------------------------------------RewardCalculations
   //Total Calcs
   rwdMath = (bWDisplay*rwdRate)/window.realSupply;
   rwdDisplay = BigNumber((rwdMath*rwdTax)*window.bananaPrice).toFormat(2);
-  document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
+  //document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
 
   //MainstToClaim
   claimTXN = new web3.eth.Contract(claimABI,claimContract);
@@ -209,33 +210,6 @@ async function claimBag(){
   claimTXN = new web3.eth.Contract(claimABI,claimContract);
   claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
 }
-
-//--------------------------------------COUNTER
-  // declare & initialize x at 0
-  window.x = 0;
-  // on button click
-  $('.hack17-counter-button.hack17-up').on('click', ()=>{  
-    // increment & set new value 
-    $('.hack17-counter-input.w-input').val( ++x );
-  });
-
-  $('.hack17-counter-button.hack17-down').on('click', ()=>{  	
-    // decrement & set new value 
-    if(x > 0){
-      $('.hack17-counter-input.w-input').val( --x );
-    }
-  });
-  
-  // on input value change
-  $('.hack17-counter-input.w-input').change(function(){
-    // convert input value to number
-    num = Number($(this).val());
-    // if it's a number
-    if(num){
-      // assign its value to x
-      window.x = num;
-    }
-  });
 //--------------------------------------MINT
 async function mintMM() {
  window.web3 = new Web3(window.ethereum);
@@ -275,99 +249,29 @@ window.onUnload = async() =>{
     logOut();
 }
 
-var Heads = '';
-var Tails = '';
-var result = ''; //Heads = 0, Tails = 1
-var bnbON = '';
-var mainstON = '';
-var resetInput = '';
+//--------------------------------------COUNTER
+  // declare & initialize x at 0
+  window.x = 0;
+  // on button click
+  $('.hack17-counter-button.hack17-up').on('click', ()=>{  
+    // increment & set new value 
+    $('.hack17-counter-input.w-input').val( ++x );
+  });
 
-
-//Chain Selector
-async function bnbSelect(){
-  document.getElementById('betFor').innerHTML = "BET $BNB TO WIN $BNB";
-  document.getElementById('selectionDisplay').innerHTML = "Please select a side";
-  document.getElementById('PayOut').innerHTML = "Payout = x0.00";
-  resetInput = document.getElementById("inputBet").placeholder = "$1000 in $BNB";
-  resetInput = document.getElementById("inputBet").value = '';
-  bnbON = 1;
-  mainstON = 0;
-  Heads ='';
-  Tails ='';
-  window.x=0;
-
-}
-async function mainstSelect (){
-  document.getElementById('betFor').innerHTML = "BET $MAINST TO WIN $MAINST";
-  document.getElementById('selectionDisplay').innerHTML = "Please select a side";
-  resetInput = document.getElementById("inputBet").placeholder = "$1000 in $MAINST";
-  document.getElementById('PayOut').innerHTML = "Payout = x0.00";
-  resetInput = document.getElementById("inputBet").value = '';
-  mainstON =1;
-  bnbON = 0;
-  Heads ='';
-  Tails ='';
-  window.x=0;
-}
-
-//Coinflip
-async function selectionHeads(){
-  Tails = 0;
-  Heads = 1;
-  document.getElementById('PayOut').innerHTML = "Payout = x1.90";
-  document.getElementById('selectionDisplay').innerHTML = "Selection: Heads";
-}
-async function selectionTails(){
-  document.getElementById('PayOut').innerHTML = "Payout = x1.90";
-  document.getElementById('selectionDisplay').innerHTML = "Selection: Tails";
-  Heads = 0;
-  Tails = 1;
-}
-
-async function selectSide(){
-  if (Heads == 1){
-    document.getElementById('selecting').innerHTML = "Heads"
-    Tails = 0;
-    result = 0;
-  }
-  if(Tails == 1){
-    Heads = 0;
-    document.getElementById('selecting').innerHTML = "Tails";
-    result = 1;
-  }
-
-}
-
-async function fillOverlay(){
+  $('.hack17-counter-button.hack17-down').on('click', ()=>{  	
+    // decrement & set new value 
+    if(x > 0){
+      $('.hack17-counter-input.w-input').val( --x );
+    }
+  });
   
-document.getElementById('betting').innerHTML = window.x;//Sets the ammount
-  
-if(bnbON==1){//Sets Currency
-  document.getElementById('paying').innerHTML = "$BNB";
-}else{
-  document.getElementById('paying').innerHTML = "$MAINST";
-}
-}
-
-
-async function checkDataBet(){
-  if(bnbON > 0 || mainstON >0){//Checks Coin
-    if(Tails > 0 || Heads > 0){//Checks Selection
-      selectSide();
-      var Bet = document.getElementById('inputBet').value;
-      if( window.x > 0 && Bet !== ''){//Check Requiered
-        document.getElementById('confirmOverlay').style.display = "flex";
-        fillOverlay();
-      }else{
-        alert("Please Input an amount")
-
-      }
-    }else{//Else Selection
-      alert("Please select a side");
-      return;
-    } 
-  }else{//Else Coin
-    alert("Please select a Token to play first.");
-    return;
-  }
-}
+  // on input value change
+  $('.hack17-counter-input.w-input').change(function(){
+    // convert input value to number
+    num = Number($(this).val());
+    // if it's a number
+    if(num){
+      // assign its value to x
+      window.x = num;
+    }
+  });

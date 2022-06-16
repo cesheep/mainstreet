@@ -58,11 +58,9 @@ window.web3 = new Web3(window.ethereum);
       await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: '0x38' }], // chainId must be in hexadecimal numbers
+        dataFill()
       });
-      getMainstData();
-      getBananaData();
-      getMonkeysData();
-      getGnana();
+
     } catch (error) {
       // This error code indicates that the chain has not been added to MetaMask
       // if it is not, then install it into the user MetaMask
@@ -128,6 +126,7 @@ async function checkLogged(){
           getMonkeysData();
           getGnana();
           checkBSC();
+
           document.getElementById('NotConnected').style.display = 'none';
         }
           
@@ -209,7 +208,19 @@ async function getGnana(){
   claimBalance = await (BigNumber(toClaimB/DivFix9)*window.mainstPrice).toFixed(2);
   document.getElementById('bonusReward').innerHTML = "$"+claimBalance+ " per Monkey";
 }
-
+async function dataFill(){
+  document.getElementById("address").innerText = window.userAddress.slice(0,6)+"......"+window.userAddress.slice(38,42);
+  document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
+  document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
+  document.getElementById('minted-counter').innerHTML = totalSupply;
+  document.getElementById('mmHold').innerHTML = mmBalance;
+  document.getElementById('mmPageMinted').innerHTML = totalSupply;
+  document.getElementById('gnana').innerHTML = GPFormat;
+  document.getElementById('banana').innerHTML = BPFormat;
+  document.getElementById('bananabag').innerHTML = " $"+bagFormat;
+  document.getElementById('bananabag').innerHTML = " $"+bagFormat;
+  document.getElementById('bonusReward').innerHTML = "$"+claimBalance+ " per Monkey";
+}
 async function claimBag(){
   checkBSC();
   claimTXN = new web3.eth.Contract(claimABI,claimContract);

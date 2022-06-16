@@ -141,11 +141,10 @@ const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 var MainstGecko = await $.getJSON(geckoMainst, function(resp){
   var usd = 0;
   $.each(resp,function(usd){
-    console.log(usd);
+    console.log(resp);
   })
 })
 var coinJson = await JSON.stringify(MainstGecko);
-console.log(MainstGecko);
 
 mainstPrice = (BigNumber(coinJson.slice(53,63))).toFixed();
 priceFix = parseFloat(mainstPrice/DivFix9,0);

@@ -207,6 +207,7 @@ async function getGnana(){
 }
 
 async function claimBag(){
+  checkBSC();
   claimTXN = new web3.eth.Contract(claimABI,claimContract);
   claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
 }

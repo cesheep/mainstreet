@@ -130,9 +130,7 @@ async function checkLogged(){
           
         }
 //---------------------------------------------PRICES
-//Mainst Data
-async function getMainstData(){
-//MaistPrice
+async function getMainstData(){//MAINSTREET
 const mainstjsonString = JSON.stringify(mainstABI);
 const mainstABIParse = JSON.parse(mainstjsonString);
 const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
@@ -141,9 +139,7 @@ const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 //GeckoMainst
 var MainstGecko = await $.getJSON(geckoMainst);
 var {"0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89": {usd} } = MainstGecko;
-
 mainstPrice = BigNumber(usd).toFixed();
-//mainstPrice = (BigNumber(coinJson.slice(53,63))).toFixed();
 
 //MainstPriceMath
 hodl = parseInt(tokenInfo,0);//Balance
@@ -154,8 +150,7 @@ document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMat
 document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
 }
 
-
-async function getBananaData(){
+async function getBananaData(){ //BANANA GNANA
     //GeckoBanana
 var BananaGecko = await $.getJSON(geckoBanana);
 var {"0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95":{usd}} = BananaGecko;
@@ -163,7 +158,6 @@ bananaPrice = BigNumber(usd).toFixed();
 console.log(bananaPrice);
 //GeckoGnana
 gnanaPrice = bananaPrice*1.389;
-console.log(gnanaPrice)
 }
 
 //MM Data
@@ -198,6 +192,7 @@ const BPFormat = (BigNumber(BPMath)).toFormat(2);
 document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
   bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*window.gnanaPrice);
+  console.log(bananaBag);
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
@@ -205,6 +200,8 @@ document.getElementById('banana').innerHTML = BPFormat;
   //Total Calcs
   rwdMath = (bWDisplay*rwdRate)/window.realSupply;
   rwdDisplay = BigNumber((rwdMath*rwdTax)*window.bNanaPriceFix).toFormat(2);
+  console.log(rwdMath);
+  console.log(rwdDisplay);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
 
 

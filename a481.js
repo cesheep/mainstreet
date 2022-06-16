@@ -59,6 +59,10 @@ window.web3 = new Web3(window.ethereum);
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: '0x38' }], // chainId must be in hexadecimal numbers
       });
+      getMainstData();
+      getBananaData();
+      getMonkeysData();
+      getGnana();
     } catch (error) {
       // This error code indicates that the chain has not been added to MetaMask
       // if it is not, then install it into the user MetaMask
@@ -197,7 +201,7 @@ async function getGnana(){
   //Total Calcs
   rwdMath = (bWDisplay*rwdRate)/window.realSupply;
   rwdDisplay = BigNumber((rwdMath*rwdTax)*window.bananaPrice).toFormat(2);
-  document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
+  //document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
 
   //MainstToClaim
   claimTXN = new web3.eth.Contract(claimABI,claimContract);

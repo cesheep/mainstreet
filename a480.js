@@ -197,7 +197,7 @@ async function getGnana(){
   //Total Calcs
   rwdMath = (bWDisplay*rwdRate)/window.realSupply;
   rwdDisplay = BigNumber((rwdMath*rwdTax)*window.bananaPrice).toFormat(2);
-  //document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
+  document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
 
   //MainstToClaim
   claimTXN = new web3.eth.Contract(claimABI,claimContract);

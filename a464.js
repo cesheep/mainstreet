@@ -155,8 +155,7 @@ async function getBananaData(){ //BANANA GNANA
 var BananaGecko = await $.getJSON(geckoBanana);
 var {"0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95":{usd}} = BananaGecko;
 bananaPrice = BigNumber(usd).toFixed();
-console.log(bananaPrice);
-//GeckoGnana
+  //GeckoGNANA
 gnanaPrice = bananaPrice*1.389;
 }
 
@@ -191,7 +190,7 @@ const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
 const BPFormat = (BigNumber(BPMath)).toFormat(2);
 document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
-  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*window.gnanaPrice);
+  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bananaPrice)+((BigNumber(poolGnana))*window.gnanaPrice);
   console.log(bananaBag);
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);

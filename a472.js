@@ -148,6 +148,13 @@ hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
 hodlUSD = (BigNumber(hodlMath).toFormat(2))
 document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
 document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
+
+
+//MainstToClaim
+toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
+claimBalance = await (BigNumber(toClaimB/DivFix9)*window.mainstPrice).toFixed(2);
+document.getElementById('bonusReward').innerHTML = "$"+claimBalance+ " per Monkey";
+
 }
 
 async function getBananaData(){ //BANANA GNANA
@@ -178,16 +185,15 @@ async function getGnana(){
   const GPFormat = (BigNumber(GPoolMath)).toFormat(2);
   document.getElementById('gnana').innerHTML = GPFormat;
 //BANANAWALLET = REWARD WALLET
-    const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
-    const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
-    const bWBalance = await bWallet;
-    const bWDisplay = ((BigNumber(bWBalance))/DivBase).toFixed(2);
+  const BWTXN = new web3.eth.Contract(bTParse,bananaToken);
+  const bWallet =  await BWTXN.methods.balanceOf(bBagAd).call({from: window.userAddress});
+  const bWBalance = await bWallet;
+  const bWDisplay = ((BigNumber(bWBalance))/DivBase).toFixed(2);
 //BananaAmmounts
-const splitTxn =  new web3.eth.Contract(splitParse,bBagAd);
-const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED().call({from: window.userAddress});
-const PSplit = await splitBalance;
-const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
-const BPFormat = (BigNumber(BPMath)).toFormat(2);
+  const splitTxn =  new web3.eth.Contract(splitParse,bBagAd);
+  const splitBalance =  await splitTxn.methods.TOTAL_BANANA_STAKED().call({from: window.userAddress});
+  const PSplit = await BigNumber(splitBalance/DivBase).toFixed(2);
+const BPFormat = (BigNumber(PSplit)).toFormat(2);
 document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
   bananaBag = ((BigNumber(PSplit-bWBalance))*window.bananaPrice)+((BigNumber(poolGnana))*window.gnanaPrice);
@@ -200,15 +206,12 @@ document.getElementById('banana').innerHTML = BPFormat;
   rwdDisplay = BigNumber((rwdMath*rwdTax)*window.bananaPrice).toFormat(2);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
 
-  //MainstToClaim
-  claimTXN = new web3.eth.Contract(claimABI,claimContract);
-  toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
-  claimBalance = await (BigNumber(toClaimB/DivFix9)*window.mainstPrice).toFixed(2);
-  document.getElementById('bonusReward').innerHTML = "$"+claimBalance+ " per Monkey";
+
 }
+const claimTXN = new web3.eth.Contract(claimABI,claimContract);
 
 async function claimBag(){
-  claimTXN = new web3.eth.Contract(claimABI,claimContract);
+
   claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
 }
 

@@ -73,6 +73,7 @@ window.web3 = new Web3(window.ethereum);
               },
             ],
           });
+          document.location.reload(true);
         } catch (addError) {
           console.error(addError);
         }
@@ -83,7 +84,6 @@ window.web3 = new Web3(window.ethereum);
     // if no window.ethereum then MetaMask is not installed
     alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html');
   }
-  dataFill(); 
 }// End
 //--------------------------------------LOGIN
 async function loginMetamask(){
@@ -126,6 +126,7 @@ async function checkLogged(){
           getGnana();
           checkBSC();
           document.getElementById('NotConnected').style.display = 'none';
+          document.location.reload(true);
         }
           
         }
@@ -206,7 +207,7 @@ async function getGnana(){
   claimBalance = await (BigNumber(toClaimB/DivFix9)*window.mainstPrice).toFixed(2);
   document.getElementById('bonusReward').innerHTML = "$"+claimBalance+ " per Monkey";
 }
-async function dataFill(){
+/*async function dataFill(){
   document.getElementById("address").innerText = window.userAddress.slice(0,6)+"......"+window.userAddress.slice(38,42);
   document.getElementById('MainstBalance').innerHTML = window.bMath.slice(0,-15)+"."+window.bMath.slice(18,20)+ " = $"+window.hodlUSD;
   document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
@@ -218,7 +219,8 @@ async function dataFill(){
   document.getElementById('bananabag').innerHTML = " $"+window.bagFormat;
   document.getElementById('bananabag').innerHTML = " $"+window.bagFormat;
   document.getElementById('bonusReward').innerHTML = "$"+window.claimBalance+ " per Monkey";
-}
+}*/
+
 async function claimBag(){
   checkBSC();
   claimTXN = new web3.eth.Contract(claimABI,claimContract);

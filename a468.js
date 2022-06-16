@@ -204,9 +204,12 @@ document.getElementById('banana').innerHTML = BPFormat;
   claimTXN = new web3.eth.Contract(claimABI,claimContract);
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   claimBalance = await toClaimB;
-  claimDisplay = BigNumber(claimBalance/DivFix9).toFixed();
+
+  claimDisplay = BigNumber(claimBalance).toFixed();
   claimVsPrice = (BigNumber(claimDisplay)*window.mainstPrice)/window.realSupply;
   document.getElementById('bonusReward').innerHTML = "$"+claimVsPrice+ " per Monkey";
+  console.log(claimBalance);
+  console.log(claimDisplay);
 }
 
 async function claimBag(){

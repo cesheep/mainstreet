@@ -209,8 +209,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   claimBalance = await toClaimB;
   claimDisplay = (BigNumber(claimBalance));
-  claimVsPrice = ((BigNumber(claimDisplay)*window.priceFix));
-  document.getElementById('bonusReward').innerHTML = "$"+claimVsPrice+ " per Monkey";
+  claimVsPrice = ((BigNumber(claimDisplay)*window.mainstPrice));
   document.getElementById('bonusReward').innerHTML = "$"+claimVsPrice+ " per Monkey";
 }
 

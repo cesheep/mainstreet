@@ -138,7 +138,12 @@ const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
 const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: window.userAddress});
 const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 //GeckoMainst
-var MainstGecko = await $.getJSON(geckoMainst)
+var MainstGecko = await $.getJSON(geckoMainst, function(resp){
+  var usd = 0;
+  $.each(resp,function(usd){
+    console.log(usd);
+  })
+})
 var coinJson = await JSON.stringify(MainstGecko);
 console.log(MainstGecko);
 

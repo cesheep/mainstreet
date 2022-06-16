@@ -143,14 +143,11 @@ var MainstGecko = await $.getJSON(geckoMainst);
 var {"0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89": {usd} } = MainstGecko;
 
 mainstPrice = BigNumber(usd).toFixed();
-MainstUSD = parseFloat(mainstPrice,0);
-console.log(MainstUSD);
 //mainstPrice = (BigNumber(coinJson.slice(53,63))).toFixed();
-priceFix = parseFloat(mainstPrice,0);
 
 //MainstPriceMath
 hodl = parseInt(tokenInfo,0);//Balance
-hodlMath = ((BigNumber(hodl*priceFix))/DivFix9).toFixed(2);
+hodlMath = ((BigNumber(hodl*mainstPrice))/DivFix9).toFixed(2);
 hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
 hodlUSD = (BigNumber(hodlMath).toFormat(2))
 document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
@@ -164,14 +161,10 @@ var BananaGecko = await $.getJSON(geckoBanana);
 var {"0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95":{usd}} = BananaGecko;
 bananaPrice = BigNumber(usd).toFixed();
 console.log(bananaPrice);
-bNanaPriceFix = parseFloat(bananaPrice,0);
 //GeckoGnana
-gnanaGet = bNanaPriceFix*1.389;
-
+gnanaPrice = bananaPrice*1.389;
+console.log(gnanaPrice)
 }
-
-
-
 
 //MM Data
 async function getMonkeysData() {
@@ -204,7 +197,7 @@ const BPMath = ((((BigNumber(PSplit))/DivBase).toFixed(2)));
 const BPFormat = (BigNumber(BPMath)).toFormat(2);
 document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
-  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*window.gnanaGet);
+  bananaBag = ((BigNumber(PSplit-bWBalance))*window.bNanaPriceFix)+((BigNumber(poolGnana))*window.gnanaPrice);
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;

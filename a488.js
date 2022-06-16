@@ -126,7 +126,6 @@ async function checkLogged(){
           getGnana();
           checkBSC();
           document.getElementById('NotConnected').style.display = 'none';
-          document.location.reload(true);
         }
           
         }

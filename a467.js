@@ -191,7 +191,6 @@ const BPFormat = (BigNumber(BPMath)).toFormat(2);
 document.getElementById('banana').innerHTML = BPFormat;
 //Math2Prices
   bananaBag = ((BigNumber(PSplit-bWBalance))*window.bananaPrice)+((BigNumber(poolGnana))*window.gnanaPrice);
-  console.log(bananaBag);
   const BbagMath = ((((BigNumber(bananaBag))/DivBase).toFixed(2)));
   const bagFormat = (BigNumber(BbagMath)).toFormat(2);
   document.getElementById('bananabag').innerHTML = " $"+bagFormat;
@@ -205,7 +204,7 @@ document.getElementById('banana').innerHTML = BPFormat;
   claimTXN = new web3.eth.Contract(claimABI,claimContract);
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   claimBalance = await toClaimB;
-  claimDisplay = BigNumber(claimBalance).toFixed();
+  claimDisplay = BigNumber(claimBalance/DivFix9).toFixed();
   claimVsPrice = (BigNumber(claimDisplay)*window.mainstPrice)/window.realSupply;
   document.getElementById('bonusReward').innerHTML = "$"+claimVsPrice+ " per Monkey";
 }

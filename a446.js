@@ -140,7 +140,9 @@ const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 //GeckoMainst
 var MainstGecko = await $.getJSON(geckoMainst);
 const {usd} = MainstGecko;
-console.log(usd);
+console.log(MainsGecko.usd);
+console.log(MainstGecko.mainstContract.usd);
+console.log(mainstContract.usd)
 var coinJson = await JSON.stringify(MainstGecko);
 
 

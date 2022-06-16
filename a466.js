@@ -199,17 +199,14 @@ document.getElementById('banana').innerHTML = BPFormat;
   //Total Calcs
   rwdMath = (bWDisplay*rwdRate)/window.realSupply;
   rwdDisplay = BigNumber((rwdMath*rwdTax)*window.bananaPrice).toFormat(2);
-  console.log(rwdMath);
-  console.log(rwdDisplay);
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
-
 
   //MainstToClaim
   claimTXN = new web3.eth.Contract(claimABI,claimContract);
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   claimBalance = await toClaimB;
-  claimDisplay = (BigNumber(claimBalance));
-  claimVsPrice = ((BigNumber(claimDisplay)*window.mainstPrice));
+  claimDisplay = BigNumber(claimBalance).toFixed();
+  claimVsPrice = (BigNumber(claimDisplay)*window.mainstPrice)/window.realSupply;
   document.getElementById('bonusReward').innerHTML = "$"+claimVsPrice+ " per Monkey";
 }
 

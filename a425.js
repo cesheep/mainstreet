@@ -211,10 +211,6 @@ document.getElementById('banana').innerHTML = BPFormat;
   claimVsPrice = ((BigNumber(claimDisplay)*window.priceFix));
   document.getElementById('bonusReward').innerHTML = "$"+claimVsPrice+ " per Monkey";
   document.getElementById('bonusReward').innerHTML = "$"+claimVsPrice+ " per Monkey";
-  console.log(window.mainstPrice);
-  console.log(claimDisplay);
-  console.log(claimVsPrice);
-
 }
 
 async function claimBag(){

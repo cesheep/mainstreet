@@ -122,6 +122,7 @@ async function checkLogged(){
           document.getElementById('btn-login').style.display = 'none';
           document.getElementById('walletButton').style.display = 'block';
           getMainstData();
+          getBananaData();
           getMonkeysData();
           getGnana();
           document.getElementById('NotConnected').style.display = 'none';
@@ -138,17 +139,27 @@ const mainstTXN =  new web3.eth.Contract(mainstABIParse,mainstContract);
 const tokenInfo =  await mainstTXN.methods.balanceOf(userAddress).call({from: window.userAddress});
 const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 //GeckoMainst
-var MainstGecko = await $.getJSON(geckoMainst, function(resp){
-  var {"0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89": {usd} } = MainstGecko;
-  console.log(usd);
-});
+var MainstGecko = await $.getJSON(geckoMainst);
+var {"0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89": {usd} } = MainstGecko;
+console.log(usd);
 
-var coinJson = await JSON.stringify(MainstGecko);
-
-
-mainstPrice = (BigNumber(coinJson.slice(53,63))).toFixed();
+mainstPrice = BigNumber(usd).toFixed();
+console.log(mainstPrice);
+//mainstPrice = (BigNumber(coinJson.slice(53,63))).toFixed();
 priceFix = parseFloat(mainstPrice/DivFix9,0);
-//GeckoBanana
+
+//MainstPriceMath
+hodl = parseInt(tokenInfo,0);//Balance
+hodlMath = ((BigNumber(hodl*priceFix))/DivFix9).toFixed(2);
+hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
+hodlUSD = (BigNumber(hodlMath).toFormat(2))
+document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
+document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
+}
+
+
+async function getBananaData(){
+    //GeckoBanana
 var BananaGecko = await $.getJSON(geckoBanana);
 var {"0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95":{usd}} = BananaGecko;
 var bnanaJson = await JSON.stringify(BananaGecko);
@@ -157,14 +168,11 @@ bNanaPriceFix = parseFloat(bananaPrice,0);
 //GeckoGnana
 gnanaGet = bNanaPriceFix*1.389;
 
-//MainstPriceMath
-  hodl = parseInt(tokenInfo,0);//Balance
-  hodlMath = ((BigNumber(hodl*priceFix))/DivFix9).toFixed(2);
-  hodlBalance = ((((BigNumber(hodlMath))/DivBase).toFixed(2)));
-  hodlUSD = (BigNumber(hodlMath).toFormat(2))
-  document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
-  document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
 }
+
+
+
+
 //MM Data
 async function getMonkeysData() {
   const mainstTxn =  new web3.eth.Contract(mmParse,mmContract);

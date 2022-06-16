@@ -140,14 +140,19 @@ const bMath = (((BigNumber(tokenInfo)).toFormat(2)).toString());
 //GeckoMainst
 var MainstGecko = await $.getJSON(geckoMainst);
 var {"0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89": {usd} } = MainstGecko;
-mainstPrice = (BigNumber(MainstGecko)).toFixed();
+console.log(usd/DivFix9);
+
+var coinJson = await JSON.stringify(MainstGecko);
+
+
+mainstPrice = (BigNumber(coinJson.slice(53,63))).toFixed();
 priceFix = parseFloat(mainstPrice/DivFix9,0);
 //GeckoBanana
 var BananaGecko = await $.getJSON(geckoBanana);
 var {"0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95":{usd}} = BananaGecko;
-bananaPrice = (BigNumber(BananaGecko)).toFixed();
+var bnanaJson = await JSON.stringify(BananaGecko);
+bananaPrice = (BigNumber(bnanaJson.slice(53,61))).toFixed();
 bNanaPriceFix = parseFloat(bananaPrice,0);
-console.log (bNanaPriceFix);
 //GeckoGnana
 gnanaGet = bNanaPriceFix*1.389;
 

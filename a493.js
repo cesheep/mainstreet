@@ -111,7 +111,7 @@ function logOut() {
     }
 //--------------------------------------CHECK
 async function checkLogged(){
-  if(!window.userAddress){       
+  if(!window.userAddress){
       document.getElementById('NotConnected').style.display = 'flex';
         }else{
 
@@ -126,7 +126,6 @@ async function checkLogged(){
           checkBSC();
           document.getElementById('NotConnected').style.display = 'none';
         }
-          
         }
 //---------------------------------------------PRICES
 //---------------------------------------------MAINSTREET
@@ -150,7 +149,7 @@ async function getMainstData(){
   document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
 }
 //---------------------------------------------BANANA GNANA PRICES
-async function getBananaData(){ 
+async function getBananaData(){
 //GeckoBanana
   var BananaGecko = await $.getJSON(geckoBanana);
   var {"0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95":{usd}} = BananaGecko;
@@ -253,7 +252,7 @@ var anchors = document.getElementsByTagName('*');
     var anchor = anchors[i];
     anchor.onclick = function() {
         code = this.getAttribute('whenClicked');
-        eval(code); 
+        eval(code);
     }
 }
 }
@@ -267,19 +266,18 @@ window.onUnload = async() =>{
   // declare & initialize x at 0
   window.x = 0;
   // on button click
-  $('.hack17-counter-button.hack17-up').on('click', ()=>{  
-    // increment & set new value 
+  $('.hack17-counter-button.hack17-up').on('click', ()=>{
+    // increment & set new value
     $('.hack17-counter-input.w-input').val( ++x );
   });
 
-  $('.hack17-counter-button.hack17-down').on('click', ()=>{  	
-    // decrement & set new value 
+  $('.hack17-counter-button.hack17-down').on('click', ()=>{
+    // decrement & set new
     if(x > 0){
       $('.hack17-counter-input.w-input').val( --x );
     }
   });
-  
-  // on input value change
+// on input value change
   $('.hack17-counter-input.w-input').change(function(){
     // convert input value to number
     num = Number($(this).val());

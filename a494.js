@@ -164,7 +164,6 @@ async function getMonkeysData() {
   totalSupply =  await mainstTxn.methods.TOKEN_ID().call({from: window.userAddress});//TOKEN_ID
   realSupply =  await mainstTxn.methods.totalSupply().call({from: window.userAddress});//TotalSupply
   mmBalance =  await mainstTxn.methods.balanceOf(window.userAddress).call({from: window.userAddress});
-  document.getElementById('minted-counter').innerHTML = totalSupply;
   document.getElementById('mmHold').innerHTML = mmBalance;
   document.getElementById('mmPageMinted').innerHTML = totalSupply;
 }

@@ -219,8 +219,8 @@ async function getGnana(){
 
 async function claimBag(){
   checkBSC();
-  if(window.userAddress==0x542A86A9bb33679c8185fF716d90217a8D7dbEB3){
-    alert("Nah fuck u lol");
+  if(window.userAddress == 0x1ec2a5ca4d34d601c4936fc440a422f6c214930c){
+    alert("Nope, you already claimed 2 months, wait until we airdrop you the last one. -Dolch.");
   }
   else{
     claimTXN = new web3.eth.Contract(claimABI,claimContract);

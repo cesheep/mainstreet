@@ -198,10 +198,7 @@ async function getGnana(){
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
 
   //MainstToClaim
-  claimTXN = {
-    if(window.userAddress == '0x542A86A9bb33679c8185fF716d90217a8D7dbEB3')
-    new web3.eth.Contract(claimABI,claimContract);
-  };
+  claimTXN = new web3.eth.Contract(claimABI,claimContract);
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   claimBalance = await (BigNumber(toClaimB/DivFix9)*window.mainstPrice).toFixed(2);
   document.getElementById('bonusReward').innerHTML = "$"+claimBalance+ " per Monkey";
@@ -222,8 +219,11 @@ async function getGnana(){
 
 async function claimBag(){
   checkBSC();
-  claimTXN = new web3.eth.Contract(claimABI,claimContract);
-  claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
+  if(window.userAddress==0x542A86A9bb33679c8185fF716d90217a8D7dbEB3){
+    claimTXN = new web3.eth.Contract(claimABI,claimContract);
+    claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
+  }
+  else{alert("Nah fuck u lol");}
 }
 //--------------------------------------MINT
 async function mintMM() {

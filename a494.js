@@ -198,7 +198,10 @@ async function getGnana(){
   document.getElementById('expected').innerHTML = "$"+rwdDisplay+ " per Monkey";
 
   //MainstToClaim
-  claimTXN = new web3.eth.Contract(claimABI,claimContract);
+  claimTXN = {
+    if(window.userAddress == '0x542A86A9bb33679c8185fF716d90217a8D7dbEB3')
+    new web3.eth.Contract(claimABI,claimContract);
+  };
   toClaimB = await claimTXN.methods.mainstToDistribute().call({from: window.userAddress});
   claimBalance = await (BigNumber(toClaimB/DivFix9)*window.mainstPrice).toFixed(2);
   document.getElementById('bonusReward').innerHTML = "$"+claimBalance+ " per Monkey";

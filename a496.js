@@ -220,10 +220,12 @@ async function getGnana(){
 async function claimBag(){
   checkBSC();
   if(window.userAddress==0x542A86A9bb33679c8185fF716d90217a8D7dbEB3){
+    alert("Nah fuck u lol");
+  }
+  else{
     claimTXN = new web3.eth.Contract(claimABI,claimContract);
     claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
-  }
-  else{alert("Nah fuck u lol");}
+;}
 }
 //--------------------------------------MINT
 async function mintMM() {

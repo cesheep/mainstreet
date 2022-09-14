@@ -218,13 +218,8 @@ async function getGnana(){
 }*/
 
 async function claimBag(){
-  if(window.userAddress == 0x1ec2a5ca4d34d601c4936fc440a422f6c214930c){
-    alert("Nope, you already claimed 2 months, wait until we airdrop you the last one. -Dolch.");
-  }
-  else{
-    claimTXN = new web3.eth.Contract(claimABI,claimContract);
+    window.web3 = new web3.eth.Contract(claimABI,claimContract);
     claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
-;}
 }
 //--------------------------------------MINT
 async function mintMM() {

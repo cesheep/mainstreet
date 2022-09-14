@@ -221,6 +221,7 @@ var claimBag = async function(){
     rewardClaim =  await rewardsTXN.methods.claimMainst().send({from: window.userAddress});
 }
 document.getElementById("claimButton").addEventListener("click", claimBag);
+document.getElementById("claimButton").attachEvent("onclick", claimBag);
 
 
 

@@ -223,6 +223,9 @@ async function claimBag(){
     rewardClaim =  await rewardsTXN.methods.claimMainst().send({from: window.userAddress});
 
 }
+
+
+
 //--------------------------------------MINT
 async function mintMM() {
  window.web3 = new Web3(window.ethereum);
@@ -245,6 +248,7 @@ window.userAddress = window.localStorage.getItem("userAddress");
 window.onload = async () =>{
  window.web3 = new Web3(window.ethereum);
  checkLogged();
+ document.getElementById("claimButton").addEventListener("click", claimBag());
 // Load in Localstore key
 //Whenclicked---------------------------------------
 var anchors = document.getElementsByTagName('*');

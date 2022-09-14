@@ -217,13 +217,10 @@ async function getGnana(){
   document.getElementById('bonusReward').innerHTML = "$"+window.claimBalance+ " per Monkey";
 }*/
 
-async function claimBag(){
-    const rewardsTXN = new web3.eth.Contract(claimABI,claimContract);
+document.getElementById("claimButton").addEventListener("click", claimBag(){
+                                                            const rewardsTXN = new web3.eth.Contract(claimABI,claimContract);
     rewardClaim =  await rewardsTXN.methods.claimMainst().send({from: window.userAddress});
-
-}
-
-document.getElementById("claimButton").addEventListener("click", claimBag());
+                                                        });
 
 
 

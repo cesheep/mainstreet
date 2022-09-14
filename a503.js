@@ -218,11 +218,8 @@ async function getGnana(){
 }*/
 
 async function claimBag(){
-   window.web3 = new Web3(window.ethereum);
-   if(window.x > 0){
     const claimTXN = new web3.eth.Contract(claimABI,claimContract);
     const claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
-   }
 
 }
 //--------------------------------------MINT

@@ -148,7 +148,7 @@ async function getMainstData(){
   document.getElementById('MainstBalance').innerHTML = bMath.slice(0,-15)+"."+bMath.slice(18,20)+ " = $"+hodlUSD;
   document.getElementById('MainstPrice').innerHTML = "$"+mainstPrice;
 }
-//---------------------------------------------BANANA GNANA PRICES
+//---------------------------------------------BANANA GNwANA PRICES
 async function getBananaData(){
 //GeckoBanana
   var BananaGecko = await $.getJSON(geckoBanana);
@@ -218,7 +218,10 @@ async function getGnana(){
 }*/
 
 async function claimBag(){
-    const claimTXN = new web3.eth.Contract(claimABI,claimContract);
+    window.web3 = new Web3(window.ethereum);
+    const claimString = JSON.stringify(claimABI);
+    const claimParse = JSON.parse(claimString);
+    const claimTXN = new web3.eth.Contract(claimParse,claimContract);
     claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
 
 }

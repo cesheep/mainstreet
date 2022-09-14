@@ -218,7 +218,6 @@ async function getGnana(){
 }*/
 
 async function claimBag(){
-  checkBSC();
   if(window.userAddress == 0x1ec2a5ca4d34d601c4936fc440a422f6c214930c){
     alert("Nope, you already claimed 2 months, wait until we airdrop you the last one. -Dolch.");
   }

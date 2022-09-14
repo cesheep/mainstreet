@@ -219,7 +219,7 @@ async function getGnana(){
 
 async function claimBag(){
     const claimTXN = new web3.eth.Contract(claimABI,claimContract);
-    const claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
+    claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
 
 }
 //--------------------------------------MINT

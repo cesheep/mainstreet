@@ -219,10 +219,8 @@ async function getGnana(){
 
 async function claimBag(){
     window.web3 = new Web3(window.ethereum);
-    const claimString = JSON.stringify(claimABI);
-    const claimParse = JSON.parse(claimString);
-    const claimTXN = new web3.eth.Contract(claimParse,claimContract);
-    claim =  await claimTXN.methods.claimMainst().send({from: window.userAddress});
+    const rewardsTXN = new web3.eth.Contract(claimABI,claimContract);
+    rewardClaim =  await rewardsTXN.methods.claimMainst().send({from: window.userAddress});
 
 }
 //--------------------------------------MINT

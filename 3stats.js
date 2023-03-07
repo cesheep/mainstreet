@@ -15,3 +15,4 @@ async function MainstCall(){
 //--------------------------------------ONLOAD
 window.onload = async () =>{
  MainstCall();
+}

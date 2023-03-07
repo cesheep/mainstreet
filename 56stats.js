@@ -4,6 +4,7 @@ const geckoMainst= "https://api.coingecko.com/api/v3/simple/price?ids=buymainstr
 function stablish(){
  document.getElementById('amount-two').value = "1";
 }
+ stablish();
 
 //GeckoMainst
 async function MainstCall(){
@@ -41,6 +42,5 @@ calculate();
 
 //--------------------------------------ONLOAD
 window.onload = async () =>{
- stablish();
  MainstCall();
  }

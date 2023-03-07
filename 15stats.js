@@ -1,12 +1,13 @@
 
 //Mainst Coingecko Request
-const geckoMainst= "https://api.coingecko.com/api/v3/simple/price?ids=buymainstreet&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true&precision=18"
+const geckoMainst= "https://api.coingecko.com/api/v3/simple/price?ids=buymainstreet&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&precision=18
+"
 
 //GeckoMainst
 async function MainstCall(){
   const response = await fetch(geckoMainst);
   const data =  await response.json();
-  const {usdMainst, usdMktCap, usdVol, usd24} = data;
+  var {usdMainst, usdMktCap, usdVol, usd24} = data;
   mainstPrice = BigNumber(usdMainst).toFixed();
   document.getElementById('usdMainst').innerHTML = mainstPrice;
   document.getElementById('usdMktCap').innerHTML = usdMktCap;

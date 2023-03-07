@@ -22,10 +22,16 @@ async function MainstCall(){
   document.getElementById('usdVol').innerHTML = "$"+volDisplay;
 }
 
+  Webflow.push(function() {
+    document.getElementById('mainstTarget').value = "1";
+  });
+
+
+
 const amountEl_one = document.getElementById('amount-one');
 const amountEl_two = document.getElementById('amount-two');
 // Fetch exchange rates and update the dome
-async function calculate() {
+function calculate() {
   const currency_one = currencyEl_one.value;
   const currency_two = currencyEl_two.value;
       amountEl_two.value = (amountEl_one.value * MainstDisplay).toFixed(2);

@@ -21,13 +21,9 @@ async function MainstCall(){
   document.getElementById('usdMktCap').innerHTML = "$"+mktDisplay;
   document.getElementById('usdVol').innerHTML = "$"+volDisplay;
 }
-
-
-
-
-
-const amountEl_one = document.getElementById('amount-one');
+//Calculator
 const amountEl_two = document.getElementById('amount-two');
+const amountEl_one = document.getElementById('amount-one');
 // Fetch exchange rates and update the dome
 function calculate() {
   const currency_one = currencyEl_one.value;

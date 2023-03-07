@@ -29,8 +29,6 @@ const amountEl_two = document.getElementById('amount-two');
 const amountEl_one = document.getElementById('amount-one');
 // Fetch exchange rates and update the dome
 function calculate() {
-  const currency_two = currencyEl_two.value;
-  const currency_one = currencyEl_one.value;
       amountEl_two.value = (amountEl_one.value * MainstDisplay).toFixed(2);
     }
 

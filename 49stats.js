@@ -2,6 +2,12 @@
 //Mainst Coingecko Request
 const geckoMainst= "https://api.coingecko.com/api/v3/simple/price?ids=buymainstreet&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&precision=18";
 
+  Webflow.push(function() {
+    document.getElementById('usdTarget').value = 1;
+  });
+
+
+
 //GeckoMainst
 async function MainstCall(){
 

@@ -36,8 +36,8 @@ function calculate() {
     }
 
  // Event Listeners
-amountEl_one.addEventListener('input', calculate);
 amountEl_two.addEventListener('input', calculate);
+amountEl_one.addEventListener('input', calculate);
 calculate();
 
 

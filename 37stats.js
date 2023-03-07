@@ -34,10 +34,6 @@ function calculate() {
       amountEl_two.value = (amountEl_one.value * MainstDisplay).toFixed(2);
     }
 
-//--------------------------------------ONLOAD
-window.onload = async () =>{
- MainstCall();
- 
  // Event Listeners
 currencyEl_two.addEventListener('change', calculate);
 amountEl_two.addEventListener('input', calculate);
@@ -49,6 +45,10 @@ swap.addEventListener('click', () => {
 });
 
 calculate();
- 
- 
-}
+
+
+
+//--------------------------------------ONLOAD
+window.onload = async () =>{
+ MainstCall();
+ }

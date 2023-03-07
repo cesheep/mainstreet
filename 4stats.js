@@ -5,7 +5,7 @@ const geckoMainst= "https://api.coingecko.com/api/v3/simple/price?ids=buymainstr
 //GeckoMainst
 async function MainstCall(){
   var MainstGecko = await $.getJSON(geckoMainst);
-  var {"0x8fc1a944c149762b6b578a06c0de2abd6b7d2b89": {usd} } = MainstGecko;
+  var {"buymainstreet": {usd} } = MainstGecko;
   mainstPrice = BigNumber(usd).toFixed();
   document.getElementById('mainstGecko').innerHTML = mainstPrice;
 }

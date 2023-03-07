@@ -27,13 +27,15 @@ function calculate() {
       amountEl_one.value = (amountEl_two.value * MainstDisplay).toFixed(2);
     }
 
- // Event Listeners
-amountEl_two.addEventListener('input', calculate);
-amountEl_one.addEventListener('input', calculate);
-calculate();
+
 
 //--------------------------------------ONLOAD
 window.onload = async () =>{
  document.getElementById('amount-two').value = 1;
  MainstCall();
  }
+
+ // Event Listeners
+amountEl_two.addEventListener('input', calculate);
+amountEl_one.addEventListener('input', calculate);
+calculate();

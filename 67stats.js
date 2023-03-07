@@ -1,6 +1,8 @@
 //Mainst Coingecko Request
 const geckoMainst= "https://api.coingecko.com/api/v3/simple/price?ids=buymainstreet&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&precision=18";
 //GeckoMainst
+document.getElementById('amount-two').value = 1;
+
 async function MainstCall(){
 
  var usdMainst = await $.getJSON(geckoMainst);
@@ -26,17 +28,16 @@ const amountEl_one = document.getElementById('amount-one');
 function calculate() {
       amountEl_one.value = (amountEl_two.value * MainstDisplay).toFixed(2);
     }
-
+amountEl_two.addEventListener('input', calculate);
+amountEl_one.addEventListener('input', calculate);
+calculate();
 
 
 //--------------------------------------ONLOAD
 window.onload = async () =>{
- document.getElementById('amount-two').value = 1;
- MainstCall();
+MainstCall();
  
-amountEl_two.addEventListener('input', calculate);
-amountEl_one.addEventListener('input', calculate);
-calculate();
+
  
  }
 

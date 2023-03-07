@@ -34,6 +34,6 @@ calculate();
 
 //--------------------------------------ONLOAD
 window.onload = async () =>{
- document.getElementById('amount-two').innerHTML = 1;
+ document.getElementById('amount-two').value = 1;
  MainstCall();
  }

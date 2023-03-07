@@ -34,13 +34,6 @@ async function calculate() {
  // Event Listeners
 amountEl_one.addEventListener('input', calculate);
 amountEl_two.addEventListener('input', calculate);
-swap.addEventListener('click', () => {
-  const temp = currencyEl_one.value;
-  currencyEl_one.value = currencyEl_two.value;
-  currencyEl_two.value = temp;
-  calculate();
-});
-
 calculate();
 
 

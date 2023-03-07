@@ -7,7 +7,7 @@ async function MainstCall(){
   const response = await fetch(geckoMainst);
   const data =  await response.json();
   const {usdMainst, usdMktCap, usdVol, usd24} = data;
-  mainstPrice = BigNumber(usd).toFixed();
+  mainstPrice = BigNumber(usdMainst).toFixed();
   document.getElementById('usdMainst').innerHTML = mainstPrice;
   document.getElementById('usdMktCap').innerHTML = usdMktCap;
   document.getElementById('usdVol').innerHTML = usdVol;

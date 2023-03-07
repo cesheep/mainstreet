@@ -7,6 +7,7 @@ async function MainstCall(){
 
   const response = await fetch(geckoMainst);
   const data =  await response.json();
+  var usdMainst = JSON.parse(data.usd);
   console.log(data.usd);
   //var {usdMainst, usdMktCap, usdVol, usd24} = data;
   //var {"buymainstreet": {usd} } = data.usd;

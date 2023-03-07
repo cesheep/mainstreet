@@ -11,15 +11,15 @@ async function MainstCall(){
  
  var usdMktCap = await $.getJSON(geckoMainst);
  var {"buymainstreet": {usd_market_cap} } = usdMktCap;
- mktDisplay = JSON.parse(usdMktCap);
+ mktDisplay = JSON.parse(usd_market_cap);
  
  var usdVol = await $.getJSON(geckoMainst);
  var {"buymainstreet": {usd_24h_vol} } = usdVol;
- volDisplay = JSON.parse(usdVol);
+ volDisplay = JSON.parse(usd_24h_vol);
  
  var usd24 = await $.getJSON(geckoMainst);
  var {"buymainstreet": {usd_24h_change} } = usd24;
- display24 = JSON.parse(usd24);
+ display24 = JSON.parse(usd_24h_change);
 
   document.getElementById('usdMainst').innerHTML = mainstDisplay;
   document.getElementById('usdMktCap').innerHTML = mktDisplay;

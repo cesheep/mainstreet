@@ -1,7 +1,7 @@
 //Mainst Coingecko Request
 const geckoMainst= "https://api.coingecko.com/api/v3/simple/price?ids=buymainstreet&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&precision=18";
 //GeckoMainst
-document.getElementById('amount-two').value = 1;
+window.x = document.getElementById('amount-two').value = 1;
 
 async function MainstCall(){
 

@@ -5,21 +5,19 @@ const geckoMainst= "https://api.coingecko.com/api/v3/simple/price?ids=buymainstr
 //GeckoMainst
 async function MainstCall(){
 
- var data = await $.getJSON(geckoMainst);
- var {"buymainstreet": {usd} } = data;
+ var usdMainst = await $.getJSON(geckoMainst);
+ var {"buymainstreet": {usd} } = usdMainst;
+ mainstPrice = BigNumber(usdMainst).toFixed(); 
  
+  var usdMktCap = await $.getJSON(geckoMainst);
+ var {"buymainstreet": {usd_market_cap} } = usdMktCap;
  
+  var usdVol = await $.getJSON(geckoMainst);
+ var {"buymainstreet": {usd_24h_vol} } = usdVol;
  
-  console.log(data.usd);
-  console.log(data.usd_market_cap);
-  console.log(data.usd_24h_vol);
-  console.log(data.usd_24h_change);
-  //var {usdMainst, usdMktCap, usdVol, usd24} = data;
-  //var {"buymainstreet": {usd} } = data.usd;
-  //var usdMktCap = data.usd_market_cap;
-  //var usdVol = data.usd_24h_vol;
-  //var usd24 = data.usd_24h_change;
-  //mainstPrice = BigNumber(usdMainst).toFixed();
+  var usd24 = await $.getJSON(geckoMainst);
+ var {"buymainstreet": {usd_24h_change} } = usd24;
+
   document.getElementById('usdMainst').innerHTML = usdMainst;
   document.getElementById('usdMktCap').innerHTML = usdMktCap;
   document.getElementById('usdVol').innerHTML = usdVol;

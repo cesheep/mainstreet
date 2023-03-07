@@ -4,9 +4,9 @@ const geckoMainst= "https://api.coingecko.com/api/v3/simple/price?ids=buymainstr
 
 //GeckoMainst
 async function MainstCall(){
-  const response = await fetch(geckoMainst);
+  const response = await fetch(geckoMainst[usd,usd_market_cap,usd_24h_vol,usd_24h_change]);
   const data =  await response.json();
-  var {usdMainst, usdMktCap, usdVol, usd24} = data.buymainstreet;
+  var {usdMainst, usdMktCap, usdVol, usd24} = data;
   //var {"buymainstreet": {usd} } = data.usd;
   //var usdMktCap = data.usd_market_cap;
   //var usdVol = data.usd_24h_vol;

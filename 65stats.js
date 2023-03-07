@@ -33,9 +33,12 @@ function calculate() {
 window.onload = async () =>{
  document.getElementById('amount-two').value = 1;
  MainstCall();
- }
-
- // Event Listeners
+ 
 amountEl_two.addEventListener('input', calculate);
 amountEl_one.addEventListener('input', calculate);
 calculate();
+ 
+ }
+
+ // Event Listeners
+

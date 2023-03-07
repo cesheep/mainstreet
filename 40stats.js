@@ -35,7 +35,7 @@ function calculate() {
     }
 
  // Event Listeners
-currencyEl_two.addEventListener('change', calculate);
+amountEl_one.addEventListener('input', calculate);
 amountEl_two.addEventListener('input', calculate);
 swap.addEventListener('click', () => {
   const temp = currencyEl_one.value;

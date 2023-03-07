@@ -22,9 +22,7 @@ async function MainstCall(){
   document.getElementById('usdVol').innerHTML = "$"+volDisplay;
 }
 
-  Webflow.push(function() {
-    document.getElementById('mainstTarget').value = "1";
-  });
+
 
 
 

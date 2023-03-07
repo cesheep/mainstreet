@@ -7,21 +7,31 @@ async function MainstCall(){
 
  var usdMainst = await $.getJSON(geckoMainst);
  var {"buymainstreet": {usd} } = usdMainst;
- mainstPrice = BigNumber(usdMainst).toFixed(); 
+ mainstDisplay = BigNumber(usd).toFixed(); 
  
-  var usdMktCap = await $.getJSON(geckoMainst);
+ var usdMktCap = await $.getJSON(geckoMainst);
  var {"buymainstreet": {usd_market_cap} } = usdMktCap;
+ mktDisplay = JSON.parse(usdMktCap);
  
-  var usdVol = await $.getJSON(geckoMainst);
+ var usdVol = await $.getJSON(geckoMainst);
  var {"buymainstreet": {usd_24h_vol} } = usdVol;
+  mktDisplay = JSON.parse(usdVol);
  
   var usd24 = await $.getJSON(geckoMainst);
  var {"buymainstreet": {usd_24h_change} } = usd24;
+  mktDisplay = JSON.parse(display24);
 
-  document.getElementById('usdMainst').innerHTML = usdMainst;
-  document.getElementById('usdMktCap').innerHTML = usdMktCap;
-  document.getElementById('usdVol').innerHTML = usdVol;
-  document.getElementById('usd24').innerHTML = usd24;
+  document.getElementById('usdMainst').innerHTML = mainstDisplay;
+  document.getElementById('usdMktCap').innerHTML = mktDisplay;
+  document.getElementById('usdVol').innerHTML = volDisplay;
+  document.getElementById('usd24').innerHTML = display24;
+ 
+ console.log(usdMainst);
+  console.log(usdMktCap);
+  console.log(usdVol);
+  console.log(usd24);
+ 
+ 
 }
 
 

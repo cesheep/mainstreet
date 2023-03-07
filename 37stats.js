@@ -21,9 +21,6 @@ async function MainstCall(){
   document.getElementById('usdMktCap').innerHTML = "$"+mktDisplay;
   document.getElementById('usdVol').innerHTML = "$"+volDisplay;
 }
-
-const currencyEl_one = document.getElementById('currency-one');
-const currencyEl_two = document.getElementById('currency-two');
 const amountEl_one = document.getElementById('amount-one');
 const amountEl_two = document.getElementById('amount-two');
 
@@ -37,17 +34,11 @@ function calculate() {
       amountEl_two.value = (amountEl_one.value * MainstDisplay).toFixed(2);
     }
 
-
-
-
-
 //--------------------------------------ONLOAD
 window.onload = async () =>{
  MainstCall();
  
  // Event Listeners
-currencyEl_one.addEventListener('change', calculate);
-amountEl_one.addEventListener('input', calculate);
 currencyEl_two.addEventListener('change', calculate);
 amountEl_two.addEventListener('input', calculate);
 swap.addEventListener('click', () => {

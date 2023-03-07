@@ -38,7 +38,14 @@ function calculate() {
     }
 
 
-// Event Listeners
+
+
+
+//--------------------------------------ONLOAD
+window.onload = async () =>{
+ MainstCall();
+ 
+ // Event Listeners
 currencyEl_one.addEventListener('change', calculate);
 amountEl_one.addEventListener('input', calculate);
 currencyEl_two.addEventListener('change', calculate);
@@ -51,9 +58,6 @@ swap.addEventListener('click', () => {
 });
 
 calculate();
-
-
-//--------------------------------------ONLOAD
-window.onload = async () =>{
- MainstCall();
+ 
+ 
 }

@@ -35,7 +35,7 @@ function calculate() {
   const currency_one = currencyEl_one.value;
   const currency_two = currencyEl_two.value;
       amountEl_two.value = (amountEl_one.value * MainstDisplay).toFixed(2);
-    });
+    }
 
 
 // Event Listeners

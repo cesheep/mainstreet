@@ -37,14 +37,12 @@ MainstCall();
  }
 
 
-
-
 //----- Web3
 
 
 const clientId = "BAj-WE23h2CnHlQ19TQwacBWGAF1cvx9kEhSK3hNqg78hwAYkzD-Se843cfcn-WDqdMbYc1Io2OJM3xIhDhVau0"; // get your clientId from https://dashboard.web3auth.io
 let web3auth = null;
-      let provider = null;
+let provider = null;
 
       (async function init() {
         $(".btn-logged-in").hide();

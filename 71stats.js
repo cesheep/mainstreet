@@ -41,9 +41,8 @@ MainstCall();
 
 //----- Web3
 
-import { Web3Auth } from "@web3auth/modal";
 
-        const clientId = "YOUR_WEB3AUTH_CLIENT_ID_HERE"; // get your clientId from https://dashboard.web3auth.io
+const clientId = "BAj-WE23h2CnHlQ19TQwacBWGAF1cvx9kEhSK3hNqg78hwAYkzD-Se843cfcn-WDqdMbYc1Io2OJM3xIhDhVau0"; // get your clientId from https://dashboard.web3auth.io
 let web3auth = null;
       let provider = null;
 

@@ -37,6 +37,9 @@ MainstCall();
  }
 
 
+
+
+
 //----- Web3
 
 
@@ -99,3 +102,9 @@ let provider = null;
           console.error(error.message);
         }
       });
+
+
+
+async function login(){
+  await web3auth.initModal();
+}

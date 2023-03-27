@@ -41,17 +41,14 @@ MainstCall();
 
 
 //----- Web3
-
-
-const clientId = "BAj-WE23h2CnHlQ19TQwacBWGAF1cvx9kEhSK3hNqg78hwAYkzD-Se843cfcn-WDqdMbYc1Io2OJM3xIhDhVau0"; // get your clientId from https://dashboard.web3auth.io
 let web3auth = null;
 let provider = null;
 
       (async function init() {
         $(".btn-logged-in").hide();
         $("#sign-tx").hide();
-
-        const clientId = "BAj-WE23h2CnHlQ19TQwacBWGAF1cvx9kEhSK3hNqg78hwAYkzD-Se843cfcn-WDqdMbYc1Io2OJM3xIhDhVau0"; // get your clientId from https://dashboard.web3auth.io
+       
+       const clientId = "BAj-WE23h2CnHlQ19TQwacBWGAF1cvx9kEhSK3hNqg78hwAYkzD-Se843cfcn-WDqdMbYc1Io2OJM3xIhDhVau0"; // get your clientId from https://dashboard.web3auth.io
 
         const web3auth = new Web3Auth({
           clientId, 
@@ -62,6 +59,9 @@ let provider = null;
             rpcTarget: "https://rpc.ankr.com/eth", // This is the public RPC we have added, please pass on your own endpoint while creating an app
           },
         });
+       
+       
+       
         await web3auth.initModal();
         if (web3auth.provider) {
           $(".btn-logged-in").show();
@@ -102,9 +102,3 @@ let provider = null;
           console.error(error.message);
         }
       });
-
-
-
-async function login(){
-  await web3auth.initModal();
-}

@@ -20,7 +20,6 @@ const rpc = (() => {
     const address = (await web3.eth.getAccounts())[0];
 
     return address;
-
   };
 
   const getBalance = async (provider) => {
@@ -41,7 +40,7 @@ const rpc = (() => {
     const web3 = new Web3(provider);
 
     // Get user's Ethereum public address
-    const fromAddress = (await web3.eth.getAccounts())[0];
+    const address = (await web3.eth.getAccounts())[0];
 
     const destination = "0x7aFac68875d2841dc16F1730Fba43974060b907A";
 
@@ -58,7 +57,7 @@ const rpc = (() => {
     });
 
     return receipt;
-  }
+  };
 
   const signMessage = async (provider) => {
     const web3 = new Web3(provider);
@@ -80,7 +79,7 @@ const rpc = (() => {
     });
 
     return privateKey;
-  }
+  };
 
   return {
     getChainId,
@@ -88,6 +87,6 @@ const rpc = (() => {
     getBalance,
     sendTransaction,
     signMessage,
-    getPrivateKey
-  }
-})()
+    getPrivateKey,
+  };
+})();

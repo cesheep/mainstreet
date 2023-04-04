@@ -21,24 +21,19 @@ async function MainstCall(){
   document.getElementById('usdVol').innerHTML = "$"+volDisplay;
 }
 
-const net0 = "All Networks";
-const net1 = "Ethereum";
-const net2 = "Polygon";
-const net3 = "Binance";
-
 async function ethNet(){
-   document.getElementById('netWorkText').innerHTML = net1;
+   document.getElementById('netWorkText').innerHTML = "All Networks";
 }
 
 async function polyNet(){
-   document.getElementById('netWorkText').innerHTML = net2;
+   document.getElementById('netWorkText').innerHTML = "Ethereum";
 }
 
 async function bscNet(){
-   document.getElementById('netWorkText').innerHTML = net3;
+   document.getElementById('netWorkText').innerHTML = "Polygon";
 }
 async function allNet(){
-   document.getElementById('netWorkText').innerHTML = net0;
+   document.getElementById('netWorkText').innerHTML = "Binance";
 }
 
 //--------------------------------------ONLOAD

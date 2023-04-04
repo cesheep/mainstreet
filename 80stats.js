@@ -21,43 +21,6 @@ async function MainstCall(){
   document.getElementById('usdVol').innerHTML = "$"+volDisplay;
 }
 
-async function ethNet(){
-   document.getElementById('netWorkText').innerHTML = "Ethereum";
-}
-
-async function polyNet(){
-   document.getElementById('netWorkText').innerHTML = "Polygon";
-}
-
-async function bscNet(){
-   document.getElementById('netWorkText').innerHTML = "Binance";
-}
-async function allNet(){
-   document.getElementById('netWorkText').innerHTML = "All Networks";
-}
-
-async function hotCat(){
-   document.getElementById('categoryText').innerHTML = "Hot";
-}
-async function featCat(){
-   document.getElementById('categoryText').innerHTML = "Featured";
-}
-async function defiCat(){
-   document.getElementById('categoryText').innerHTML = "DeFi";
-}
-async function nftCat(){
-   document.getElementById('categoryText').innerHTML = "NFT";
-}
-async function gamCat(){
-   document.getElementById('categoryText').innerHTML = "Gaming";
-}
-async function mktCat(){
-   document.getElementById('categoryText').innerHTML = "Marketplace";
-}
-async function expCat(){
-   document.getElementById('categoryText').innerHTML = "Explorer";
-}
-
 //--------------------------------------ONLOAD
 window.onload = async () =>{
 MainstCall();

@@ -36,7 +36,6 @@ async function allNet(){
    document.getElementById('netWorkText').innerHTML = "All Networks";
 }
 
-}
 async function hotCat(){
    document.getElementById('categoryText').innerHTML = "Hot";
 }

@@ -22,18 +22,18 @@ async function MainstCall(){
 }
 
 async function ethNet(){
-   document.getElementById('netWorkText').innerHTML = "All Networks";
-}
-
-async function polyNet(){
    document.getElementById('netWorkText').innerHTML = "Ethereum";
 }
 
-async function bscNet(){
+async function polyNet(){
    document.getElementById('netWorkText').innerHTML = "Polygon";
 }
-async function allNet(){
+
+async function bscNet(){
    document.getElementById('netWorkText').innerHTML = "Binance";
+}
+async function allNet(){
+   document.getElementById('netWorkText').innerHTML = "All Networks";
 }
 
 //--------------------------------------ONLOAD

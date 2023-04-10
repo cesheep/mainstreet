@@ -64,13 +64,7 @@ async function loginMetamask(){
                 const selectedAccount = await window.ethereum.request({method: "eth_requestAccounts",}).then((accounts) => accounts[0])
                 window.userAddress = selectedAccount;
                 document.getElementById('address').innerHTML = selectedAccount.slice(0,6)+"......"+selectedAccount.slice(38,42);
-                document.getElementById('btn-login').style.display = 'none';
-                document.getElementById('walletButton').style.display = 'block';
                 window.localStorage.setItem("userAddress", selectedAccount);
-                checkLogged();
-                checkBSC();
-                getMainstData();
-                getMonkeysData();
             }else{
                 alert('Please Install Metamask')
             }

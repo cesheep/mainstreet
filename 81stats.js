@@ -81,7 +81,6 @@ async function loginMetamask(){
 //--------------------------------------ONLOAD
 window.onload = async () =>{
 MainstCall();
-checkBSC()
  
     var anchors = document.getElementsByTagName('*');
      for(var i = 0; i < anchors.length; i++) {

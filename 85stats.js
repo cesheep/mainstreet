@@ -59,15 +59,18 @@ window.web3 = new Web3(window.ethereum);
   }
 }// End
 
-
-
+//--------------------------------------LOGIN
+function mmReady(){
+ 
     const MMSDK = new MetaMaskSDK()
 
     const ethereum = MMSDK.getProvider() // You can also access via window.ethereum
 
     ethereum.request({method: 'eth_requestAccounts'})
+}
 
-//--------------------------------------LOGIN
+
+
 async function loginMetamask(){
          if (window.web3) {
                 const selectedAccount = await window.ethereum.request({method: "eth_requestAccounts",}).then((accounts) => accounts[0])
@@ -89,6 +92,7 @@ async function loginMetamask(){
 */
 //--------------------------------------ONLOAD
 window.onload = async () =>{
+mmReady()
 MainstCall();
  
     var anchors = document.getElementsByTagName('*');

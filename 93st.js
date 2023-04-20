@@ -64,6 +64,7 @@ async function loginMetamask(){
                 window.userAddress = selectedAccount;
                 document.getElementById('address').innerHTML = selectedAccount.slice(0,6)+"......"+selectedAccount.slice(38,42);
                 window.localStorage.setItem("userAddress", selectedAccount);
+}
 
 //--------------------------------------LOGOUT
 /*function logOut() {
@@ -86,6 +87,5 @@ MainstCall();
         eval(code);
      }
    }
- 
  
  }

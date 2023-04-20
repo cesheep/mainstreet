@@ -58,21 +58,20 @@ window.web3 = new Web3(window.ethereum);
     alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html');
   }
 }// End
+
+ 
+const MMSDK = new MetaMaskSDK()
+const ethereum = MMSDK.getProvider() // You can also access via window.ethereum
+ethereum.request({method: 'eth_requestAccounts'})
 //--------------------------------------LOGIN
 async function loginMetamask(){
-        /*    if (window.web3) {
+         if (window.web3) {
                 const selectedAccount = await window.ethereum.request({method: "eth_requestAccounts",}).then((accounts) => accounts[0])
                 window.userAddress = selectedAccount;
                 document.getElementById('address').innerHTML = selectedAccount.slice(0,6)+"......"+selectedAccount.slice(38,42);
                 window.localStorage.setItem("userAddress", selectedAccount);
             }else{
                 alert('Please Install Metamask')
-            }*/
- 
-const MMSDK = new MetaMaskSDK()
-const ethereum = MMSDK.getProvider() // You can also access via window.ethereum
-ethereum.request({method: 'eth_requestAccounts'})
- 
 }
 //--------------------------------------LOGOUT
 /*function logOut() {

@@ -70,7 +70,6 @@ async function loginMetamask(){
             }else{
                 alert('Please Install Metamask')*/
 }
-}
 //--------------------------------------LOGOUT
 /*function logOut() {
       window.userAddress = null;

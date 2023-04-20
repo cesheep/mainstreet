@@ -60,7 +60,7 @@ window.web3 = new Web3(window.ethereum);
 }// End
 
 async function loginMetamask(){
-                       ethereum.request({method: 'eth_requestAccounts'})
+                       ethereum.request({method: 'eth_requestAccounts'});
  
         /* if (window.web3) {
                 const selectedAccount = await window.ethereum.request({method: "eth_requestAccounts",}).then((accounts) => accounts[0])

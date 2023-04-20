@@ -58,13 +58,13 @@ window.web3 = new Web3(window.ethereum);
     alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html');
   }
 }// End
-async function loginMetamask(){
+/*async function loginMetamask(){
                 ethereum.connect({method: 'eth_requestAccounts'});
                 const selectedAccount = await window.ethereum.request({method: "eth_requestAccounts",}).then((accounts) => accounts[0])
                 window.userAddress = selectedAccount;
                 document.getElementById('address').innerHTML = selectedAccount.slice(0,6)+"......"+selectedAccount.slice(38,42);
                 window.localStorage.setItem("userAddress", selectedAccount);
-}
+}/*
 
 //--------------------------------------LOGOUT
 /*function logOut() {
@@ -76,6 +76,11 @@ async function loginMetamask(){
     }
 */
 //--------------------------------------ONLOAD
+
+
+//  You have to refer to default since it was bundled for ESModules
+// but after that the documentation will be the same
+
 window.onload = async () =>{
 MainstCall();
  

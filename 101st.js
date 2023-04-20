@@ -98,7 +98,7 @@ const web3Modal = new Web3Modal({
 });
 
 const provider = await web3Modal.connect();
-
+}
 
 window.onload = async () =>{ 
 MainstCall();

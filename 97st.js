@@ -81,8 +81,8 @@ window.web3 = new Web3(window.ethereum);
 //  You have to refer to default since it was bundled for ESModules
 // but after that the documentation will be the same
 
-window.onload = async () =>{
- 
+async function login(){
+
 const Web3Modal = window.Web3Modal.default;
 const providerOptions = {
   /* See Provider Options Section */
@@ -95,8 +95,10 @@ const web3Modal = new Web3Modal({
 });
 
 const provider = await web3Modal.connect(); 
- 
- 
+}
+
+
+window.onload = async () =>{ 
 MainstCall();
  
     var anchors = document.getElementsByTagName('*');

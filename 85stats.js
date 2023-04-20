@@ -59,10 +59,14 @@ window.web3 = new Web3(window.ethereum);
   }
 }// End
 
- 
-const MMSDK = new MetaMaskSDK()
-const ethereum = MMSDK.getProvider() // You can also access via window.ethereum
-ethereum.request({method: 'eth_requestAccounts'})
+
+
+    const MMSDK = new MetaMaskSDK()
+
+    const ethereum = MMSDK.getProvider() // You can also access via window.ethereum
+
+    ethereum.request({method: 'eth_requestAccounts'})
+
 //--------------------------------------LOGIN
 async function loginMetamask(){
          if (window.web3) {
@@ -72,6 +76,7 @@ async function loginMetamask(){
                 window.localStorage.setItem("userAddress", selectedAccount);
             }else{
                 alert('Please Install Metamask')
+}
 }
 //--------------------------------------LOGOUT
 /*function logOut() {

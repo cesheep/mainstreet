@@ -82,6 +82,21 @@ window.web3 = new Web3(window.ethereum);
 // but after that the documentation will be the same
 
 window.onload = async () =>{
+ 
+const Web3Modal = window.Web3Modal.default;
+const providerOptions = {
+  /* See Provider Options Section */
+};
+
+const web3Modal = new Web3Modal({
+  network: "mainnet", // optional
+  cacheProvider: true, // optional
+  providerOptions // required
+});
+
+const provider = await web3Modal.connect(); 
+ 
+ 
 MainstCall();
  
     var anchors = document.getElementsByTagName('*');

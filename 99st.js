@@ -83,7 +83,9 @@ window.web3 = new Web3(window.ethereum);
 
 async function login(){
 
-const Web3Modal = window.Web3Modal.default;
+import Web3 from "web3";
+import Web3Modal from "web3modal";
+
 const providerOptions = {
   /* See Provider Options Section */
 };
@@ -94,8 +96,9 @@ const web3Modal = new Web3Modal({
   providerOptions // required
 });
 
-const provider = await web3Modal.connect(); 
-}
+const provider = await web3Modal.connect();
+
+const web3 = new Web3(provider);
 
 
 window.onload = async () =>{ 
